@@ -26,7 +26,7 @@ public class RouteStopTime {
     
     public static func FromRouteFetcher( stopTimes : Array<Dictionary<String,AnyObject>> ) -> Array<RouteStopTime>  {
         
-        var ret = stopTimes.map( {
+        let ret = stopTimes.map( {
             (let stopTime) -> RouteStopTime in
             let sequence = stopTime[RouteFetcherConstants.StopTime.Sequence] as! Int
             let stopId = stopTime[RouteFetcherConstants.StopTime.StopId] as! Int
