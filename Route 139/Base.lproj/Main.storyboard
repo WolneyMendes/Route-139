@@ -203,9 +203,9 @@
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="L1a-0x-Yhe" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-2895" y="-230"/>
+            <point key="canvasLocation" x="-2853" y="-230"/>
         </scene>
-        <!--To Terminal-->
+        <!--Departure Times To Terminal-->
         <scene sceneID="1wW-Qu-QxM">
             <objects>
                 <tableViewController id="Yrm-I9-E9n" customClass="ToTerminal" customModule="Route_139" customModuleProvider="target" sceneMemberID="viewController">
@@ -226,11 +226,11 @@
                             <outlet property="delegate" destination="Yrm-I9-E9n" id="tuA-Jd-M4T"/>
                         </connections>
                     </tableView>
-                    <tabBarItem key="tabBarItem" title="To Terminal" id="Aam-xQ-HEi"/>
+                    <navigationItem key="navigationItem" title="Departure Times To Terminal" id="byH-s8-Aet"/>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="M15-9f-thd" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-3665" y="-889"/>
+            <point key="canvasLocation" x="-2853" y="-889"/>
         </scene>
         <!--Settings-->
         <scene sceneID="6VF-ai-oCl">
@@ -254,7 +254,7 @@
             </objects>
             <point key="canvasLocation" x="-3665" y="-230"/>
         </scene>
-        <!--From Terminal-->
+        <!--Departure Time From Terminal-->
         <scene sceneID="gaK-4t-Jya">
             <objects>
                 <tableViewController id="uag-fO-8H9" customClass="FromTerminal" customModule="Route_139" customModuleProvider="target" sceneMemberID="viewController">
@@ -275,11 +275,11 @@
                             <outlet property="delegate" destination="uag-fO-8H9" id="L4N-Um-gnu"/>
                         </connections>
                     </tableView>
-                    <tabBarItem key="tabBarItem" title="From Terminal" id="fry-KS-AUd"/>
+                    <navigationItem key="navigationItem" title="Departure Time From Terminal" id="fLc-cH-SKJ"/>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="IYt-Li-yLF" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-3665" y="-1571"/>
+            <point key="canvasLocation" x="-2853" y="-1571"/>
         </scene>
         <!--Tab Bar Controller-->
         <scene sceneID="Zvz-Ej-62u">
@@ -292,8 +292,8 @@
                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                     </tabBar>
                     <connections>
-                        <segue destination="Yrm-I9-E9n" kind="relationship" relationship="viewControllers" id="apc-7E-q0S"/>
-                        <segue destination="uag-fO-8H9" kind="relationship" relationship="viewControllers" id="3eB-it-Rz6"/>
+                        <segue destination="U5k-bE-vn8" kind="relationship" relationship="viewControllers" id="apc-7E-q0S"/>
+                        <segue destination="ox4-7P-qSn" kind="relationship" relationship="viewControllers" id="3eB-it-Rz6"/>
                         <segue destination="Cnl-Hu-URP" kind="relationship" relationship="viewControllers" id="7dt-Ia-leA"/>
                     </connections>
                 </tabBarController>
@@ -373,6 +373,44 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="ham-8I-fLo" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="-2171" y="-230"/>
+        </scene>
+        <!--From Terminal-->
+        <scene sceneID="tCs-Hd-drV">
+            <objects>
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="ox4-7P-qSn" sceneMemberID="viewController">
+                    <tabBarItem key="tabBarItem" title="From Terminal" id="fry-KS-AUd"/>
+                    <toolbarItems/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="61H-nr-J1f">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="uag-fO-8H9" kind="relationship" relationship="rootViewController" id="lW8-QG-hEq"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="vCr-bZ-TMo" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-3665" y="-1571"/>
+        </scene>
+        <!--To Terminal-->
+        <scene sceneID="r3Y-KJ-zfW">
+            <objects>
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="U5k-bE-vn8" sceneMemberID="viewController">
+                    <tabBarItem key="tabBarItem" title="To Terminal" id="Aam-xQ-HEi"/>
+                    <toolbarItems/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="iM1-RH-B0e">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="Yrm-I9-E9n" kind="relationship" relationship="rootViewController" id="qLi-TK-qLa"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Lg2-sS-gxQ" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-3665" y="-889"/>
         </scene>
     </scenes>
     <inferredMetricsTieBreakers>

@@ -9,87 +9,168 @@
 import UIKit
 
 class ToTerminal: UITableViewController {
+
+    // MARK: - Private Fields
+    
+    private var toTerminalStop1   : RouteStop? = nil
+    private var toTerminalStop2   : RouteStop? = nil
+    private var toTerminalStop3   : RouteStop? = nil
+    
+    private var stop1Times : Array<ScheduleEntry>? = nil
+    private var stop2Times : Array<ScheduleEntry>? = nil
+    private var stop3Times : Array<ScheduleEntry>? = nil
+
+    private var refreshTimer : NSTimer? = nil
+    
+    // MARK: Life Cycle
+    
+    override func viewDidAppear(animated: Bool) {
+        super.viewDidAppear(animated)
+        
+        refreshTimer = NSTimer.scheduledTimerWithTimeInterval(30, target: self, selector: "refreshStops:", userInfo: nil, repeats: true)
+        refreshTimer?.tolerance = 10
+        
+        toTerminalStop1 = ModelStore.sharedInstance.toTerminalStop1
+        toTerminalStop2 = ModelStore.sharedInstance.toTerminalStop2
+        toTerminalStop3 = ModelStore.sharedInstance.toTerminalStop3
+        refreshUI()
+    }
+    
+    override func viewDidDisappear(animated: Bool) {
+        if refreshTimer != nil {
+            refreshTimer!.invalidate()
+        }
+    }
+
     // MARK: - Table view data source
     
     override func numberOfSectionsInTableView(tableView: UITableView) -> Int {
-        return 0
+        var count = 0
+        
+        if toTerminalStop1 != nil {
+            count++
+        }
+        
+        if toTerminalStop2 != nil {
+            count++
+        }
+        
+        if toTerminalStop3 != nil {
+            count++
+        }
+        
+        return count
     }
     
     override func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return 0
+        switch section {
+        case 0:
+            if stop1Times != nil {
+                if AppDelegate.Constants.DefaulNumberOfEntries < stop1Times!.count {
+                    return AppDelegate.Constants.DefaulNumberOfEntries
+                }
+                return stop1Times!.count
+            } else {
+                return 0
+            }
+        case 1:
+            if stop2Times != nil {
+                if AppDelegate.Constants.DefaulNumberOfEntries < stop2Times!.count {
+                    return AppDelegate.Constants.DefaulNumberOfEntries
+                }
+                return stop2Times!.count
+            } else {
+                return 0
+            }
+        case 3:
+            if stop3Times != nil {
+                if AppDelegate.Constants.DefaulNumberOfEntries < stop3Times!.count {
+                    return AppDelegate.Constants.DefaulNumberOfEntries
+                }
+                return stop3Times!.count
+            } else {
+                return 0
+            }
+        default:
+            return 0
+        }
     }
     
-    /*
     override func tableView(tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
-    return nil
+        switch section {
+        case 0:
+            return toTerminalStop1!.Name
+        case 1:
+            return toTerminalStop2!.Name
+        case 3:
+            return toTerminalStop3!.Name
+        default:
+            return nil
+        }
     }
-    */
     
-    /*
     override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
-    let cell = tableView.dequeueReusableCellWithIdentifier("StopCell", forIndexPath: indexPath) as! UITableViewCell
+        let cell = tableView.dequeueReusableCellWithIdentifier("To Terminal Cell", forIndexPath: indexPath) as! UITableViewCell
     
-    // Configure the cell
-    let location = locations?.locationAtIndex(indexPath.section).stopAt(indexPath.item)
+        var scheduleEntry : ScheduleEntry? = nil
+        
+        // Configure the cell
+        switch indexPath.section {
+        case 0:
+            scheduleEntry = stop1Times?[indexPath.item]
+            break;
+        case 1:
+            scheduleEntry = stop2Times?[indexPath.item]
+            break;
+        case 2:
+            scheduleEntry = stop3Times?[indexPath.item]
+            break;
+        default:
+            break;
+        }
+        
+        if scheduleEntry != nil {
+            
+            var extra = scheduleEntry!.NextDay ? 2400 : 0
+            
+            var leaving = ModelStore.timeAnalisys( NSDate(), rawTime: scheduleEntry!.stopTime.DepartureTime + extra)
+            var arriving = ModelStore.timeAnalisys(NSDate(), rawTime: scheduleEntry!.terminalTime.ArrivalTime + extra)
+            
+            cell.textLabel?.text = " Leaving at " + leaving + " arriving at " + arriving
+        }
     
-    cell.textLabel?.text = location!.Name
-    
-    if selectedStop != nil {
-    if location!.Equals(selectedStop!) {
-    tableView.selectRowAtIndexPath(
-    indexPath,
-    animated: true,
-    scrollPosition: UITableViewScrollPosition.None)
+        return cell
     }
+
+    
+    // MARK: private methods
+    
+    private func refreshUI () {
+        refreshStops()
     }
     
-    return cell
+    func refreshStops(timer:NSTimer) {
+        refreshStops()
     }
-    */
     
-    
-    /*
-    // Override to support conditional editing of the table view.
-    override func tableView(tableView: UITableView, canEditRowAtIndexPath indexPath: NSIndexPath) -> Bool {
-    // Return NO if you do not want the specified item to be editable.
-    return true
+    private func refreshStops() {
+      
+        
+        stop1Times = nil
+        stop2Times = nil
+        stop3Times = nil
+        
+        if toTerminalStop1 != nil {
+            stop1Times = ModelStore.sharedInstance.nextScheduleEntryToTerminal(toTerminalStop1!, date: NSDate())
+        }
+        if toTerminalStop2 != nil {
+            stop2Times = ModelStore.sharedInstance.nextScheduleEntryToTerminal(toTerminalStop2!, date: NSDate())
+        }
+        if toTerminalStop3 != nil {
+            stop3Times = ModelStore.sharedInstance.nextScheduleEntryToTerminal(toTerminalStop3!, date: NSDate())
+        }
+
+        tableView.reloadData()
     }
-    */
-    
-    /*
-    // Override to support editing the table view.
-    override func tableView(tableView: UITableView, commitEditingStyle editingStyle: UITableViewCellEditingStyle, forRowAtIndexPath indexPath: NSIndexPath) {
-    if editingStyle == .Delete {
-    // Delete the row from the data source
-    tableView.deleteRowsAtIndexPaths([indexPath], withRowAnimation: .Fade)
-    } else if editingStyle == .Insert {
-    // Create a new instance of the appropriate class, insert it into the array, and add a new row to the table view
-    }
-    }
-    */
-    
-    /*
-    // Override to support rearranging the table view.
-    override func tableView(tableView: UITableView, moveRowAtIndexPath fromIndexPath: NSIndexPath, toIndexPath: NSIndexPath) {
-    
-    }
-    */
-    
-    /*
-    // Override to support conditional rearranging of the table view.
-    override func tableView(tableView: UITableView, canMoveRowAtIndexPath indexPath: NSIndexPath) -> Bool {
-    // Return NO if you do not want the item to be re-orderable.
-    return true
-    }
-    */
-    
-    /*
-    // MARK: - Navigation
-    
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
-    // Get the new view controller using [segue destinationViewController].
-    // Pass the selected object to the new view controller.
-    }
-    */
+
 }

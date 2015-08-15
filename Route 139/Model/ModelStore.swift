@@ -8,15 +8,16 @@
 
 import Foundation
 
-class ModelStore {
+public class ModelStore {
     
     private static var instance : ModelStore = {
+        var routes = Route.FromRouteFetcher()
         var stops = RouteStop.FromRouteFetcher()
         var calendarDates = CalendarDate.FromRouteFetcher()
         var trips = RouteTrip.FromRouteFetcher()
         var stopTimes = RouteStopTime.FromRouteFetcher()
         
-        var i = ModelStore(stops: stops, calendarDates: calendarDates, trips: trips, stopTimes: stopTimes)
+        var i = ModelStore(routes: routes, stops: stops, calendarDates: calendarDates, trips: trips, stopTimes: stopTimes)
         
         i.inboundLocations = i.locationsToTerminal()
         i.outboundLocations = i.locationsFromTerminal()
@@ -36,6 +37,12 @@ class ModelStore {
     var fromTerminalStop2 : RouteStop? = nil
     var fromTerminalStop3 : RouteStop? = nil
     
+    var outboundTerminal : RouteStop? = nil
+    var inboundTerminal : RouteStop? = nil
+    
+    
+    private let routes           : Array<Route>
+    private let routesDictionary : Dictionary<Int,Route>
     
     private let stops           : Array<RouteStop>
     private let stopsDictionary : Dictionary<Int,RouteStop>
@@ -56,13 +63,30 @@ class ModelStore {
     
     // MARK: - Initializer
     
-    private init( stops: Array<RouteStop>, calendarDates: Array<CalendarDate>, trips: Array<RouteTrip>, stopTimes: Array<RouteStopTime> ) {
+    private init( routes: Array<Route>,  stops: Array<RouteStop>, calendarDates: Array<CalendarDate>, trips: Array<RouteTrip>, stopTimes: Array<RouteStopTime> ) {
+        
+        // Routes
+        self.routes = routes
+        var routesDictionary = Dictionary<Int, Route>()
+        for route in routes {
+            routesDictionary[route.Identity] = route
+        }
+        self.routesDictionary = routesDictionary
         
         // Stops
         self.stops = stops
         var stopsDictionary = Dictionary<Int,RouteStop>()
         for stop in stops {
             stopsDictionary[stop.Identity] = stop
+            
+            NSLog("------------------ Port Authority term stop is hard coded!!" )
+            if stop.Identity == AppDelegate.Constants.OutBoundPortAuthorityStop {
+                outboundTerminal = stop
+            }
+            
+            if stop.Identity == AppDelegate.Constants.InBoundPortAuthorityStop {
+                inboundTerminal = stop
+            }
         }
         self.stopsDictionary = stopsDictionary
         
@@ -119,6 +143,10 @@ class ModelStore {
         self.stopTimes = stopTimesSorted
     }
     
+    func getRoute ( fromTrip: Int ) -> Route? {
+        return routesDictionary[tripsDictionary[fromTrip]!.RouteId]
+    }
+    
     // MARK: - Need Work
     
     func getLocationsToTerminal() -> Locations {
@@ -169,7 +197,7 @@ class ModelStore {
         return locations
     }
     
-    private func getDateComponents( date: NSDate ) -> ( dayComponent : NSDateComponents, nextDayComponent : NSDateComponents) {
+    public func getDateComponents( date: NSDate ) -> ( dayComponent : NSDateComponents, nextDayComponent : NSDateComponents) {
         
         // Get YMD and HHMM from date
         let calendar = NSCalendar(calendarIdentifier: NSCalendarIdentifierGregorian)!
@@ -179,22 +207,26 @@ class ModelStore {
                 | NSCalendarUnit.CalendarUnitDay
                 | NSCalendarUnit.CalendarUnitHour
                 | NSCalendarUnit.CalendarUnitMinute
+                | NSCalendarUnit.CalendarUnitWeekday
             ,
             fromDate: date)
         
-        // Get Nexte Day YMD
+        // Get Next Day YMD
         var nextDay = NSDate( timeInterval:(24*60*60), sinceDate:date)
         var nextDayComponents = calendar.components(
             NSCalendarUnit.CalendarUnitYear
                 | NSCalendarUnit.CalendarUnitMonth
                 | NSCalendarUnit.CalendarUnitDay
+                | NSCalendarUnit.CalendarUnitHour
+                | NSCalendarUnit.CalendarUnitMinute
+                | NSCalendarUnit.CalendarUnitWeekday
             ,
             fromDate: nextDay)
 
         return ( dayComponents, nextDayComponents )
     }
     
-    func nextScheduleEntryFromTerminal( stop: RouteStop, terminalStop: RouteStop, date:NSDate ) -> Array<RouteStopTime> {
+    func nextScheduleEntryFromTerminal( stop: RouteStop, terminalStop: RouteStop, date:NSDate ) -> Array<ScheduleEntry> {
         var components = getDateComponents(date)
         
         // Find all times from date
@@ -220,23 +252,20 @@ class ModelStore {
         // Merge them
         var ret = retDate
         for stopTime in retNextDay {
-            var tomorrowStopTime = RouteStopTime(
-                tripId: stopTime.TripId,
-                arrivalTime: stopTime.ArrivalTime + 2400,
-                departureTime: stopTime.DepartureTime + 2400,
-                stopId: stopTime.StopId,
-                sequence: stopTime.Sequence)
-            ret.append(tomorrowStopTime)
+            ret.append(ScheduleEntry(stopTime: stopTime.stopTime, terminalTime: stopTime.terminalTime, nextDay: true))
         }
 
         ret.sort { (before, after) -> Bool in
-            return before.DepartureTime < after.DepartureTime
+            var rawTimeBefore = before.NextDay ? before.terminalTime.DepartureTime + 2400 : before.terminalTime.DepartureTime
+            var rawTimeAfter = after.NextDay ? after.terminalTime.DepartureTime + 2400 : after.terminalTime.DepartureTime
+            
+            return rawTimeBefore < rawTimeAfter
         }
         
         return ret
     }
     
-    func nextScheduleEntryToTerminal( stop: RouteStop, date:NSDate) -> Array<RouteStopTime> {
+    func nextScheduleEntryToTerminal( stop: RouteStop, date:NSDate) -> Array<ScheduleEntry> {
         
         var components = getDateComponents(date)
         
@@ -261,24 +290,27 @@ class ModelStore {
         // Merge them
         var ret = retDate
         for stopTime in retNextDay {
-            var tomorrowStopTime = RouteStopTime(
-                tripId: stopTime.TripId,
-                arrivalTime: stopTime.ArrivalTime + 2400,
-                departureTime: stopTime.DepartureTime + 2400,
-                stopId: stopTime.StopId,
-                sequence: stopTime.Sequence)
-            ret.append(tomorrowStopTime)
+            var tomorrowTerminalStopTime = RouteStopTime(
+                tripId: stopTime.terminalTime.TripId,
+                arrivalTime: stopTime.terminalTime.ArrivalTime,
+                departureTime: stopTime.terminalTime.DepartureTime,
+                stopId: stopTime.terminalTime.StopId,
+                sequence: stopTime.terminalTime.Sequence)
+            ret.append(ScheduleEntry(stopTime: stopTime.stopTime, terminalTime: stopTime.terminalTime, nextDay: true))
         }
         
         ret.sort { (before, after) -> Bool in
-            return before.DepartureTime < after.DepartureTime
+            var rawTimeBefore = before.NextDay ? before.stopTime.DepartureTime + 2400 : before.stopTime.DepartureTime
+            var rawTimeAfter = after.NextDay ? after.stopTime.DepartureTime + 2400 : after.stopTime.DepartureTime
+            
+            return rawTimeBefore < rawTimeAfter
         }
         
         return ret
     }
     
-    func nextScheduleEntryFromTerminal( stop: RouteStop, terminalStop: RouteStop, year: Int, month: Int, day: Int, hour: Int, min: Int ) -> Array<RouteStopTime> {
-        var ret = Array<RouteStopTime>()
+    private func nextScheduleEntryFromTerminal( stop: RouteStop, terminalStop: RouteStop, year: Int, month: Int, day: Int, hour: Int, min: Int ) -> Array<ScheduleEntry> {
+        var ret = Array<ScheduleEntry>()
         
         // Find Service Id
         let hm = ( hour * 100 ) + min
@@ -287,7 +319,9 @@ class ModelStore {
                 for trip in service.outboundTrips {
                     var destinationStopTime : RouteStopTime? = nil
                     var terminalStopTime : RouteStopTime? = nil
+                    
                     for stopTime in trip.StopTimes {
+                        
                         if stopTime.DepartureTime >= hm && stopTime.StopId == terminalStop.Identity {
                             terminalStopTime = stopTime
                         }
@@ -296,7 +330,10 @@ class ModelStore {
                         }
                         
                         if destinationStopTime != nil && terminalStopTime != nil {
-                            ret.append(terminalStopTime!)
+
+                            ret.append(ScheduleEntry(stopTime: stopTime, terminalTime: terminalStopTime!) )
+                            destinationStopTime = nil
+                            terminalStopTime = nil
                         }
                     }
                 }
@@ -305,18 +342,30 @@ class ModelStore {
         return ret
     }
     
-    func nextScheduleEntryToTerminal( stop: RouteStop, year: Int, month: Int, day: Int, hour: Int, min: Int ) -> Array<RouteStopTime> {
-        var ret = Array<RouteStopTime>()
+    private func nextScheduleEntryToTerminal( stop: RouteStop, year: Int, month: Int, day: Int, hour: Int, min: Int ) -> Array<ScheduleEntry> {
+        var ret = Array<ScheduleEntry>()
         
         // Find Service Id
         let hm = ( hour * 100 ) + min
         if let services = calendarDatesDictionary[ (year * 10000) + (month * 100) + day ] {
             for service in services {
                 for trip in service.inboundTrips {
+                    var originStopTime : RouteStopTime? = nil
+                    var terminalStopTime : RouteStopTime? = nil
+
                     for stopTime in trip.StopTimes {
+
                         if stopTime.StopId == stop.Identity {
-                            if stopTime.DepartureTime >= hm {
-                                ret.append(stopTime)
+                            originStopTime = stopTime
+                        }
+                        
+                        if stopTime.StopId == inboundTerminal?.Identity {
+                            terminalStopTime = stopTime
+                        }
+                        
+                        if originStopTime != nil && terminalStopTime != nil {
+                            if originStopTime!.DepartureTime >= hm {
+                                ret.append(ScheduleEntry(stopTime: originStopTime!, terminalTime: terminalStopTime!))
                             }
                         }
                     }
@@ -330,6 +379,139 @@ class ModelStore {
     func save() {
         
     }
+    
+    public static func getDate( year: Int, month: Int, day: Int, hour: Int, minute: Int ) -> NSDate {
+        let dateAsString = "\(month)/\(day)/\(year), \(hour):\(minute)"
+        let dateFormatter = NSDateFormatter()
+        dateFormatter.dateFormat = "M/d/yyyy, H:mm"
+        return dateFormatter.dateFromString(dateAsString)!
+    }
+    
+    public static func nextDay0hrX( date: NSDate ) -> NSDate {
+        
+        var nextDay = NSDate( timeInterval:(24*60*60), sinceDate:date )
+        
+        // Get YMD from date
+        let calendar = NSCalendar(calendarIdentifier: NSCalendarIdentifierGregorian)!
+        let dayComponents = calendar.components(
+            NSCalendarUnit.CalendarUnitYear
+                | NSCalendarUnit.CalendarUnitMonth
+                | NSCalendarUnit.CalendarUnitDay
+            ,
+            fromDate: nextDay)
 
+        return getDate(dayComponents.year, month: dayComponents.month, day: dayComponents.day, hour: 0, minute: 0)
+    }
+    
+    public static func timeAnalisys( date:NSDate, var rawTime: Int ) -> String {
+        var prefix = ""
+        var seconds = 0
+        
+        if rawTime >= 2400 {
+            prefix = "Tomorrow "
+            rawTime = rawTime - 2400
+            seconds = seconds + 24 * 60 * 60
+        }
+        if rawTime >= 2400 {
+            prefix = "Day After Tomorrow "
+            rawTime = rawTime - 2400
+            seconds = seconds + 24 * 60 * 60
+        }
+        
+        // Get YMD and HHMM from date
+        let calendar = NSCalendar(calendarIdentifier: NSCalendarIdentifierGregorian)!
+        let dayComponents = calendar.components(
+            NSCalendarUnit.CalendarUnitYear
+                | NSCalendarUnit.CalendarUnitMonth
+                | NSCalendarUnit.CalendarUnitDay
+            ,
+            fromDate: date)
+
+        let newDate = getDate(
+            dayComponents.year,
+            month: dayComponents.month,
+            day: dayComponents.day,
+            hour: Int(rawTime/100) ,
+            minute: rawTime%100)
+        var d =  NSDateFormatter.localizedStringFromDate(newDate, dateStyle: .NoStyle, timeStyle: .ShortStyle)
+
+        return prefix + d
+    }
+
+    public static func findServiceDescription( weekDay: Int, rawTime: Int, route: String ) -> ( description: String, gate: String ) {
+        
+        var description = ""
+        var gate = ""
+        
+        switch weekDay {
+
+        case 1, 7:         // Sunday, Saturday
+            if (rawTime >= 600 && rawTime <= 1159) || ( rawTime < 100 )  {
+                gate = "321"
+            } else {
+                gate = "81"
+            }
+            break;
+        case 2, 3, 4, 5, 6:
+            switch route {
+                case "130":
+                    if rawTime >= 1330 && rawTime <= 1640 {
+                        gate = "322"
+                        description = "Express to Union Hill"
+                    } else if rawTime >= 1700 && rawTime <= 1842 {
+                        gate = "326"
+                        description = "Express to Union Hill"
+                    } else if rawTime >= 1850 && rawTime <= 1900 {
+                        gate = "322"
+                        description = "Express to Union Hill"
+                    } else if rawTime >= 1912 && rawTime <= 2000 {
+                        gate = "321"
+                        description = "Express to Union Hill"
+                    }
+                    break;
+                case "132":
+                    if rawTime >= 1700 && rawTime <= 1840 {
+                        gate = "322"
+                        description = "Express to Gordons Corner/Via Freehold Center"
+                    } else if rawTime >= 1545 && rawTime <= 1830 {
+                        gate = "321"
+                        description = "Express to Gordons Corner/Raintree/Freehold Mall"
+                    }
+                    break;
+                case "136":
+                    if rawTime >= 1530 && rawTime <= 1900 {
+                        gate = "321"
+                        description  = "Express to Freehold Mall"
+                    }
+                    break;
+                case "139":
+                    gate = "81"
+                    if rawTime >= 500 && rawTime <= 559 {
+                        gate = "81/321"
+                    } else if rawTime >= 559 && rawTime <= 1500 {
+                        gate = "321"
+                    } else if rawTime >= 1512 && rawTime <= 1600 {
+                        gate = "325"
+                    } else if rawTime >= 1612 && rawTime <= 1900 {
+                        gate = "324/325"
+                    } else if rawTime >= 1900 && rawTime <= 1920 {
+                        gate = "324"
+                    } else if rawTime >= 1930 && rawTime <= 2000 {
+                        gate = "322"
+                    } else if rawTime >= 2010 && rawTime <= 2500 {
+                        gate = "321"
+                    }
+                    break;
+                default:
+                    break;
+            }
+            break;
+        default:
+            NSLog("Weekday is \(weekDay)")
+        }
+
+        return ( description, gate )
+    }
+    
 
 }

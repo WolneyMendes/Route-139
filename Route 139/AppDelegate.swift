@@ -50,8 +50,11 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         stopObserving()
     }
 
-    struct Constants {
+    internal struct Constants {
         static let StopSelectionChangeNotification = "com.wfm.StopSelectionChange"
+        static let DefaulNumberOfEntries = 1000
+        static let OutBoundPortAuthorityStop = 3511
+        static let InBoundPortAuthorityStop = 43274
     }
     
     func updateNotificationSentLabel() {

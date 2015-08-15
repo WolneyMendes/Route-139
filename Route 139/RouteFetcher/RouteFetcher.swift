@@ -47,6 +47,33 @@ import Foundation
 
 public class RouteFetcher {
     
+    public static func loadRoute() -> Array<Dictionary<String,AnyObject>> {
+        
+        var ret = Array<Dictionary<String,AnyObject>>()
+        
+        var bundle = NSBundle.mainBundle()
+        var routePath = bundle.pathForResource(RouteFetcherConstants.RoutesJsonPath, ofType: "json")
+        
+        var routes = String(contentsOfFile: routePath!, encoding: NSUTF8StringEncoding, error: nil)!
+        var data: NSData = routes.dataUsingEncoding(NSUTF8StringEncoding)!
+        var jsonObject: AnyObject = NSJSONSerialization.JSONObjectWithData(data, options: NSJSONReadingOptions(0), error: nil)!
+        
+        if let jsonArray = jsonObject as? Array<AnyObject> {
+            for json in jsonArray {
+                if let stopDictionary = json as? NSDictionary {
+                    var retStop = Dictionary<String,AnyObject>()
+                    
+                    retStop[ RouteFetcherConstants.Route.Identity ] = stopDictionary[ RouteFetcherConstants.Route.Identity ] as? Int!
+                    retStop[ RouteFetcherConstants.Route.Name ] = stopDictionary[ RouteFetcherConstants.Route.Name ] as? String!
+                    
+                    ret.append(retStop)
+                }
+            }
+        }
+        
+        return ret
+    }
+
     public static func loadStops() -> Array<Dictionary<String,AnyObject>> {
         
         var ret = Array<Dictionary<String,AnyObject>>()

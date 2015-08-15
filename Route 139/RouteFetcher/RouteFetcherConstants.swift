@@ -29,6 +29,11 @@ public struct RouteFetcherConstants {
     public static let StopTimesJsonPath  = "139StopTimes"
     public static let RoutesJsonPath     = "139Routes"
 
+    public struct Route {
+        public static let Name        = "route_short_name"
+        public static let Identity    = "route_id"
+    }
+    
     public struct Stop {
         public static let Name        = "stop_name"
         public static let Code        = "stop_code"

@@ -272,7 +272,6 @@ class SettingsTableViewController: UITableViewController {
 
     func refreshUI() {
         if view.window != nil {
-            NSLog("Setting.RefreshUI")
             toTerminalStop1Row.textLabel?.text = toTerminalStop1?.Name
             toTerminalStop2Row.textLabel?.text = toTerminalStop2?.Name
             toTerminalStop3Row.textLabel?.text = toTerminalStop3?.Name

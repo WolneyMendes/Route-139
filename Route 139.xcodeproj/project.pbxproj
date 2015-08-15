@@ -9,6 +9,8 @@
 /* Begin PBXBuildFile section */
 		0D2E58501B7F91B900BCB344 /* ToTerminal.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0D2E584F1B7F91B900BCB344 /* ToTerminal.swift */; };
 		0D2E58521B7F921100BCB344 /* FromTerminal.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0D2E58511B7F921100BCB344 /* FromTerminal.swift */; };
+		0D2E58541B7FC29F00BCB344 /* ScheduleEntry.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0D2E58531B7FC29F00BCB344 /* ScheduleEntry.swift */; };
+		0D2E58581B7FFEBA00BCB344 /* Route.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0D2E58571B7FFEBA00BCB344 /* Route.swift */; };
 		0D60B9821B60685700E31E98 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0D60B9811B60685700E31E98 /* AppDelegate.swift */; };
 		0D60B9871B60685700E31E98 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 0D60B9851B60685700E31E98 /* Main.storyboard */; };
 		0D60B9891B60685700E31E98 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 0D60B9881B60685700E31E98 /* Images.xcassets */; };
@@ -46,6 +48,8 @@
 /* Begin PBXFileReference section */
 		0D2E584F1B7F91B900BCB344 /* ToTerminal.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ToTerminal.swift; sourceTree = "<group>"; };
 		0D2E58511B7F921100BCB344 /* FromTerminal.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FromTerminal.swift; sourceTree = "<group>"; };
+		0D2E58531B7FC29F00BCB344 /* ScheduleEntry.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ScheduleEntry.swift; path = Model/ScheduleEntry.swift; sourceTree = "<group>"; };
+		0D2E58571B7FFEBA00BCB344 /* Route.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Route.swift; path = Model/Route.swift; sourceTree = "<group>"; };
 		0D60B97C1B60685700E31E98 /* Route 139.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Route 139.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		0D60B9801B60685700E31E98 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		0D60B9811B60685700E31E98 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -176,6 +180,8 @@
 				0DBFE9E91B7C202C002E22B4 /* RouteTrip.swift */,
 				0DBFE9EB1B7C233E002E22B4 /* RouteStopTime.swift */,
 				0D61B2B61B7EA22D003A539C /* Service.swift */,
+				0D2E58531B7FC29F00BCB344 /* ScheduleEntry.swift */,
+				0D2E58571B7FFEBA00BCB344 /* Route.swift */,
 			);
 			name = Model;
 			sourceTree = "<group>";
@@ -314,10 +320,12 @@
 				0D7261401B76669F0082A02C /* ModelStore.swift in Sources */,
 				0D60B9A21B6068AA00E31E98 /* SettingsTableViewController.swift in Sources */,
 				0D60B9821B60685700E31E98 /* AppDelegate.swift in Sources */,
+				0D2E58581B7FFEBA00BCB344 /* Route.swift in Sources */,
 				0D72613C1B6A5CEE0082A02C /* Location.swift in Sources */,
 				0D60B9AC1B606CF500E31E98 /* RouteFetcherConstants.swift in Sources */,
 				0DBFE9E81B7C1994002E22B4 /* CalendarDate.swift in Sources */,
 				0D60B9AE1B607AFB00E31E98 /* RouteStop.swift in Sources */,
+				0D2E58541B7FC29F00BCB344 /* ScheduleEntry.swift in Sources */,
 				0D60B9AA1B606CC700E31E98 /* RouteFetcher.swift in Sources */,
 				0D60B9A41B6068BA00E31E98 /* StopSelectionTableViewController.swift in Sources */,
 			);
