@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		0D2E58501B7F91B900BCB344 /* ToTerminal.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0D2E584F1B7F91B900BCB344 /* ToTerminal.swift */; };
+		0D2E58521B7F921100BCB344 /* FromTerminal.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0D2E58511B7F921100BCB344 /* FromTerminal.swift */; };
 		0D60B9821B60685700E31E98 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0D60B9811B60685700E31E98 /* AppDelegate.swift */; };
 		0D60B9871B60685700E31E98 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 0D60B9851B60685700E31E98 /* Main.storyboard */; };
 		0D60B9891B60685700E31E98 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 0D60B9881B60685700E31E98 /* Images.xcassets */; };
@@ -42,6 +44,8 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		0D2E584F1B7F91B900BCB344 /* ToTerminal.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ToTerminal.swift; sourceTree = "<group>"; };
+		0D2E58511B7F921100BCB344 /* FromTerminal.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FromTerminal.swift; sourceTree = "<group>"; };
 		0D60B97C1B60685700E31E98 /* Route 139.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Route 139.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		0D60B9801B60685700E31E98 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		0D60B9811B60685700E31E98 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -131,6 +135,8 @@
 				0D60B9881B60685700E31E98 /* Images.xcassets */,
 				0D60B98A1B60685700E31E98 /* LaunchScreen.xib */,
 				0D60B97F1B60685700E31E98 /* Supporting Files */,
+				0D2E584F1B7F91B900BCB344 /* ToTerminal.swift */,
+				0D2E58511B7F921100BCB344 /* FromTerminal.swift */,
 			);
 			path = "Route 139";
 			sourceTree = "<group>";
@@ -299,9 +305,11 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				0D2E58501B7F91B900BCB344 /* ToTerminal.swift in Sources */,
 				0DBFE9EA1B7C202C002E22B4 /* RouteTrip.swift in Sources */,
 				0D61B2B71B7EA22D003A539C /* Service.swift in Sources */,
 				0DBFE9EC1B7C233E002E22B4 /* RouteStopTime.swift in Sources */,
+				0D2E58521B7F921100BCB344 /* FromTerminal.swift in Sources */,
 				0D72613E1B6B1E550082A02C /* Locations.swift in Sources */,
 				0D7261401B76669F0082A02C /* ModelStore.swift in Sources */,
 				0D60B9A21B6068AA00E31E98 /* SettingsTableViewController.swift in Sources */,
