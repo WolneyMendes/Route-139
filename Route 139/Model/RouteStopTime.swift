@@ -24,7 +24,9 @@ public class RouteStopTime {
         Sequence = sequence
     }
     
-    public static func FromRouteFetcher( stopTimes : Array<Dictionary<String,AnyObject>> ) -> Array<RouteStopTime>  {
+    public static func FromRouteFetcher( ) -> Array<RouteStopTime>  {
+        
+        var stopTimes = RouteFetcher.loadStopTimes()
         
         let ret = stopTimes.map( {
             (let stopTime) -> RouteStopTime in
@@ -42,8 +44,8 @@ public class RouteStopTime {
             )
             let arrivalMinuteString = arrivalTimeString.substringWithRange(
                 Range(
-                    start: advance(arrivalTimeString.startIndex, 2),
-                    end: advance(arrivalTimeString.startIndex, 4))
+                    start: advance(arrivalTimeString.startIndex, 3),
+                    end: advance(arrivalTimeString.startIndex, 5))
             )
             
             let departureHourString = departureTimeString.substringWithRange(
@@ -53,8 +55,8 @@ public class RouteStopTime {
             )
             let departureMinuteString = departureTimeString.substringWithRange(
                 Range(
-                    start: advance(departureTimeString.startIndex, 2),
-                    end: advance(departureTimeString.startIndex, 4))
+                    start: advance(departureTimeString.startIndex, 3),
+                    end: advance(departureTimeString.startIndex, 5))
             )
 
             

@@ -92,7 +92,6 @@ public class RouteFetcher {
             for json in jsonArray {
                 if let calendarDictionary = json as? NSDictionary {
                     var retCalendar = Dictionary<String,AnyObject>()
-                    
                     retCalendar[ RouteFetcherConstants.Calendar.ServiceId ] =
                         calendarDictionary[ RouteFetcherConstants.Calendar.ServiceId ] as? Int!
                     

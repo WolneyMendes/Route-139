@@ -11,11 +11,14 @@
 import Foundation
 
 public class RouteTrip {
+    
+    private var _stopTimes = Array<RouteStopTime>()
 
     public let RouteId : Int
     public let ServiceId : Int
     public let Identity : Int
     public let Inboud : Bool
+    public var StopTimes : Array<RouteStopTime> { get { return _stopTimes } }
     
     init( routeId: Int, serviceId: Int, identity: Int, inboud: Bool ) {
         RouteId = routeId
@@ -24,7 +27,13 @@ public class RouteTrip {
         Inboud = inboud
     }
     
-    public static func FromRouteFetcher( trips : Array<Dictionary<String,AnyObject>> ) -> Array<RouteTrip>  {
+    public func addStopTime( stopTime: RouteStopTime ) {
+        _stopTimes.append(stopTime)
+    }
+    
+    public static func FromRouteFetcher( ) -> Array<RouteTrip>  {
+        
+        var trips = RouteFetcher.loadTrips()
         
         var ret = trips.map( {
             (let trip ) -> RouteTrip in
@@ -32,7 +41,7 @@ public class RouteTrip {
             let serviceId = trip[RouteFetcherConstants.Trip.ServiceId] as! Int
             let identity = trip[RouteFetcherConstants.Trip.Identity] as! Int
             let direction = trip[RouteFetcherConstants.Trip.Direction] as! String
-            
+
             
             return RouteTrip( routeId: routeId, serviceId: serviceId, identity: identity, inboud: direction == "0")
             }

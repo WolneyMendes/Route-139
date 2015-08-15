@@ -17,7 +17,7 @@
 		0D60B9AA1B606CC700E31E98 /* RouteFetcher.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0D60B9A91B606CC700E31E98 /* RouteFetcher.swift */; };
 		0D60B9AC1B606CF500E31E98 /* RouteFetcherConstants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0D60B9AB1B606CF500E31E98 /* RouteFetcherConstants.swift */; };
 		0D60B9AE1B607AFB00E31E98 /* RouteStop.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0D60B9AD1B607AFB00E31E98 /* RouteStop.swift */; };
-		0D60B9B01B699AB300E31E98 /* ScheduleEntry.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0D60B9AF1B699AB300E31E98 /* ScheduleEntry.swift */; };
+		0D61B2B71B7EA22D003A539C /* Service.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0D61B2B61B7EA22D003A539C /* Service.swift */; };
 		0D72613C1B6A5CEE0082A02C /* Location.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0D72613B1B6A5CEE0082A02C /* Location.swift */; };
 		0D72613E1B6B1E550082A02C /* Locations.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0D72613D1B6B1E550082A02C /* Locations.swift */; };
 		0D7261401B76669F0082A02C /* ModelStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0D72613F1B76669F0082A02C /* ModelStore.swift */; };
@@ -56,7 +56,7 @@
 		0D60B9A91B606CC700E31E98 /* RouteFetcher.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = RouteFetcher.swift; path = RouteFetcher/RouteFetcher.swift; sourceTree = "<group>"; };
 		0D60B9AB1B606CF500E31E98 /* RouteFetcherConstants.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = RouteFetcherConstants.swift; path = RouteFetcher/RouteFetcherConstants.swift; sourceTree = "<group>"; };
 		0D60B9AD1B607AFB00E31E98 /* RouteStop.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = RouteStop.swift; path = Model/RouteStop.swift; sourceTree = "<group>"; };
-		0D60B9AF1B699AB300E31E98 /* ScheduleEntry.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ScheduleEntry.swift; path = Model/ScheduleEntry.swift; sourceTree = "<group>"; };
+		0D61B2B61B7EA22D003A539C /* Service.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Service.swift; path = Model/Service.swift; sourceTree = "<group>"; };
 		0D72613B1B6A5CEE0082A02C /* Location.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Location.swift; path = ViewModel/Location.swift; sourceTree = "<group>"; };
 		0D72613D1B6B1E550082A02C /* Locations.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Locations.swift; path = ViewModel/Locations.swift; sourceTree = "<group>"; };
 		0D72613F1B76669F0082A02C /* ModelStore.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ModelStore.swift; path = Model/ModelStore.swift; sourceTree = "<group>"; };
@@ -166,10 +166,10 @@
 			children = (
 				0D72613F1B76669F0082A02C /* ModelStore.swift */,
 				0D60B9AD1B607AFB00E31E98 /* RouteStop.swift */,
-				0D60B9AF1B699AB300E31E98 /* ScheduleEntry.swift */,
 				0DBFE9E71B7C1994002E22B4 /* CalendarDate.swift */,
 				0DBFE9E91B7C202C002E22B4 /* RouteTrip.swift */,
 				0DBFE9EB1B7C233E002E22B4 /* RouteStopTime.swift */,
+				0D61B2B61B7EA22D003A539C /* Service.swift */,
 			);
 			name = Model;
 			sourceTree = "<group>";
@@ -300,6 +300,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				0DBFE9EA1B7C202C002E22B4 /* RouteTrip.swift in Sources */,
+				0D61B2B71B7EA22D003A539C /* Service.swift in Sources */,
 				0DBFE9EC1B7C233E002E22B4 /* RouteStopTime.swift in Sources */,
 				0D72613E1B6B1E550082A02C /* Locations.swift in Sources */,
 				0D7261401B76669F0082A02C /* ModelStore.swift in Sources */,
@@ -308,7 +309,6 @@
 				0D72613C1B6A5CEE0082A02C /* Location.swift in Sources */,
 				0D60B9AC1B606CF500E31E98 /* RouteFetcherConstants.swift in Sources */,
 				0DBFE9E81B7C1994002E22B4 /* CalendarDate.swift in Sources */,
-				0D60B9B01B699AB300E31E98 /* ScheduleEntry.swift in Sources */,
 				0D60B9AE1B607AFB00E31E98 /* RouteStop.swift in Sources */,
 				0D60B9AA1B606CC700E31E98 /* RouteFetcher.swift in Sources */,
 				0D60B9A41B6068BA00E31E98 /* StopSelectionTableViewController.swift in Sources */,

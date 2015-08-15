@@ -14,7 +14,7 @@ public enum DateException {
 }
 
 public class CalendarDate {
-    
+
     public let ServiceId : Int
     public let Year : Int
     public let Month : Int
@@ -31,7 +31,9 @@ public class CalendarDate {
         Exception = exception
     }
     
-    public static func FromRouteFetcher( calendarDate : Array<Dictionary<String,AnyObject>> ) -> Array<CalendarDate>  {
+    public static func FromRouteFetcher( ) -> Array<CalendarDate>  {
+        
+        let calendarDate = RouteFetcher.loadCalendarDates()
         
         var ret = calendarDate.map( {
             (let calendar ) -> CalendarDate in

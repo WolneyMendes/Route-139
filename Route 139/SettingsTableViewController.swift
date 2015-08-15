@@ -86,7 +86,7 @@ class SettingsTableViewController: UITableViewController {
             
             // Remove it
             if let stop = toTerminalStop1 {
-                let stops = ModelStore.sharedInstance.nextScheduleEntry(true, stop: stop)
+                let stops = ModelStore.sharedInstance.nextScheduleEntry(true, stop: stop, numberOfEntries: 5, now: NSDate())
                 let c = stops.count
             }
         }

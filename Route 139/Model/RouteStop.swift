@@ -24,8 +24,10 @@ public class RouteStop {
         Longitude = longitude
     }
     
-    public static func FromRouteFetcher( stops : Array<Dictionary<String,AnyObject>> ) -> Array<RouteStop>  {
+    public static func FromRouteFetcher() -> Array<RouteStop>  {
     
+        let stops = RouteFetcher.loadStops()
+        
         var ret = stops.map( {
             (let stop ) -> RouteStop in
             let name = stop[RouteFetcherConstants.Stop.Name] as! String
