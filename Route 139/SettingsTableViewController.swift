@@ -83,12 +83,6 @@ class SettingsTableViewController: UITableViewController {
                 scheduleStopSelectionChange()
                 println("Done, select is \(source.selectedStop)")
             }
-            
-            // Remove it
-            if let stop = toTerminalStop1 {
-                let stops = ModelStore.sharedInstance.nextScheduleEntry(true, stop: stop, numberOfEntries: 5, now: NSDate())
-                let c = stops.count
-            }
         }
     }
     
@@ -222,7 +216,7 @@ class SettingsTableViewController: UITableViewController {
             let segueDestination = segue.destinationViewController as? UINavigationController
             let child = segueDestination?.childViewControllers[0] as? StopSelectionTableViewController
             if child != nil {
-                child?.locations = ModelStore.sharedInstance.locationsToTerminal()
+                child?.locations = ModelStore.sharedInstance.getLocationsToTerminal()
                 child?.selectedStop = toTerminalStop1
                 child?.stopType = .ToTerminalStop1
             }
@@ -231,7 +225,7 @@ class SettingsTableViewController: UITableViewController {
             let segueDestination = segue.destinationViewController as? UINavigationController
             let child = segueDestination?.childViewControllers[0] as? StopSelectionTableViewController
             if child != nil {
-                child?.locations = ModelStore.sharedInstance.locationsToTerminal()
+                child?.locations = ModelStore.sharedInstance.getLocationsToTerminal()
                 child?.selectedStop = toTerminalStop2
                 child?.stopType = .ToTerminalStop2
             }
@@ -240,7 +234,7 @@ class SettingsTableViewController: UITableViewController {
             let segueDestination = segue.destinationViewController as? UINavigationController
             let child = segueDestination?.childViewControllers[0] as? StopSelectionTableViewController
             if child != nil {
-                child?.locations = ModelStore.sharedInstance.locationsToTerminal()
+                child?.locations = ModelStore.sharedInstance.getLocationsToTerminal()
                 child?.selectedStop = toTerminalStop3
                 child?.stopType = .ToTerminalStop3
             }
@@ -249,7 +243,7 @@ class SettingsTableViewController: UITableViewController {
             let segueDestination = segue.destinationViewController as? UINavigationController
             let child = segueDestination?.childViewControllers[0] as? StopSelectionTableViewController
             if child != nil {
-                child?.locations = ModelStore.sharedInstance.locationsFromTerminal()
+                child?.locations = ModelStore.sharedInstance.getLocationsFromTerminal()
                 child?.selectedStop = fromTerminalStop1
                 child?.stopType = .FromTerminalStop1
             }
@@ -258,7 +252,7 @@ class SettingsTableViewController: UITableViewController {
             let segueDestination = segue.destinationViewController as? UINavigationController
             let child = segueDestination?.childViewControllers[0] as? StopSelectionTableViewController
             if child != nil {
-                child?.locations = ModelStore.sharedInstance.locationsToTerminal()
+                child?.locations = ModelStore.sharedInstance.getLocationsFromTerminal()
                 child?.selectedStop = fromTerminalStop2
                 child?.stopType = .FromTerminalStop2
             }
@@ -267,7 +261,7 @@ class SettingsTableViewController: UITableViewController {
             let segueDestination = segue.destinationViewController as? UINavigationController
             let child = segueDestination?.childViewControllers[0] as? StopSelectionTableViewController
             if child != nil {
-                child?.locations = ModelStore.sharedInstance.locationsToTerminal()
+                child?.locations = ModelStore.sharedInstance.getLocationsFromTerminal()
                 child?.selectedStop = fromTerminalStop3
                 child?.stopType = .FromTerminalStop3
             }
