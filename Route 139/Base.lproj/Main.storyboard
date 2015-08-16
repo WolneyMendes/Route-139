@@ -2,6 +2,7 @@
 <document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="7706" systemVersion="14E46" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" initialViewController="Ky2-6h-jAO">
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="7703"/>
+        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
     </dependencies>
     <scenes>
         <!--Settings-->
@@ -209,7 +210,7 @@
         <scene sceneID="1wW-Qu-QxM">
             <objects>
                 <tableViewController id="Yrm-I9-E9n" customClass="ToTerminal" customModule="Route_139" customModuleProvider="target" sceneMemberID="viewController">
-                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" id="yJb-Mk-kA7">
+                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" allowsSelection="NO" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" id="yJb-Mk-kA7">
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
@@ -258,16 +259,70 @@
         <scene sceneID="gaK-4t-Jya">
             <objects>
                 <tableViewController id="uag-fO-8H9" customClass="FromTerminal" customModule="Route_139" customModuleProvider="target" sceneMemberID="viewController">
-                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="22" sectionFooterHeight="22" id="GRc-F8-tFA">
+                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" allowsSelection="NO" rowHeight="85" sectionHeaderHeight="22" sectionFooterHeight="22" id="GRc-F8-tFA">
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <prototypes>
-                            <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="From Terminal Cell" id="9MZ-tl-BoS">
+                            <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="From Terminal Cell" rowHeight="85" id="9MZ-tl-BoS" customClass="FromTerminalCell" customModule="Route_139" customModuleProvider="target">
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="9MZ-tl-BoS" id="UWz-BX-lP0">
                                     <autoresizingMask key="autoresizingMask"/>
+                                    <subviews>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="249" text="Label" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="jkk-Mo-TGX">
+                                            <rect key="frame" x="96" y="12" width="495.5" height="19.5"/>
+                                            <fontDescription key="fontDescription" style="UICTFontTextStyleHeadline"/>
+                                            <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" verticalHuggingPriority="251" text="Gate" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="5Dy-Se-iYC">
+                                            <rect key="frame" x="8" y="8" width="42.5" height="24"/>
+                                            <fontDescription key="fontDescription" type="system" pointSize="20"/>
+                                            <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="249" verticalHuggingPriority="251" horizontalCompressionResistancePriority="749" text="XXX/XXX" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="W60-oc-8I9">
+                                            <rect key="frame" x="8" y="32" width="72.5" height="20.5"/>
+                                            <fontDescription key="fontDescription" type="boldSystem" pointSize="17"/>
+                                            <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="249" verticalHuggingPriority="249" lineBreakMode="wordWrap" numberOfLines="5" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="EDf-2x-KaD">
+                                            <rect key="frame" x="96" y="32" width="495.5" height="40.5"/>
+                                            <string key="text">Labelskdflkfjslkfjs ;flks;flskf;slkfj;slkfsj ;flksjf lskfjs; lkfs;flksd; jflskdfj;slkfjs ;lkfjs;flksjf lskf;j sdlkfsjd kdj dlkj lkkj lk </string>
+                                            <fontDescription key="fontDescription" style="UICTFontTextStyleBody"/>
+                                            <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
+                                    </subviews>
+                                    <constraints>
+                                        <constraint firstItem="5Dy-Se-iYC" firstAttribute="leading" secondItem="UWz-BX-lP0" secondAttribute="leadingMargin" id="1zx-e7-EFD"/>
+                                        <constraint firstAttribute="trailingMargin" secondItem="jkk-Mo-TGX" secondAttribute="trailing" id="6hA-Rm-jsN"/>
+                                        <constraint firstItem="5Dy-Se-iYC" firstAttribute="leading" secondItem="W60-oc-8I9" secondAttribute="leading" id="Cgn-nI-9r8"/>
+                                        <constraint firstAttribute="trailingMargin" secondItem="EDf-2x-KaD" secondAttribute="trailing" id="Kv1-4c-rM3"/>
+                                        <constraint firstItem="jkk-Mo-TGX" firstAttribute="trailing" secondItem="UWz-BX-lP0" secondAttribute="trailingMargin" id="TKI-Sx-Gtf"/>
+                                        <constraint firstItem="W60-oc-8I9" firstAttribute="top" secondItem="5Dy-Se-iYC" secondAttribute="bottom" id="mwO-cm-xNl"/>
+                                        <constraint firstItem="EDf-2x-KaD" firstAttribute="trailing" secondItem="UWz-BX-lP0" secondAttribute="trailingMargin" id="rAJ-yK-1BI"/>
+                                        <constraint firstAttribute="trailingMargin" secondItem="EDf-2x-KaD" secondAttribute="trailing" constant="0.5" id="tSf-v0-17y"/>
+                                        <constraint firstItem="jkk-Mo-TGX" firstAttribute="centerY" secondItem="5Dy-Se-iYC" secondAttribute="centerY" constant="1.75" id="uJO-2Q-on2"/>
+                                        <constraint firstItem="jkk-Mo-TGX" firstAttribute="leading" secondItem="5Dy-Se-iYC" secondAttribute="trailing" constant="46" id="wR3-yM-cHq"/>
+                                        <constraint firstAttribute="bottomMargin" secondItem="EDf-2x-KaD" secondAttribute="bottom" constant="4" id="wo2-6Y-v49"/>
+                                        <constraint firstItem="EDf-2x-KaD" firstAttribute="leading" secondItem="jkk-Mo-TGX" secondAttribute="leading" id="ykG-Sp-J8R"/>
+                                        <constraint firstItem="5Dy-Se-iYC" firstAttribute="top" secondItem="UWz-BX-lP0" secondAttribute="topMargin" id="znQ-uZ-5Pq"/>
+                                    </constraints>
+                                    <variation key="default">
+                                        <mask key="constraints">
+                                            <exclude reference="6hA-Rm-jsN"/>
+                                            <exclude reference="Kv1-4c-rM3"/>
+                                            <exclude reference="tSf-v0-17y"/>
+                                        </mask>
+                                    </variation>
                                 </tableViewCellContentView>
+                                <connections>
+                                    <outlet property="gateLabel" destination="W60-oc-8I9" id="FLN-Kl-Sgz"/>
+                                    <outlet property="subTitleLabel" destination="EDf-2x-KaD" id="EFC-zt-I7f"/>
+                                    <outlet property="titleLabel" destination="jkk-Mo-TGX" id="W2o-NM-YJn"/>
+                                </connections>
                             </tableViewCell>
                         </prototypes>
                         <connections>

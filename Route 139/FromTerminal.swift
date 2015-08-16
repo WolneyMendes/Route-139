@@ -113,7 +113,7 @@ class FromTerminal: UITableViewController {
     }
     
     override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCellWithIdentifier("From Terminal Cell", forIndexPath: indexPath) as! UITableViewCell
+        let cell = tableView.dequeueReusableCellWithIdentifier("From Terminal Cell", forIndexPath: indexPath) as! FromTerminalCell
         
         var stopTime : ScheduleEntry? = nil
         
@@ -159,7 +159,10 @@ class FromTerminal: UITableViewController {
             }
             
             var str = "Leaving at " + terminalString + " arriving at " + stopString
-            cell.textLabel?.text = str
+            cell.gate = gate
+
+            cell.title = description
+            cell.subTitle = str
             
         }
         
