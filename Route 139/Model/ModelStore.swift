@@ -141,6 +141,8 @@ public class ModelStore {
             }
         }
         self.stopTimes = stopTimesSorted
+        
+        load()
     }
     
     func getRoute ( fromTrip: Int ) -> Route? {
@@ -377,6 +379,74 @@ public class ModelStore {
     }
     
     func save() {
+        
+        var config = Dictionary<String,String>()
+        
+        if toTerminalStop1 != nil {
+            config["ToTerminal1"] = "\(toTerminalStop1!.Identity)"
+        }
+        
+        if toTerminalStop2 != nil {
+            config["ToTerminal2"] = "\(toTerminalStop2!.Identity)"
+        }
+        
+        if toTerminalStop3 != nil {
+            config["ToTerminal3"] =  "\(toTerminalStop3!.Identity)"
+        }
+        
+        if fromTerminalStop1 != nil {
+            config["FromTerminal1"] = "\(fromTerminalStop1!.Identity)"
+        }
+        
+        if fromTerminalStop2 != nil {
+            config["FromTerminal2"] =  "\(fromTerminalStop2!.Identity)"
+        }
+        
+        if fromTerminalStop3 != nil {
+            config["FromTerminal3"] = "\(fromTerminalStop3!.Identity)"
+        }
+        
+        var fileManager = NSFileManager()
+        if let docsDir = fileManager.URLsForDirectory(.DocumentDirectory, inDomains: .UserDomainMask).first as?NSURL {
+            let url = docsDir.URLByAppendingPathComponent("config.dat")
+            if let path = url.path {
+                var ok2 = NSKeyedArchiver.archiveRootObject(config, toFile: path)
+            }
+        }
+        
+    }
+    
+    func load() {
+        
+        var fileManager = NSFileManager()
+        if let docsDir = fileManager.URLsForDirectory(.DocumentDirectory, inDomains: .UserDomainMask).first as?NSURL {
+            let url = docsDir.URLByAppendingPathComponent("config.dat")
+            if let path = url.path {
+                
+                if fileManager.fileExistsAtPath(path) {
+                    let config = NSKeyedUnarchiver.unarchiveObjectWithFile(path) as! Dictionary<String,String>
+                    
+                    if let stopId = config[ "ToTerminal1" ] {
+                        toTerminalStop1 = stopsDictionary[ stopId.toInt()! ]
+                    }
+                    if let stopId = config[ "ToTerminal2" ] {
+                        toTerminalStop2 = stopsDictionary[ stopId.toInt()! ]
+                    }
+                    if let stopId = config[ "ToTerminal3" ] {
+                        toTerminalStop3 = stopsDictionary[ stopId.toInt()! ]
+                    }
+                    if let stopId = config[ "FromTerminal1" ] {
+                        fromTerminalStop1 = stopsDictionary[ stopId.toInt()! ]
+                    }
+                    if let stopId = config[ "FromTerminal2" ] {
+                        fromTerminalStop2 = stopsDictionary[ stopId.toInt()! ]
+                    }
+                    if let stopId = config[ "FromTerminal3" ] {
+                        fromTerminalStop3 = stopsDictionary[ stopId.toInt()! ]
+                    }
+                }
+            }
+        }
         
     }
     

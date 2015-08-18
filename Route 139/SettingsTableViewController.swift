@@ -279,6 +279,7 @@ class SettingsTableViewController: UITableViewController {
             fromTerminalStop2Row.textLabel?.text = fromTerminalStop2?.Name
             fromTerminalStop3Row.textLabel?.text = fromTerminalStop3?.Name
         }
+        tableView.reloadData()
     }
     
     func scheduleStopSelectionChange() {
