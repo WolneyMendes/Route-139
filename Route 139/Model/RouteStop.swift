@@ -15,14 +15,17 @@ public class RouteStop {
     public let Code       : String
     public let Latitude   : Double
     public let Longitude  : Double
+    public let Location   : String
     
-    init(name: String, identity :Int, code: String, latitude: Double, longitude: Double) {
+    init(name: String, identity :Int, code: String, latitude: Double, longitude: Double, location:String) {
         Name = name
         Identity = identity
         Code = code
         Latitude = latitude
         Longitude = longitude
+        Location = location
     }
+    
     
     public static func FromRouteFetcher() -> Array<RouteStop>  {
     
@@ -35,7 +38,8 @@ public class RouteStop {
             let code = stop[RouteFetcherConstants.Stop.Code] as! String
             let latitude = stop[RouteFetcherConstants.Stop.Lat] as! Double
             let longitude = stop[RouteFetcherConstants.Stop.Lon] as! Double
-            return RouteStop(name:name, identity:identity, code: code, latitude: latitude, longitude: longitude)
+            let location = stop[RouteFetcherConstants.Stop.Location] as! String
+            return RouteStop(name:name, identity:identity, code: code, latitude: latitude, longitude: longitude, location: location)
             }
         )
         

@@ -36,6 +36,9 @@ public class Location {
             }
         }
         stops.append(newStop);
+        stops.sort { (before, after) -> Bool in
+            before.Name < after.Name
+        }
     }
     
 }

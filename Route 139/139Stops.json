@@ -6,7 +6,8 @@
         "stop_desc": "",
         "stop_lat": 40.30148,
         "stop_lon": -74.308223,
-        "zone_id": 8192
+        "zone_id": 8192,
+        "stop_location": "Manalapan Township"
     },
     {
         "stop_id": 27416,
@@ -15,7 +16,8 @@
         "stop_desc": "",
         "stop_lat": 40.299499,
         "stop_lon": -74.317212,
-        "zone_id": 0
+        "zone_id": 0,
+        "stop_location": "Manalapan Township"
     },
     {
         "stop_id": 27417,
@@ -24,7 +26,8 @@
         "stop_desc": "",
         "stop_lat": 40.302779,
         "stop_lon": -74.319501,
-        "zone_id": 0
+        "zone_id": 0,
+        "stop_location": "Manalapan Township"
     },
     {
         "stop_id": 27418,
@@ -33,7 +36,8 @@
         "stop_desc": "",
         "stop_lat": 40.3055,
         "stop_lon": -74.320103,
-        "zone_id": 0
+        "zone_id": 0,
+        "stop_location": "Manalapan Township"
     },
     {
         "stop_id": 41313,
@@ -42,7 +46,8 @@
         "stop_desc": "",
         "stop_lat": 40.309007,
         "stop_lon": -74.323073,
-        "zone_id": 0
+        "zone_id": 0,
+        "stop_location": "Manalapan Township"
     },
     {
         "stop_id": 27420,
@@ -51,7 +56,8 @@
         "stop_desc": "",
         "stop_lat": 40.313838,
         "stop_lon": -74.32494,
-        "zone_id": 0
+        "zone_id": 0,
+        "stop_location": "Manalapan Township"
     },
     {
         "stop_id": 27421,
@@ -60,7 +66,8 @@
         "stop_desc": "",
         "stop_lat": 40.320519,
         "stop_lon": -74.327083,
-        "zone_id": 0
+        "zone_id": 0,
+        "stop_location": "Manalapan Township"
     },
     {
         "stop_id": 27422,
@@ -69,7 +76,8 @@
         "stop_desc": "",
         "stop_lat": 40.327858,
         "stop_lon": -74.331223,
-        "zone_id": 0
+        "zone_id": 0,
+        "stop_location": "Manalapan Township"
     },
     {
         "stop_id": 27423,
@@ -78,7 +86,8 @@
         "stop_desc": "",
         "stop_lat": 40.332217,
         "stop_lon": -74.325632,
-        "zone_id": 0
+        "zone_id": 0,
+        "stop_location": "Manalapan Township"
     },
     {
         "stop_id": 41314,
@@ -87,7 +96,8 @@
         "stop_desc": "",
         "stop_lat": 40.333859,
         "stop_lon": -74.317361,
-        "zone_id": 0
+        "zone_id": 0,
+        "stop_location": "Manalapan Township"
     },
     {
         "stop_id": 41315,
@@ -96,7 +106,8 @@
         "stop_desc": "",
         "stop_lat": 40.333089,
         "stop_lon": -74.317051,
-        "zone_id": 0
+        "zone_id": 0,
+        "stop_location": "Manalapan Township"
     },
     {
         "stop_id": 41316,
@@ -105,7 +116,8 @@
         "stop_desc": "",
         "stop_lat": 40.331779,
         "stop_lon": -74.317382,
-        "zone_id": 0
+        "zone_id": 0,
+        "stop_location": "Manalapan Township"
     },
     {
         "stop_id": 41317,
@@ -114,7 +126,8 @@
         "stop_desc": "",
         "stop_lat": 40.328458,
         "stop_lon": -74.318953,
-        "zone_id": 0
+        "zone_id": 0,
+        "stop_location": "Manalapan Township"
     },
     {
         "stop_id": 41318,
@@ -123,7 +136,8 @@
         "stop_desc": "",
         "stop_lat": 40.327148,
         "stop_lon": -74.316473,
-        "zone_id": 0
+        "zone_id": 0,
+        "stop_location": "Manalapan Township"
     },
     {
         "stop_id": 27425,
@@ -132,7 +146,8 @@
         "stop_desc": "",
         "stop_lat": 40.327019,
         "stop_lon": -74.310691,
-        "zone_id": 8195
+        "zone_id": 8195,
+        "stop_location": "Manalapan Township"
     },
     {
         "stop_id": 41319,
@@ -141,7 +156,8 @@
         "stop_desc": "",
         "stop_lat": 40.32965,
         "stop_lon": -74.310851,
-        "zone_id": 0
+        "zone_id": 0,
+        "stop_location": "Manalapan Township"
     },
     {
         "stop_id": 41320,
@@ -150,7 +166,8 @@
         "stop_desc": "",
         "stop_lat": 40.330858,
         "stop_lon": -74.313501,
-        "zone_id": 0
+        "zone_id": 0,
+        "stop_location": "Manalapan Township"
     },
     {
         "stop_id": 27427,
@@ -159,7 +176,8 @@
         "stop_desc": "",
         "stop_lat": 40.339169,
         "stop_lon": -74.304502,
-        "zone_id": 0
+        "zone_id": 0,
+        "stop_location": "Marlboro Township"
     },
     {
         "stop_id": 27367,
@@ -168,7 +186,8 @@
         "stop_desc": "",
         "stop_lat": 40.446218,
         "stop_lon": -74.299461,
-        "zone_id": 8192
+        "zone_id": 8192,
+        "stop_location": "Old Bridge Township"
     },
     {
         "stop_id": 43310,
@@ -177,7 +196,8 @@
         "stop_desc": "",
         "stop_lat": 40.756707,
         "stop_lon": -73.992134,
-        "zone_id": 0
+        "zone_id": 0,
+        "stop_location": "NY"
     },
     {
         "stop_id": 43274,
@@ -186,7 +206,8 @@
         "stop_desc": "",
         "stop_lat": 40.756209,
         "stop_lon": -73.991001,
-        "zone_id": 0
+        "zone_id": 0,
+        "stop_location": "NY"
     },
     {
         "stop_id": 3511,
@@ -195,7 +216,8 @@
         "stop_desc": "",
         "stop_lat": 40.756367,
         "stop_lon": -73.990753,
-        "zone_id": 12336
+        "zone_id": 12336,
+        "stop_location": "NY"
     },
     {
         "stop_id": 27436,
@@ -204,7 +226,8 @@
         "stop_desc": "",
         "stop_lat": 40.335388,
         "stop_lon": -74.307063,
-        "zone_id": 0
+        "zone_id": 0,
+        "stop_location": "Marlboro Township"
     },
     {
         "stop_id": 41051,
@@ -213,7 +236,8 @@
         "stop_desc": "",
         "stop_lat": 40.329658,
         "stop_lon": -74.305841,
-        "zone_id": 0
+        "zone_id": 0,
+        "stop_location": "Marlboro Township"
     },
     {
         "stop_id": 27437,
@@ -222,7 +246,8 @@
         "stop_desc": "",
         "stop_lat": 40.32654,
         "stop_lon": -74.305631,
-        "zone_id": 0
+        "zone_id": 0,
+        "stop_location": "Manalapan Township"
     },
     {
         "stop_id": 28765,
@@ -231,7 +256,8 @@
         "stop_desc": "",
         "stop_lat": 40.312778,
         "stop_lon": -74.304383,
-        "zone_id": 8192
+        "zone_id": 8192,
+        "stop_location": "Manalapan Township"
     },
     {
         "stop_id": 28766,
@@ -240,7 +266,8 @@
         "stop_desc": "",
         "stop_lat": 40.302598,
         "stop_lon": -74.303901,
-        "zone_id": 0
+        "zone_id": 0,
+        "stop_location": "Manalapan Township"
     },
     {
         "stop_id": 27438,
@@ -249,7 +276,8 @@
         "stop_desc": "",
         "stop_lat": 40.299098,
         "stop_lon": -74.302761,
-        "zone_id": 0
+        "zone_id": 0,
+        "stop_location": "Manalapan Township"
     },
     {
         "stop_id": 27439,
@@ -258,7 +286,8 @@
         "stop_desc": "",
         "stop_lat": 40.293338,
         "stop_lon": -74.29882,
-        "zone_id": 0
+        "zone_id": 0,
+        "stop_location": "Manalapan Township"
     },
     {
         "stop_id": 27440,
@@ -267,7 +296,8 @@
         "stop_desc": "",
         "stop_lat": 40.287189,
         "stop_lon": -74.295204,
-        "zone_id": 0
+        "zone_id": 0,
+        "stop_location": "Manalapan Township"
     },
     {
         "stop_id": 28767,
@@ -276,7 +306,8 @@
         "stop_desc": "",
         "stop_lat": 40.27425,
         "stop_lon": -74.294281,
-        "zone_id": 0
+        "zone_id": 0,
+        "stop_location": "Freehold Township"
     },
     {
         "stop_id": 40378,
@@ -285,7 +316,8 @@
         "stop_desc": "",
         "stop_lat": 40.256147,
         "stop_lon": -74.290831,
-        "zone_id": 0
+        "zone_id": 0,
+        "stop_location": "Freehold Township"
     },
     {
         "stop_id": 27463,
@@ -294,7 +326,8 @@
         "stop_desc": "",
         "stop_lat": 40.245058,
         "stop_lon": -74.282103,
-        "zone_id": 0
+        "zone_id": 0,
+        "stop_location": "Freehold Township"
     },
     {
         "stop_id": 27444,
@@ -303,7 +336,8 @@
         "stop_desc": "",
         "stop_lat": 40.239308,
         "stop_lon": -74.275622,
-        "zone_id": 0
+        "zone_id": 0,
+        "stop_location": "Freehold Township"
     },
     {
         "stop_id": 28772,
@@ -312,7 +346,8 @@
         "stop_desc": "",
         "stop_lat": 40.232367,
         "stop_lon": -74.27313,
-        "zone_id": 0
+        "zone_id": 0,
+        "stop_location": "Freehold Township"
     },
     {
         "stop_id": 28487,
@@ -321,7 +356,8 @@
         "stop_desc": "",
         "stop_lat": 40.229559,
         "stop_lon": -74.272553,
-        "zone_id": 0
+        "zone_id": 0,
+        "stop_location": "Freehold Township"
     },
     {
         "stop_id": 28488,
@@ -330,7 +366,8 @@
         "stop_desc": "",
         "stop_lat": 40.22153,
         "stop_lon": -74.267593,
-        "zone_id": 8192
+        "zone_id": 8192,
+        "stop_location": "Freehold Township"
     },
     {
         "stop_id": 28489,
@@ -339,7 +376,8 @@
         "stop_desc": "",
         "stop_lat": 40.215268,
         "stop_lon": -74.261802,
-        "zone_id": 0
+        "zone_id": 0,
+        "stop_location": "Howell"
     },
     {
         "stop_id": 28490,
@@ -348,7 +386,8 @@
         "stop_desc": "",
         "stop_lat": 40.209387,
         "stop_lon": -74.258262,
-        "zone_id": 0
+        "zone_id": 0,
+        "stop_location": "Howell"
     },
     {
         "stop_id": 27332,
@@ -357,7 +396,8 @@
         "stop_desc": "",
         "stop_lat": 40.211169,
         "stop_lon": -74.258672,
-        "zone_id": 8192
+        "zone_id": 8192,
+        "stop_location": "Howell"
     },
     {
         "stop_id": 28491,
@@ -366,7 +406,8 @@
         "stop_desc": "",
         "stop_lat": 40.202049,
         "stop_lon": -74.255543,
-        "zone_id": 0
+        "zone_id": 0,
+        "stop_location": "Howell"
     },
     {
         "stop_id": 41031,
@@ -375,7 +416,8 @@
         "stop_desc": "",
         "stop_lat": 40.193299,
         "stop_lon": -74.252481,
-        "zone_id": 0
+        "zone_id": 0,
+        "stop_location": "Howell"
     },
     {
         "stop_id": 28773,
@@ -384,7 +426,8 @@
         "stop_desc": "",
         "stop_lat": 40.185405,
         "stop_lon": -74.24941,
-        "zone_id": 336
+        "zone_id": 336,
+        "stop_location": "Howell"
     },
     {
         "stop_id": 28774,
@@ -393,7 +436,8 @@
         "stop_desc": "",
         "stop_lat": 40.175619,
         "stop_lon": -74.242252,
-        "zone_id": 0
+        "zone_id": 0,
+        "stop_location": "Howell"
     },
     {
         "stop_id": 27445,
@@ -402,7 +446,8 @@
         "stop_desc": "",
         "stop_lat": 40.168878,
         "stop_lon": -74.238212,
-        "zone_id": 0
+        "zone_id": 0,
+        "stop_location": "Howell"
     },
     {
         "stop_id": 27446,
@@ -411,7 +456,8 @@
         "stop_desc": "",
         "stop_lat": 40.1604,
         "stop_lon": -74.233013,
-        "zone_id": 0
+        "zone_id": 0,
+        "stop_location": "Howell"
     },
     {
         "stop_id": 28775,
@@ -420,7 +466,8 @@
         "stop_desc": "",
         "stop_lat": 40.155248,
         "stop_lon": -74.22989,
-        "zone_id": 0
+        "zone_id": 0,
+        "stop_location": "Howell"
     },
     {
         "stop_id": 27447,
@@ -429,7 +476,8 @@
         "stop_desc": "",
         "stop_lat": 40.147909,
         "stop_lon": -74.226302,
-        "zone_id": 0
+        "zone_id": 0,
+        "stop_location": "Howell"
     },
     {
         "stop_id": 28776,
@@ -438,7 +486,8 @@
         "stop_desc": "",
         "stop_lat": 40.140149,
         "stop_lon": -74.225261,
-        "zone_id": 0
+        "zone_id": 0,
+        "stop_location": "Howell"
     },
     {
         "stop_id": 28777,
@@ -447,7 +496,8 @@
         "stop_desc": "",
         "stop_lat": 40.129728,
         "stop_lon": -74.223451,
-        "zone_id": 0
+        "zone_id": 0,
+        "stop_location": "Howell"
     },
     {
         "stop_id": 40743,
@@ -456,7 +506,8 @@
         "stop_desc": "",
         "stop_lat": 40.11535,
         "stop_lon": -74.218961,
-        "zone_id": 0
+        "zone_id": 0,
+        "stop_location": "Howell"
     },
     {
         "stop_id": 28778,
@@ -465,7 +516,8 @@
         "stop_desc": "",
         "stop_lat": 40.1064,
         "stop_lon": -74.219541,
-        "zone_id": 0
+        "zone_id": 0,
+        "stop_location": "Lakewood Township"
     },
     {
         "stop_id": 3526,
@@ -474,7 +526,8 @@
         "stop_desc": "",
         "stop_lat": 40.099398,
         "stop_lon": -74.218182,
-        "zone_id": 0
+        "zone_id": 0,
+        "stop_location": "Lakewood Township"
     },
     {
         "stop_id": 3537,
@@ -483,7 +536,8 @@
         "stop_desc": "",
         "stop_lat": 40.098409,
         "stop_lon": -74.21803,
-        "zone_id": 8195
+        "zone_id": 8195,
+        "stop_location": "Lakewood Township"
     },
     {
         "stop_id": 3513,
@@ -492,7 +546,8 @@
         "stop_desc": "",
         "stop_lat": 40.095737,
         "stop_lon": -74.215403,
-        "zone_id": 0
+        "zone_id": 0,
+        "stop_location": "Lakewood Township"
     },
     {
         "stop_id": 3539,
@@ -501,7 +556,8 @@
         "stop_desc": "",
         "stop_lat": 40.091008,
         "stop_lon": -74.21257,
-        "zone_id": 0
+        "zone_id": 0,
+        "stop_location": "Lakewood Township"
     },
     {
         "stop_id": 38104,
@@ -510,7 +566,8 @@
         "stop_desc": "",
         "stop_lat": 40.156169,
         "stop_lon": -74.227181,
-        "zone_id": 8195
+        "zone_id": 8195,
+        "stop_location": "Howell"
     },
     {
         "stop_id": 28768,
@@ -519,7 +576,8 @@
         "stop_desc": "",
         "stop_lat": 40.265218,
         "stop_lon": -74.287352,
-        "zone_id": 8192
+        "zone_id": 8192,
+        "stop_location": "Freehold"
     },
     {
         "stop_id": 42349,
@@ -528,7 +586,8 @@
         "stop_desc": "",
         "stop_lat": 40.264379,
         "stop_lon": -74.284322,
-        "zone_id": 0
+        "zone_id": 0,
+        "stop_location": "Freehold"
     },
     {
         "stop_id": 28769,
@@ -537,7 +596,8 @@
         "stop_desc": "",
         "stop_lat": 40.26202,
         "stop_lon": -74.280131,
-        "zone_id": 0
+        "zone_id": 0,
+        "stop_location": "Freehold"
     },
     {
         "stop_id": 43091,
@@ -546,7 +606,8 @@
         "stop_desc": "",
         "stop_lat": 40.259178,
         "stop_lon": -74.276451,
-        "zone_id": 0
+        "zone_id": 0,
+        "stop_location": "Freehold"
     },
     {
         "stop_id": 27442,
@@ -555,7 +616,8 @@
         "stop_desc": "",
         "stop_lat": 40.253528,
         "stop_lon": -74.283053,
-        "zone_id": 0
+        "zone_id": 0,
+        "stop_location": "Freehold"
     },
     {
         "stop_id": 27443,
@@ -564,7 +626,8 @@
         "stop_desc": "",
         "stop_lat": 40.250889,
         "stop_lon": -74.276661,
-        "zone_id": 0
+        "zone_id": 0,
+        "stop_location": "Freehold"
     },
     {
         "stop_id": 28770,
@@ -573,7 +636,8 @@
         "stop_desc": "",
         "stop_lat": 40.247439,
         "stop_lon": -74.274743,
-        "zone_id": 0
+        "zone_id": 0,
+        "stop_location": "Freehold Township"
     },
     {
         "stop_id": 28771,
@@ -582,7 +646,8 @@
         "stop_desc": "",
         "stop_lat": 40.242939,
         "stop_lon": -74.275161,
-        "zone_id": 0
+        "zone_id": 0,
+        "stop_location": "Freehold Township"
     },
     {
         "stop_id": 27479,
@@ -591,7 +656,8 @@
         "stop_desc": "",
         "stop_lat": 40.333927,
         "stop_lon": -74.323353,
-        "zone_id": 0
+        "zone_id": 0,
+        "stop_location": "Manalapan Township"
     },
     {
         "stop_id": 27480,
@@ -600,7 +666,8 @@
         "stop_desc": "",
         "stop_lat": 40.331349,
         "stop_lon": -74.327131,
-        "zone_id": 0
+        "zone_id": 0,
+        "stop_location": "Manalapan Township"
     },
     {
         "stop_id": 27481,
@@ -609,7 +676,8 @@
         "stop_desc": "",
         "stop_lat": 40.325139,
         "stop_lon": -74.329014,
-        "zone_id": 0
+        "zone_id": 0,
+        "stop_location": "Manalapan Township"
     },
     {
         "stop_id": 30802,
@@ -618,7 +686,8 @@
         "stop_desc": "",
         "stop_lat": 40.32098,
         "stop_lon": -74.327392,
-        "zone_id": 0
+        "zone_id": 0,
+        "stop_location": "Manalapan Township"
     },
     {
         "stop_id": 27482,
@@ -627,7 +696,8 @@
         "stop_desc": "",
         "stop_lat": 40.312698,
         "stop_lon": -74.324921,
-        "zone_id": 0
+        "zone_id": 0,
+        "stop_location": "Manalapan Township"
     },
     {
         "stop_id": 27483,
@@ -636,7 +706,8 @@
         "stop_desc": "",
         "stop_lat": 40.307919,
         "stop_lon": -74.32236,
-        "zone_id": 0
+        "zone_id": 0,
+        "stop_location": "Manalapan Township"
     },
     {
         "stop_id": 27484,
@@ -645,7 +716,8 @@
         "stop_desc": "",
         "stop_lat": 40.303458,
         "stop_lon": -74.319653,
-        "zone_id": 0
+        "zone_id": 0,
+        "stop_location": "Manalapan Township"
     },
     {
         "stop_id": 30803,
@@ -654,7 +726,8 @@
         "stop_desc": "",
         "stop_lat": 40.299329,
         "stop_lon": -74.31823,
-        "zone_id": 0
+        "zone_id": 0,
+        "stop_location": "Manalapan Township"
     },
     {
         "stop_id": 30804,
@@ -663,7 +736,8 @@
         "stop_desc": "",
         "stop_lat": 40.30131,
         "stop_lon": -74.308213,
-        "zone_id": 8195
+        "zone_id": 8195,
+        "stop_location": "Manalapan Township"
     },
     {
         "stop_id": 27398,
@@ -672,7 +746,8 @@
         "stop_desc": "",
         "stop_lat": 40.113179,
         "stop_lon": -74.288631,
-        "zone_id": 8192
+        "zone_id": 8192,
+        "stop_location": "Jackson"
     },
     {
         "stop_id": 27399,
@@ -681,7 +756,8 @@
         "stop_desc": "",
         "stop_lat": 40.117528,
         "stop_lon": -74.253181,
-        "zone_id": 0
+        "zone_id": 0,
+        "stop_location": "Jackson"
     },
     {
         "stop_id": 31638,
@@ -690,7 +766,8 @@
         "stop_desc": "",
         "stop_lat": 40.160178,
         "stop_lon": -74.232552,
-        "zone_id": 0
+        "zone_id": 0,
+        "stop_location": "Howell"
     },
     {
         "stop_id": 27325,
@@ -699,7 +776,8 @@
         "stop_desc": "",
         "stop_lat": 40.16747,
         "stop_lon": -74.237002,
-        "zone_id": 0
+        "zone_id": 0,
+        "stop_location": "Howell"
     },
     {
         "stop_id": 27326,
@@ -708,7 +786,8 @@
         "stop_desc": "",
         "stop_lat": 40.16961,
         "stop_lon": -74.238334,
-        "zone_id": 0
+        "zone_id": 0,
+        "stop_location": "Howell"
     },
     {
         "stop_id": 27327,
@@ -717,7 +796,8 @@
         "stop_desc": "",
         "stop_lat": 40.176397,
         "stop_lon": -74.24232,
-        "zone_id": 0
+        "zone_id": 0,
+        "stop_location": "Howell"
     },
     {
         "stop_id": 27328,
@@ -726,7 +806,8 @@
         "stop_desc": "",
         "stop_lat": 40.185405,
         "stop_lon": -74.249407,
-        "zone_id": 336
+        "zone_id": 336,
+        "stop_location": "Howell"
     },
     {
         "stop_id": 27329,
@@ -735,7 +816,8 @@
         "stop_desc": "",
         "stop_lat": 40.194078,
         "stop_lon": -74.252441,
-        "zone_id": 0
+        "zone_id": 0,
+        "stop_location": "Howell"
     },
     {
         "stop_id": 27330,
@@ -744,7 +826,8 @@
         "stop_desc": "",
         "stop_lat": 40.196538,
         "stop_lon": -74.253311,
-        "zone_id": 0
+        "zone_id": 0,
+        "stop_location": "Howell"
     },
     {
         "stop_id": 27331,
@@ -753,7 +836,8 @@
         "stop_desc": "",
         "stop_lat": 40.203178,
         "stop_lon": -74.255622,
-        "zone_id": 8192
+        "zone_id": 8192,
+        "stop_location": "Howell"
     },
     {
         "stop_id": 27333,
@@ -762,7 +846,8 @@
         "stop_desc": "",
         "stop_lat": 40.21586,
         "stop_lon": -74.261832,
-        "zone_id": 0
+        "zone_id": 0,
+        "stop_location": "Freehold Township"
     },
     {
         "stop_id": 27334,
@@ -771,7 +856,8 @@
         "stop_desc": "",
         "stop_lat": 40.221258,
         "stop_lon": -74.266723,
-        "zone_id": 0
+        "zone_id": 0,
+        "stop_location": "Freehold Township"
     },
     {
         "stop_id": 27335,
@@ -780,7 +866,8 @@
         "stop_desc": "",
         "stop_lat": 40.228347,
         "stop_lon": -74.271951,
-        "zone_id": 0
+        "zone_id": 0,
+        "stop_location": "Freehold Township"
     },
     {
         "stop_id": 27336,
@@ -789,7 +876,8 @@
         "stop_desc": "",
         "stop_lat": 40.232948,
         "stop_lon": -74.272863,
-        "zone_id": 0
+        "zone_id": 0,
+        "stop_location": "Freehold Township"
     },
     {
         "stop_id": 27337,
@@ -798,7 +886,8 @@
         "stop_desc": "",
         "stop_lat": 40.240448,
         "stop_lon": -74.276301,
-        "zone_id": 0
+        "zone_id": 0,
+        "stop_location": "Freehold Township"
     },
     {
         "stop_id": 27394,
@@ -807,7 +896,8 @@
         "stop_desc": "",
         "stop_lat": 40.24591,
         "stop_lon": -74.282461,
-        "zone_id": 8192
+        "zone_id": 8192,
+        "stop_location": "Freehold Township"
     },
     {
         "stop_id": 27344,
@@ -816,7 +906,8 @@
         "stop_desc": "",
         "stop_lat": 40.274779,
         "stop_lon": -74.294004,
-        "zone_id": 0
+        "zone_id": 0,
+        "stop_location": "Freehold Township"
     },
     {
         "stop_id": 27345,
@@ -825,7 +916,8 @@
         "stop_desc": "",
         "stop_lat": 40.28748,
         "stop_lon": -74.294921,
-        "zone_id": 0
+        "zone_id": 0,
+        "stop_location": "Manalapan Township"
     },
     {
         "stop_id": 27346,
@@ -834,7 +926,8 @@
         "stop_desc": "",
         "stop_lat": 40.293169,
         "stop_lon": -74.298283,
-        "zone_id": 0
+        "zone_id": 0,
+        "stop_location": "Manalapan Township"
     },
     {
         "stop_id": 27347,
@@ -843,7 +936,8 @@
         "stop_desc": "",
         "stop_lat": 40.299849,
         "stop_lon": -74.302833,
-        "zone_id": 0
+        "zone_id": 0,
+        "stop_location": "Manalapan Township"
     },
     {
         "stop_id": 27348,
@@ -852,7 +946,8 @@
         "stop_desc": "",
         "stop_lat": 40.302428,
         "stop_lon": -74.303551,
-        "zone_id": 0
+        "zone_id": 0,
+        "stop_location": "Manalapan Township"
     },
     {
         "stop_id": 27349,
@@ -861,7 +956,8 @@
         "stop_desc": "",
         "stop_lat": 40.31337,
         "stop_lon": -74.304151,
-        "zone_id": 8192
+        "zone_id": 8192,
+        "stop_location": "Manalapan Township"
     },
     {
         "stop_id": 3535,
@@ -870,7 +966,8 @@
         "stop_desc": "",
         "stop_lat": 40.095159,
         "stop_lon": -74.217171,
-        "zone_id": 0
+        "zone_id": 0,
+        "stop_location": "Lakewood Township"
     },
     {
         "stop_id": 28764,
@@ -879,7 +976,8 @@
         "stop_desc": "",
         "stop_lat": 40.099609,
         "stop_lon": -74.218022,
-        "zone_id": 0
+        "zone_id": 0,
+        "stop_location": "Lakewood Township"
     },
     {
         "stop_id": 3527,
@@ -888,7 +986,8 @@
         "stop_desc": "",
         "stop_lat": 40.1066,
         "stop_lon": -74.219281,
-        "zone_id": 0
+        "zone_id": 0,
+        "stop_location": "Lakewood Township"
     },
     {
         "stop_id": 27319,
@@ -897,7 +996,8 @@
         "stop_desc": "",
         "stop_lat": 40.115169,
         "stop_lon": -74.218661,
-        "zone_id": 0
+        "zone_id": 0,
+        "stop_location": "Howell"
     },
     {
         "stop_id": 27320,
@@ -906,7 +1006,8 @@
         "stop_desc": "",
         "stop_lat": 40.129218,
         "stop_lon": -74.223033,
-        "zone_id": 0
+        "zone_id": 0,
+        "stop_location": "Howell"
     },
     {
         "stop_id": 27321,
@@ -915,7 +1016,8 @@
         "stop_desc": "",
         "stop_lat": 40.139779,
         "stop_lon": -74.224913,
-        "zone_id": 0
+        "zone_id": 0,
+        "stop_location": "Howell"
     },
     {
         "stop_id": 27322,
@@ -924,7 +1026,8 @@
         "stop_desc": "",
         "stop_lat": 40.147208,
         "stop_lon": -74.22585,
-        "zone_id": 0
+        "zone_id": 0,
+        "stop_location": "Howell"
     },
     {
         "stop_id": 27323,
@@ -933,7 +1036,8 @@
         "stop_desc": "",
         "stop_lat": 40.15507,
         "stop_lon": -74.229433,
-        "zone_id": 0
+        "zone_id": 0,
+        "stop_location": "Howell"
     },
     {
         "stop_id": 41327,
@@ -942,7 +1046,8 @@
         "stop_desc": "",
         "stop_lat": 40.244479,
         "stop_lon": -74.304643,
-        "zone_id": 0
+        "zone_id": 0,
+        "stop_location": "Freehold Township"
     },
     {
         "stop_id": 27476,
@@ -951,7 +1056,8 @@
         "stop_desc": "",
         "stop_lat": 40.22079,
         "stop_lon": -74.291422,
-        "zone_id": 8192
+        "zone_id": 8192,
+        "stop_location": "Freehold Township"
     },
     {
         "stop_id": 27403,
@@ -960,7 +1066,8 @@
         "stop_desc": "",
         "stop_lat": 40.221099,
         "stop_lon": -74.279002,
-        "zone_id": 8192
+        "zone_id": 8192,
+        "stop_location": "Freehold Township"
     },
     {
         "stop_id": 30801,
@@ -969,7 +1076,8 @@
         "stop_desc": "",
         "stop_lat": 40.221247,
         "stop_lon": -74.270502,
-        "zone_id": 8192
+        "zone_id": 8192,
+        "stop_location": "Freehold Township"
     },
     {
         "stop_id": 27464,
@@ -978,7 +1086,8 @@
         "stop_desc": "",
         "stop_lat": 40.117649,
         "stop_lon": -74.25376,
-        "zone_id": 0
+        "zone_id": 0,
+        "stop_location": "Jackson"
     },
     {
         "stop_id": 27465,
@@ -987,7 +1096,8 @@
         "stop_desc": "",
         "stop_lat": 40.112979,
         "stop_lon": -74.288733,
-        "zone_id": 0
+        "zone_id": 0,
+        "stop_location": "Jackson"
     },
     {
         "stop_id": 31060,
@@ -996,7 +1106,8 @@
         "stop_desc": "",
         "stop_lat": 40.256449,
         "stop_lon": -74.290581,
-        "zone_id": 8195
+        "zone_id": 8195,
+        "stop_location": "Freehold Township"
     },
     {
         "stop_id": 27397,
@@ -1005,7 +1116,8 @@
         "stop_desc": "",
         "stop_lat": 40.254139,
         "stop_lon": -74.282832,
-        "zone_id": 0
+        "zone_id": 0,
+        "stop_location": "Freehold"
     },
     {
         "stop_id": 27341,
@@ -1014,7 +1126,8 @@
         "stop_desc": "",
         "stop_lat": 40.259219,
         "stop_lon": -74.27644,
-        "zone_id": 0
+        "zone_id": 0,
+        "stop_location": "Freehold"
     },
     {
         "stop_id": 27342,
@@ -1023,7 +1136,8 @@
         "stop_desc": "",
         "stop_lat": 40.262077,
         "stop_lon": -74.280051,
-        "zone_id": 0
+        "zone_id": 0,
+        "stop_location": "Freehold"
     },
     {
         "stop_id": 42348,
@@ -1032,7 +1146,8 @@
         "stop_desc": "",
         "stop_lat": 40.2645,
         "stop_lon": -74.284454,
-        "zone_id": 0
+        "zone_id": 0,
+        "stop_location": "Freehold"
     },
     {
         "stop_id": 27343,
@@ -1041,7 +1156,8 @@
         "stop_desc": "",
         "stop_lat": 40.265248,
         "stop_lon": -74.28705,
-        "zone_id": 8192
+        "zone_id": 8192,
+        "stop_location": "Freehold"
     },
     {
         "stop_id": 27350,
@@ -1050,7 +1166,8 @@
         "stop_desc": "",
         "stop_lat": 40.329439,
         "stop_lon": -74.305451,
-        "zone_id": 0
+        "zone_id": 0,
+        "stop_location": "Marlboro Township"
     },
     {
         "stop_id": 27351,
@@ -1059,7 +1176,8 @@
         "stop_desc": "",
         "stop_lat": 40.338849,
         "stop_lon": -74.307032,
-        "zone_id": 0
+        "zone_id": 0,
+        "stop_location": "Marlboro Township"
     },
     {
         "stop_id": 27352,
@@ -1068,7 +1186,8 @@
         "stop_desc": "",
         "stop_lat": 40.346009,
         "stop_lon": -74.307771,
-        "zone_id": 0
+        "zone_id": 0,
+        "stop_location": "Marlboro Township"
     },
     {
         "stop_id": 27353,
@@ -1077,7 +1196,8 @@
         "stop_desc": "",
         "stop_lat": 40.352898,
         "stop_lon": -74.306833,
-        "zone_id": 0
+        "zone_id": 0,
+        "stop_location": "Marlboro Township"
     },
     {
         "stop_id": 27354,
@@ -1086,7 +1206,8 @@
         "stop_desc": "",
         "stop_lat": 40.361659,
         "stop_lon": -74.304821,
-        "zone_id": 0
+        "zone_id": 0,
+        "stop_location": "Marlboro Township"
     },
     {
         "stop_id": 27355,
@@ -1095,7 +1216,8 @@
         "stop_desc": "",
         "stop_lat": 40.36438,
         "stop_lon": -74.304902,
-        "zone_id": 8192
+        "zone_id": 8192,
+        "stop_location": "Old Bridge Township"
     },
     {
         "stop_id": 27356,
@@ -1104,7 +1226,8 @@
         "stop_desc": "",
         "stop_lat": 40.373908,
         "stop_lon": -74.306411,
-        "zone_id": 0
+        "zone_id": 0,
+        "stop_location": "Old Bridge Township"
     },
     {
         "stop_id": 27357,
@@ -1113,7 +1236,8 @@
         "stop_desc": "",
         "stop_lat": 40.383899,
         "stop_lon": -74.307981,
-        "zone_id": 0
+        "zone_id": 0,
+        "stop_location": "Old Bridge Township"
     },
     {
         "stop_id": 27358,
@@ -1122,7 +1246,8 @@
         "stop_desc": "",
         "stop_lat": 40.386349,
         "stop_lon": -74.307931,
-        "zone_id": 0
+        "zone_id": 0,
+        "stop_location": "Old Bridge Township"
     },
     {
         "stop_id": 27359,
@@ -1131,7 +1256,8 @@
         "stop_desc": "",
         "stop_lat": 40.38984,
         "stop_lon": -74.30772,
-        "zone_id": 0
+        "zone_id": 0,
+        "stop_location": "Old Bridge Township"
     },
     {
         "stop_id": 27360,
@@ -1140,7 +1266,8 @@
         "stop_desc": "",
         "stop_lat": 40.395468,
         "stop_lon": -74.307232,
-        "zone_id": 2384
+        "zone_id": 2384,
+        "stop_location": "Old Bridge Township"
     },
     {
         "stop_id": 27361,
@@ -1149,7 +1276,8 @@
         "stop_desc": "",
         "stop_lat": 40.406939,
         "stop_lon": -74.305432,
-        "zone_id": 0
+        "zone_id": 0,
+        "stop_location": "Old Bridge Township"
     },
     {
         "stop_id": 27362,
@@ -1158,7 +1286,8 @@
         "stop_desc": "",
         "stop_lat": 40.40917,
         "stop_lon": -74.30547,
-        "zone_id": 0
+        "zone_id": 0,
+        "stop_location": "Old Bridge Township"
     },
     {
         "stop_id": 27363,
@@ -1167,7 +1296,8 @@
         "stop_desc": "",
         "stop_lat": 40.416078,
         "stop_lon": -74.304693,
-        "zone_id": 0
+        "zone_id": 0,
+        "stop_location": "Old Bridge Township"
     },
     {
         "stop_id": 27364,
@@ -1176,7 +1306,8 @@
         "stop_desc": "",
         "stop_lat": 40.422287,
         "stop_lon": -74.303832,
-        "zone_id": 0
+        "zone_id": 0,
+        "stop_location": "Old Bridge Township"
     },
     {
         "stop_id": 27365,
@@ -1185,7 +1316,8 @@
         "stop_desc": "",
         "stop_lat": 40.430969,
         "stop_lon": -74.302614,
-        "zone_id": 0
+        "zone_id": 0,
+        "stop_location": "Old Bridge Township"
     },
     {
         "stop_id": 27366,
@@ -1194,7 +1326,8 @@
         "stop_desc": "",
         "stop_lat": 40.435139,
         "stop_lon": -74.301331,
-        "zone_id": 8192
+        "zone_id": 8192,
+        "stop_location": "Old Bridge Township"
     },
     {
         "stop_id": 42497,
@@ -1203,7 +1336,8 @@
         "stop_desc": "",
         "stop_lat": 40.243287,
         "stop_lon": -74.274993,
-        "zone_id": 0
+        "zone_id": 0,
+        "stop_location": "Freehold Township"
     },
     {
         "stop_id": 27339,
@@ -1212,7 +1346,8 @@
         "stop_desc": "",
         "stop_lat": 40.247529,
         "stop_lon": -74.274602,
-        "zone_id": 0
+        "zone_id": 0,
+        "stop_location": "Freehold Township"
     },
     {
         "stop_id": 27340,
@@ -1221,7 +1356,8 @@
         "stop_desc": "",
         "stop_lat": 40.251188,
         "stop_lon": -74.277261,
-        "zone_id": 0
+        "zone_id": 0,
+        "stop_location": "Freehold"
     },
     {
         "stop_id": 27429,
@@ -1230,7 +1366,8 @@
         "stop_desc": "",
         "stop_lat": 40.44735,
         "stop_lon": -74.301312,
-        "zone_id": 8192
+        "zone_id": 8192,
+        "stop_location": "Old Bridge Township"
     },
     {
         "stop_id": 28477,
@@ -1239,7 +1376,8 @@
         "stop_desc": "",
         "stop_lat": 40.43463,
         "stop_lon": -74.301973,
-        "zone_id": 0
+        "zone_id": 0,
+        "stop_location": "Old Bridge Township"
     },
     {
         "stop_id": 28478,
@@ -1248,7 +1386,8 @@
         "stop_desc": "",
         "stop_lat": 40.431678,
         "stop_lon": -74.302931,
-        "zone_id": 0
+        "zone_id": 0,
+        "stop_location": "Old Bridge Township"
     },
     {
         "stop_id": 28479,
@@ -1257,7 +1396,8 @@
         "stop_desc": "",
         "stop_lat": 40.42263,
         "stop_lon": -74.3043,
-        "zone_id": 0
+        "zone_id": 0,
+        "stop_location": "Old Bridge Township"
     },
     {
         "stop_id": 28480,
@@ -1266,7 +1406,8 @@
         "stop_desc": "",
         "stop_lat": 40.41624,
         "stop_lon": -74.305163,
-        "zone_id": 0
+        "zone_id": 0,
+        "stop_location": "Old Bridge Township"
     },
     {
         "stop_id": 28481,
@@ -1275,7 +1416,8 @@
         "stop_desc": "",
         "stop_lat": 40.409578,
         "stop_lon": -74.305952,
-        "zone_id": 0
+        "zone_id": 0,
+        "stop_location": "Old Bridge Township"
     },
     {
         "stop_id": 27430,
@@ -1284,7 +1426,8 @@
         "stop_desc": "",
         "stop_lat": 40.40629,
         "stop_lon": -74.305881,
-        "zone_id": 0
+        "zone_id": 0,
+        "stop_location": "Old Bridge Township"
     },
     {
         "stop_id": 27431,
@@ -1293,7 +1436,8 @@
         "stop_desc": "",
         "stop_lat": 40.396819,
         "stop_lon": -74.308033,
-        "zone_id": 0
+        "zone_id": 0,
+        "stop_location": "Old Bridge Township"
     },
     {
         "stop_id": 28482,
@@ -1302,7 +1446,8 @@
         "stop_desc": "",
         "stop_lat": 40.389327,
         "stop_lon": -74.308203,
-        "zone_id": 0
+        "zone_id": 0,
+        "stop_location": "Old Bridge Township"
     },
     {
         "stop_id": 28484,
@@ -1311,7 +1456,8 @@
         "stop_desc": "",
         "stop_lat": 40.383729,
         "stop_lon": -74.308472,
-        "zone_id": 0
+        "zone_id": 0,
+        "stop_location": "Old Bridge Township"
     },
     {
         "stop_id": 28485,
@@ -1320,7 +1466,8 @@
         "stop_desc": "",
         "stop_lat": 40.373998,
         "stop_lon": -74.307022,
-        "zone_id": 0
+        "zone_id": 0,
+        "stop_location": "Old Bridge Township"
     },
     {
         "stop_id": 41030,
@@ -1329,7 +1476,8 @@
         "stop_desc": "",
         "stop_lat": 40.363429,
         "stop_lon": -74.305313,
-        "zone_id": 0
+        "zone_id": 0,
+        "stop_location": "Old Bridge Township"
     },
     {
         "stop_id": 27432,
@@ -1338,7 +1486,8 @@
         "stop_desc": "",
         "stop_lat": 40.353309,
         "stop_lon": -74.307153,
-        "zone_id": 0
+        "zone_id": 0,
+        "stop_location": "Marlboro Township"
     },
     {
         "stop_id": 27433,
@@ -1347,7 +1496,8 @@
         "stop_desc": "",
         "stop_lat": 40.34676,
         "stop_lon": -74.308041,
-        "zone_id": 0
+        "zone_id": 0,
+        "stop_location": "Marlboro Township"
     },
     {
         "stop_id": 27434,
@@ -1356,7 +1506,8 @@
         "stop_desc": "",
         "stop_lat": 40.343779,
         "stop_lon": -74.308211,
-        "zone_id": 0
+        "zone_id": 0,
+        "stop_location": "Marlboro Township"
     },
     {
         "stop_id": 27368,
@@ -1365,7 +1516,8 @@
         "stop_desc": "",
         "stop_lat": 40.26989,
         "stop_lon": -74.304732,
-        "zone_id": 0
+        "zone_id": 0,
+        "stop_location": "Freehold Township"
     },
     {
         "stop_id": 27369,
@@ -1374,7 +1526,8 @@
         "stop_desc": "",
         "stop_lat": 40.281448,
         "stop_lon": -74.33032,
-        "zone_id": 8192
+        "zone_id": 8192,
+        "stop_location": "Manalapan Township"
     },
     {
         "stop_id": 27370,
@@ -1383,7 +1536,8 @@
         "stop_desc": "",
         "stop_lat": 40.290119,
         "stop_lon": -74.34323,
-        "zone_id": 0
+        "zone_id": 0,
+        "stop_location": "Manalapan Township"
     },
     {
         "stop_id": 27371,
@@ -1392,7 +1546,8 @@
         "stop_desc": "",
         "stop_lat": 40.292379,
         "stop_lon": -74.349143,
-        "zone_id": 0
+        "zone_id": 0,
+        "stop_location": "Manalapan Township"
     },
     {
         "stop_id": 27372,
@@ -1401,7 +1556,8 @@
         "stop_desc": "",
         "stop_lat": 40.295407,
         "stop_lon": -74.355722,
-        "zone_id": 0
+        "zone_id": 0,
+        "stop_location": "Englishtown"
     },
     {
         "stop_id": 27373,
@@ -1410,7 +1566,8 @@
         "stop_desc": "",
         "stop_lat": 40.295509,
         "stop_lon": -74.358193,
-        "zone_id": 0
+        "zone_id": 0,
+        "stop_location": "Englishtown"
     },
     {
         "stop_id": 27374,
@@ -1419,7 +1576,8 @@
         "stop_desc": "",
         "stop_lat": 40.296928,
         "stop_lon": -74.35835,
-        "zone_id": 0
+        "zone_id": 0,
+        "stop_location": "Englishtown"
     },
     {
         "stop_id": 27375,
@@ -1428,7 +1586,8 @@
         "stop_desc": "",
         "stop_lat": 40.302329,
         "stop_lon": -74.356773,
-        "zone_id": 0
+        "zone_id": 0,
+        "stop_location": "Englishtown"
     },
     {
         "stop_id": 41321,
@@ -1437,7 +1596,8 @@
         "stop_desc": "",
         "stop_lat": 40.309728,
         "stop_lon": -74.359843,
-        "zone_id": 0
+        "zone_id": 0,
+        "stop_location": "Manalapan Township"
     },
     {
         "stop_id": 27377,
@@ -1446,7 +1606,8 @@
         "stop_desc": "",
         "stop_lat": 40.312679,
         "stop_lon": -74.361142,
-        "zone_id": 0
+        "zone_id": 0,
+        "stop_location": "Manalapan Township"
     },
     {
         "stop_id": 41322,
@@ -1455,7 +1616,8 @@
         "stop_desc": "",
         "stop_lat": 40.322969,
         "stop_lon": -74.361362,
-        "zone_id": 0
+        "zone_id": 0,
+        "stop_location": "Monroe Township"
     },
     {
         "stop_id": 41323,
@@ -1464,7 +1626,8 @@
         "stop_desc": "",
         "stop_lat": 40.325608,
         "stop_lon": -74.360992,
-        "zone_id": 0
+        "zone_id": 0,
+        "stop_location": "Monroe Township"
     },
     {
         "stop_id": 43415,
@@ -1473,7 +1636,8 @@
         "stop_desc": "",
         "stop_lat": 40.347725,
         "stop_lon": -74.35718,
-        "zone_id": 336
+        "zone_id": 336,
+        "stop_location": "Old Bridge Township"
     },
     {
         "stop_id": 41324,
@@ -1482,7 +1646,8 @@
         "stop_desc": "",
         "stop_lat": 40.35126,
         "stop_lon": -74.356221,
-        "zone_id": 0
+        "zone_id": 0,
+        "stop_location": "Old Bridge Township"
     },
     {
         "stop_id": 39454,
@@ -1491,7 +1656,8 @@
         "stop_desc": "",
         "stop_lat": 40.354449,
         "stop_lon": -74.355483,
-        "zone_id": 0
+        "zone_id": 0,
+        "stop_location": "Old Bridge Township"
     },
     {
         "stop_id": 27381,
@@ -1500,7 +1666,8 @@
         "stop_desc": "",
         "stop_lat": 40.357148,
         "stop_lon": -74.354832,
-        "zone_id": 0
+        "zone_id": 0,
+        "stop_location": "Old Bridge Township"
     },
     {
         "stop_id": 27383,
@@ -1509,7 +1676,8 @@
         "stop_desc": "",
         "stop_lat": 40.375768,
         "stop_lon": -74.356721,
-        "zone_id": 0
+        "zone_id": 0,
+        "stop_location": "Old Bridge Township"
     },
     {
         "stop_id": 27384,
@@ -1518,7 +1686,8 @@
         "stop_desc": "",
         "stop_lat": 40.387009,
         "stop_lon": -74.358382,
-        "zone_id": 0
+        "zone_id": 0,
+        "stop_location": "Old Bridge Township"
     },
     {
         "stop_id": 27385,
@@ -1527,7 +1696,8 @@
         "stop_desc": "",
         "stop_lat": 40.390138,
         "stop_lon": -74.358832,
-        "zone_id": 8192
+        "zone_id": 8192,
+        "stop_location": "Old Bridge Township"
     },
     {
         "stop_id": 27386,
@@ -1536,7 +1706,8 @@
         "stop_desc": "",
         "stop_lat": 40.391999,
         "stop_lon": -74.359112,
-        "zone_id": 0
+        "zone_id": 0,
+        "stop_location": "Old Bridge Township"
     },
     {
         "stop_id": 27387,
@@ -1545,7 +1716,8 @@
         "stop_desc": "",
         "stop_lat": 40.394748,
         "stop_lon": -74.359532,
-        "zone_id": 8192
+        "zone_id": 8192,
+        "stop_location": "Old Bridge Township"
     },
     {
         "stop_id": 27389,
@@ -1554,7 +1726,8 @@
         "stop_desc": "",
         "stop_lat": 40.401398,
         "stop_lon": -74.360641,
-        "zone_id": 0
+        "zone_id": 0,
+        "stop_location": "Old Bridge Township"
     },
     {
         "stop_id": 41326,
@@ -1563,7 +1736,8 @@
         "stop_desc": "",
         "stop_lat": 40.403478,
         "stop_lon": -74.360963,
-        "zone_id": 0
+        "zone_id": 0,
+        "stop_location": "Old Bridge Township"
     },
     {
         "stop_id": 27392,
@@ -1572,7 +1746,8 @@
         "stop_desc": "",
         "stop_lat": 40.406629,
         "stop_lon": -74.361424,
-        "zone_id": 0
+        "zone_id": 0,
+        "stop_location": "Old Bridge Township"
     },
     {
         "stop_id": 41053,
@@ -1581,7 +1756,8 @@
         "stop_desc": "",
         "stop_lat": 40.410088,
         "stop_lon": -74.3573,
-        "zone_id": 0
+        "zone_id": 0,
+        "stop_location": "Old Bridge Township"
     },
     {
         "stop_id": 3434,
@@ -1590,7 +1766,8 @@
         "stop_desc": "",
         "stop_lat": 40.410238,
         "stop_lon": -74.355352,
-        "zone_id": 0
+        "zone_id": 0,
+        "stop_location": "Old Bridge Township"
     },
     {
         "stop_id": 3435,
@@ -1599,7 +1776,8 @@
         "stop_desc": "",
         "stop_lat": 40.406909,
         "stop_lon": -74.335752,
-        "zone_id": 0
+        "zone_id": 0,
+        "stop_location": "Old Bridge Township"
     },
     {
         "stop_id": 3436,
@@ -1608,7 +1786,8 @@
         "stop_desc": "",
         "stop_lat": 40.406018,
         "stop_lon": -74.33234,
-        "zone_id": 0
+        "zone_id": 0,
+        "stop_location": "Old Bridge Township"
     },
     {
         "stop_id": 3437,
@@ -1617,7 +1796,8 @@
         "stop_desc": "",
         "stop_lat": 40.40458,
         "stop_lon": -74.326872,
-        "zone_id": 0
+        "zone_id": 0,
+        "stop_location": "Old Bridge Township"
     },
     {
         "stop_id": 27393,
@@ -1626,7 +1806,8 @@
         "stop_desc": "",
         "stop_lat": 40.403549,
         "stop_lon": -74.321461,
-        "zone_id": 0
+        "zone_id": 0,
+        "stop_location": "Old Bridge Township"
     },
     {
         "stop_id": 3438,
@@ -1635,7 +1816,8 @@
         "stop_desc": "",
         "stop_lat": 40.401859,
         "stop_lon": -74.312793,
-        "zone_id": 0
+        "zone_id": 0,
+        "stop_location": "Old Bridge Township"
     },
     {
         "stop_id": 27402,
@@ -1644,7 +1826,8 @@
         "stop_desc": "",
         "stop_lat": 40.221398,
         "stop_lon": -74.270512,
-        "zone_id": 8192
+        "zone_id": 8192,
+        "stop_location": "Freehold Township"
     },
     {
         "stop_id": 41311,
@@ -1653,7 +1836,8 @@
         "stop_desc": "",
         "stop_lat": 40.22122,
         "stop_lon": -74.27843,
-        "zone_id": 0
+        "zone_id": 0,
+        "stop_location": "Freehold Township"
     },
     {
         "stop_id": 27404,
@@ -1662,7 +1846,8 @@
         "stop_desc": "",
         "stop_lat": 40.22102,
         "stop_lon": -74.287092,
-        "zone_id": 0
+        "zone_id": 0,
+        "stop_location": "Freehold Township"
     },
     {
         "stop_id": 27405,
@@ -1671,7 +1856,8 @@
         "stop_desc": "",
         "stop_lat": 40.220979,
         "stop_lon": -74.293491,
-        "zone_id": 0
+        "zone_id": 0,
+        "stop_location": "Freehold Township"
     },
     {
         "stop_id": 27428,
@@ -1680,7 +1866,8 @@
         "stop_desc": "",
         "stop_lat": 40.246019,
         "stop_lon": -74.305721,
-        "zone_id": 8192
+        "zone_id": 8192,
+        "stop_location": "Freehold Township"
     },
     {
         "stop_id": 27449,
@@ -1689,7 +1876,8 @@
         "stop_desc": "",
         "stop_lat": 40.40193,
         "stop_lon": -74.312353,
-        "zone_id": 8192
+        "zone_id": 8192,
+        "stop_location": "Old Bridge Township"
     },
     {
         "stop_id": 3439,
@@ -1698,7 +1886,8 @@
         "stop_desc": "",
         "stop_lat": 40.404139,
         "stop_lon": -74.323821,
-        "zone_id": 0
+        "zone_id": 0,
+        "stop_location": "Old Bridge Township"
     },
     {
         "stop_id": 3440,
@@ -1707,7 +1896,8 @@
         "stop_desc": "",
         "stop_lat": 40.404769,
         "stop_lon": -74.327122,
-        "zone_id": 0
+        "zone_id": 0,
+        "stop_location": "Old Bridge Township"
     },
     {
         "stop_id": 3441,
@@ -1716,7 +1906,8 @@
         "stop_desc": "",
         "stop_lat": 40.406218,
         "stop_lon": -74.332573,
-        "zone_id": 0
+        "zone_id": 0,
+        "stop_location": "Old Bridge Township"
     },
     {
         "stop_id": 41052,
@@ -1725,7 +1916,8 @@
         "stop_desc": "",
         "stop_lat": 40.407769,
         "stop_lon": -74.336961,
-        "zone_id": 0
+        "zone_id": 0,
+        "stop_location": "Old Bridge Township"
     },
     {
         "stop_id": 3442,
@@ -1734,7 +1926,8 @@
         "stop_desc": "",
         "stop_lat": 40.41034,
         "stop_lon": -74.356021,
-        "zone_id": 0
+        "zone_id": 0,
+        "stop_location": "Old Bridge Township"
     },
     {
         "stop_id": 27451,
@@ -1743,7 +1936,8 @@
         "stop_desc": "",
         "stop_lat": 40.406509,
         "stop_lon": -74.361572,
-        "zone_id": 0
+        "zone_id": 0,
+        "stop_location": "Old Bridge Township"
     },
     {
         "stop_id": 27453,
@@ -1752,7 +1946,8 @@
         "stop_desc": "",
         "stop_lat": 40.4033,
         "stop_lon": -74.361101,
-        "zone_id": 0
+        "zone_id": 0,
+        "stop_location": "Old Bridge Township"
     },
     {
         "stop_id": 41328,
@@ -1761,7 +1956,8 @@
         "stop_desc": "",
         "stop_lat": 40.400809,
         "stop_lon": -74.3607,
-        "zone_id": 0
+        "zone_id": 0,
+        "stop_location": "Old Bridge Township"
     },
     {
         "stop_id": 30780,
@@ -1770,7 +1966,8 @@
         "stop_desc": "",
         "stop_lat": 40.394068,
         "stop_lon": -74.359592,
-        "zone_id": 0
+        "zone_id": 0,
+        "stop_location": "Old Bridge Township"
     },
     {
         "stop_id": 27455,
@@ -1779,7 +1976,8 @@
         "stop_desc": "",
         "stop_lat": 40.392838,
         "stop_lon": -74.359411,
-        "zone_id": 0
+        "zone_id": 0,
+        "stop_location": "Old Bridge Township"
     },
     {
         "stop_id": 27457,
@@ -1788,7 +1986,8 @@
         "stop_desc": "",
         "stop_lat": 40.390289,
         "stop_lon": -74.359032,
-        "zone_id": 8192
+        "zone_id": 8192,
+        "stop_location": "Old Bridge Township"
     },
     {
         "stop_id": 30781,
@@ -1797,7 +1996,8 @@
         "stop_desc": "",
         "stop_lat": 40.386598,
         "stop_lon": -74.358472,
-        "zone_id": 0
+        "zone_id": 0,
+        "stop_location": "Old Bridge Township"
     },
     {
         "stop_id": 30782,
@@ -1806,7 +2006,8 @@
         "stop_desc": "",
         "stop_lat": 40.375089,
         "stop_lon": -74.35678,
-        "zone_id": 0
+        "zone_id": 0,
+        "stop_location": "Old Bridge Township"
     },
     {
         "stop_id": 30783,
@@ -1815,7 +2016,8 @@
         "stop_desc": "",
         "stop_lat": 40.357368,
         "stop_lon": -74.35488,
-        "zone_id": 0
+        "zone_id": 0,
+        "stop_location": "Old Bridge Township"
     },
     {
         "stop_id": 39453,
@@ -1824,7 +2026,8 @@
         "stop_desc": "",
         "stop_lat": 40.353879,
         "stop_lon": -74.355721,
-        "zone_id": 0
+        "zone_id": 0,
+        "stop_location": "Old Bridge Township"
     },
     {
         "stop_id": 40777,
@@ -1833,7 +2036,8 @@
         "stop_desc": "",
         "stop_lat": 40.351418,
         "stop_lon": -74.356342,
-        "zone_id": 0
+        "zone_id": 0,
+        "stop_location": "Old Bridge Township"
     },
     {
         "stop_id": 43416,
@@ -1842,7 +2046,8 @@
         "stop_desc": "",
         "stop_lat": 40.347725,
         "stop_lon": -74.35718,
-        "zone_id": 336
+        "zone_id": 336,
+        "stop_location": "Old Bridge Township"
     },
     {
         "stop_id": 30788,
@@ -1851,7 +2056,8 @@
         "stop_desc": "",
         "stop_lat": 40.325528,
         "stop_lon": -74.361093,
-        "zone_id": 0
+        "zone_id": 0,
+        "stop_location": "Monroe Township"
     },
     {
         "stop_id": 27378,
@@ -1860,7 +2066,8 @@
         "stop_desc": "",
         "stop_lat": 40.323007,
         "stop_lon": -74.36148,
-        "zone_id": 8192
+        "zone_id": 8192,
+        "stop_location": "Monroe Township"
     },
     {
         "stop_id": 30785,
@@ -1869,7 +2076,8 @@
         "stop_desc": "",
         "stop_lat": 40.312857,
         "stop_lon": -74.36132,
-        "zone_id": 0
+        "zone_id": 0,
+        "stop_location": "Manalapan Township"
     },
     {
         "stop_id": 30786,
@@ -1878,7 +2086,8 @@
         "stop_desc": "",
         "stop_lat": 40.309479,
         "stop_lon": -74.359932,
-        "zone_id": 0
+        "zone_id": 0,
+        "stop_location": "Manalapan Township"
     },
     {
         "stop_id": 30787,
@@ -1887,7 +2096,8 @@
         "stop_desc": "",
         "stop_lat": 40.302239,
         "stop_lon": -74.356842,
-        "zone_id": 0
+        "zone_id": 0,
+        "stop_location": "Englishtown"
     },
     {
         "stop_id": 28779,
@@ -1896,7 +2106,8 @@
         "stop_desc": "",
         "stop_lat": 40.296747,
         "stop_lon": -74.35847,
-        "zone_id": 8195
+        "zone_id": 8195,
+        "stop_location": "Englishtown"
     },
     {
         "stop_id": 27460,
@@ -1905,7 +2116,8 @@
         "stop_desc": "",
         "stop_lat": 40.295399,
         "stop_lon": -74.357982,
-        "zone_id": 0
+        "zone_id": 0,
+        "stop_location": "Englishtown"
     },
     {
         "stop_id": 27461,
@@ -1914,7 +2126,8 @@
         "stop_desc": "",
         "stop_lat": 40.295328,
         "stop_lon": -74.356542,
-        "zone_id": 0
+        "zone_id": 0,
+        "stop_location": "Englishtown"
     },
     {
         "stop_id": 27462,
@@ -1923,7 +2136,8 @@
         "stop_desc": "",
         "stop_lat": 40.29512,
         "stop_lon": -74.354413,
-        "zone_id": 0
+        "zone_id": 0,
+        "stop_location": "Englishtown"
     },
     {
         "stop_id": 30794,
@@ -1932,7 +2146,8 @@
         "stop_desc": "",
         "stop_lat": 40.292289,
         "stop_lon": -74.349241,
-        "zone_id": 0
+        "zone_id": 0,
+        "stop_location": "Manalapan Township"
     },
     {
         "stop_id": 30795,
@@ -1941,7 +2156,8 @@
         "stop_desc": "",
         "stop_lat": 40.290088,
         "stop_lon": -74.343712,
-        "zone_id": 0
+        "zone_id": 0,
+        "stop_location": "Manalapan Township"
     },
     {
         "stop_id": 30796,
@@ -1950,7 +2166,8 @@
         "stop_desc": "",
         "stop_lat": 40.281399,
         "stop_lon": -74.330493,
-        "zone_id": 0
+        "zone_id": 0,
+        "stop_location": "Manalapan Township"
     },
     {
         "stop_id": 30797,
@@ -1959,6 +2176,7 @@
         "stop_desc": "",
         "stop_lat": 40.269868,
         "stop_lon": -74.305152,
-        "zone_id": 0
+        "zone_id": 0,
+        "stop_location": "Freehold Township"
     }
 ]

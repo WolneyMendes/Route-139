@@ -22,16 +22,19 @@ public class Locations {
     
     public func addStop( stop : RouteStop ) {
         for  location in locations  {
-//            if location.location == stop.Location {
+            if location.location == stop.Location {
                 location.addStop(stop)
                 return;
-//            }
+            }
         }
         
-        var newLocation = Location(name: "" /*stop.Location*/ )
+        var newLocation = Location(name: stop.Location )
         newLocation.addStop(stop)
         
         locations.append(newLocation)
+        locations.sort { (before, after) -> Bool in
+            before.location < after.location
+        }
     }
     
 }

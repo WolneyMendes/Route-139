@@ -91,10 +91,11 @@ public class RouteFetcher {
                     var retStop = Dictionary<String,AnyObject>()
                     
                     retStop[ RouteFetcherConstants.Stop.Identity ] = stopDictionary[ RouteFetcherConstants.Stop.Identity ] as? Int!
-                    retStop[ RouteFetcherConstants.Stop.Code ] = "\((stopDictionary[ RouteFetcherConstants.Stop.Code ] as? Int!)!)"
-                    retStop[ RouteFetcherConstants.Stop.Name ] = stopDictionary[ RouteFetcherConstants.Stop.Name ] as? String!
-                    retStop[ RouteFetcherConstants.Stop.Lat ] = stopDictionary[ RouteFetcherConstants.Stop.Lat ] as? Double!
-                    retStop[ RouteFetcherConstants.Stop.Lon ] = stopDictionary[ RouteFetcherConstants.Stop.Lon ] as? Double!
+                    retStop[ RouteFetcherConstants.Stop.Code ]     = "\((stopDictionary[ RouteFetcherConstants.Stop.Code ] as? Int!)!)"
+                    retStop[ RouteFetcherConstants.Stop.Name ]     = stopDictionary[ RouteFetcherConstants.Stop.Name ] as? String!
+                    retStop[ RouteFetcherConstants.Stop.Lat ]      = stopDictionary[ RouteFetcherConstants.Stop.Lat ] as? Double!
+                    retStop[ RouteFetcherConstants.Stop.Lon ]      = stopDictionary[ RouteFetcherConstants.Stop.Lon ] as? Double!
+                    retStop[ RouteFetcherConstants.Stop.Location]  = stopDictionary[ RouteFetcherConstants.Stop.Location ] as? String!
                     
                     ret.append(retStop)
                 }

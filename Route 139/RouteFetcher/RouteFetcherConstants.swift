@@ -40,6 +40,7 @@ public struct RouteFetcherConstants {
         public static let Identity    = "stop_id"
         public static let Lat         = "stop_lat"
         public static let Lon         = "stop_lon"
+        public static let Location    = "stop_location"
     }
     
     public struct StopTime {
