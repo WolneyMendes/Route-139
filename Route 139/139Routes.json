@@ -2,7 +2,7 @@
     {
         "route_id": 25,
         "agency_id": "NJB",
-        "route_short_name": "130",
+        "route_short_name": 130,
         "route_long_name": "",
         "route_type": 3,
         "route_url": "",
@@ -11,7 +11,7 @@
     {
         "route_id": 27,
         "agency_id": "NJB",
-        "route_short_name": "132",
+        "route_short_name": 132,
         "route_long_name": "",
         "route_type": 3,
         "route_url": "",
@@ -20,7 +20,7 @@
     {
         "route_id": 30,
         "agency_id": "NJB",
-        "route_short_name": "136",
+        "route_short_name": 136,
         "route_long_name": "",
         "route_type": 3,
         "route_url": "",
@@ -29,7 +29,7 @@
     {
         "route_id": 33,
         "agency_id": "NJB",
-        "route_short_name": "139",
+        "route_short_name": 139,
         "route_long_name": "",
         "route_type": 3,
         "route_url": "",

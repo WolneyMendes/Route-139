@@ -64,7 +64,7 @@ public class RouteFetcher {
                     var retStop = Dictionary<String,AnyObject>()
                     
                     retStop[ RouteFetcherConstants.Route.Identity ] = stopDictionary[ RouteFetcherConstants.Route.Identity ] as? Int!
-                    retStop[ RouteFetcherConstants.Route.Name ] = stopDictionary[ RouteFetcherConstants.Route.Name ] as? String!
+                    retStop[ RouteFetcherConstants.Route.Name ] = "\((stopDictionary[ RouteFetcherConstants.Route.Name ] as? Int!)!)"
                     
                     ret.append(retStop)
                 }
@@ -91,7 +91,7 @@ public class RouteFetcher {
                     var retStop = Dictionary<String,AnyObject>()
                     
                     retStop[ RouteFetcherConstants.Stop.Identity ] = stopDictionary[ RouteFetcherConstants.Stop.Identity ] as? Int!
-                    retStop[ RouteFetcherConstants.Stop.Code ] = stopDictionary[ RouteFetcherConstants.Stop.Code ] as? String!
+                    retStop[ RouteFetcherConstants.Stop.Code ] = "\((stopDictionary[ RouteFetcherConstants.Stop.Code ] as? Int!)!)"
                     retStop[ RouteFetcherConstants.Stop.Name ] = stopDictionary[ RouteFetcherConstants.Stop.Name ] as? String!
                     retStop[ RouteFetcherConstants.Stop.Lat ] = stopDictionary[ RouteFetcherConstants.Stop.Lat ] as? Double!
                     retStop[ RouteFetcherConstants.Stop.Lon ] = stopDictionary[ RouteFetcherConstants.Stop.Lon ] as? Double!
@@ -107,13 +107,14 @@ public class RouteFetcher {
     public static func loadCalendarDates() -> Array<Dictionary<String,AnyObject>> {
         
         var ret = Array<Dictionary<String,AnyObject>>()
+        var error : NSError? = NSError()
         
         var bundle = NSBundle.mainBundle()
         var calendarPath = bundle.pathForResource(RouteFetcherConstants.CalendarJsonPath, ofType: "json")
         
         var calendar = String(contentsOfFile: calendarPath!, encoding: NSUTF8StringEncoding, error: nil)!
         var data: NSData = calendar.dataUsingEncoding(NSUTF8StringEncoding)!
-        var jsonObject: AnyObject = NSJSONSerialization.JSONObjectWithData(data, options: NSJSONReadingOptions(0), error: nil)!
+        var jsonObject: AnyObject? = NSJSONSerialization.JSONObjectWithData(data, options: NSJSONReadingOptions(0), error: &error)
         
         if let jsonArray = jsonObject as? Array<AnyObject> {
             for json in jsonArray {
@@ -123,10 +124,10 @@ public class RouteFetcher {
                         calendarDictionary[ RouteFetcherConstants.Calendar.ServiceId ] as? Int!
                     
                     retCalendar[ RouteFetcherConstants.Calendar.Date ] =
-                        calendarDictionary[ RouteFetcherConstants.Calendar.Date ] as? String!
+                        "\((calendarDictionary[ RouteFetcherConstants.Calendar.Date ] as? Int!)!)"
                     
                     retCalendar[ RouteFetcherConstants.Calendar.ExceptionType ] =
-                        calendarDictionary[ RouteFetcherConstants.Calendar.ExceptionType ] as? String!
+                        "\((calendarDictionary[ RouteFetcherConstants.Calendar.ExceptionType ] as? Int!)!)"
                     
                     ret.append(retCalendar)
                 }
@@ -201,7 +202,7 @@ public class RouteFetcher {
                         tripDictionary[ RouteFetcherConstants.Trip.RouteId ] as? Int!
                     
                     retStop[ RouteFetcherConstants.Trip.Direction ] =
-                        tripDictionary[ RouteFetcherConstants.Trip.Direction ] as? String!
+                        "\((tripDictionary[ RouteFetcherConstants.Trip.Direction ] as? Int!)!)"
                     
                     ret.append(retStop)
                 }

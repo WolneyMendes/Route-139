@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		0D0850941B86C028008EDCA5 /* 139Calendar_dates.json in Resources */ = {isa = PBXBuildFile; fileRef = 0D0850931B86C028008EDCA5 /* 139Calendar_dates.json */; };
 		0D2E58501B7F91B900BCB344 /* ToTerminal.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0D2E584F1B7F91B900BCB344 /* ToTerminal.swift */; };
 		0D2E58521B7F921100BCB344 /* FromTerminal.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0D2E58511B7F921100BCB344 /* FromTerminal.swift */; };
 		0D2E58541B7FC29F00BCB344 /* ScheduleEntry.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0D2E58531B7FC29F00BCB344 /* ScheduleEntry.swift */; };
@@ -30,7 +31,6 @@
 		0DBFE9E01B7C0570002E22B4 /* 139Stops.json in Resources */ = {isa = PBXBuildFile; fileRef = 0DBFE9DF1B7C0570002E22B4 /* 139Stops.json */; };
 		0DBFE9E21B7C0586002E22B4 /* 139StopTimes.json in Resources */ = {isa = PBXBuildFile; fileRef = 0DBFE9E11B7C0586002E22B4 /* 139StopTimes.json */; };
 		0DBFE9E41B7C0593002E22B4 /* 139Trips.json in Resources */ = {isa = PBXBuildFile; fileRef = 0DBFE9E31B7C0593002E22B4 /* 139Trips.json */; };
-		0DBFE9E61B7C05A4002E22B4 /* calendar_dates.json in Resources */ = {isa = PBXBuildFile; fileRef = 0DBFE9E51B7C05A4002E22B4 /* calendar_dates.json */; };
 		0DBFE9E81B7C1994002E22B4 /* CalendarDate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0DBFE9E71B7C1994002E22B4 /* CalendarDate.swift */; };
 		0DBFE9EA1B7C202C002E22B4 /* RouteTrip.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0DBFE9E91B7C202C002E22B4 /* RouteTrip.swift */; };
 		0DBFE9EC1B7C233E002E22B4 /* RouteStopTime.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0DBFE9EB1B7C233E002E22B4 /* RouteStopTime.swift */; };
@@ -47,6 +47,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		0D0850931B86C028008EDCA5 /* 139Calendar_dates.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = 139Calendar_dates.json; sourceTree = "<group>"; };
 		0D2E584F1B7F91B900BCB344 /* ToTerminal.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ToTerminal.swift; sourceTree = "<group>"; };
 		0D2E58511B7F921100BCB344 /* FromTerminal.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FromTerminal.swift; sourceTree = "<group>"; };
 		0D2E58531B7FC29F00BCB344 /* ScheduleEntry.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ScheduleEntry.swift; path = Model/ScheduleEntry.swift; sourceTree = "<group>"; };
@@ -74,7 +75,6 @@
 		0DBFE9DF1B7C0570002E22B4 /* 139Stops.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = 139Stops.json; sourceTree = "<group>"; };
 		0DBFE9E11B7C0586002E22B4 /* 139StopTimes.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = 139StopTimes.json; sourceTree = "<group>"; };
 		0DBFE9E31B7C0593002E22B4 /* 139Trips.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = 139Trips.json; sourceTree = "<group>"; };
-		0DBFE9E51B7C05A4002E22B4 /* calendar_dates.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = calendar_dates.json; sourceTree = "<group>"; };
 		0DBFE9E71B7C1994002E22B4 /* CalendarDate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = CalendarDate.swift; path = Model/CalendarDate.swift; sourceTree = "<group>"; };
 		0DBFE9E91B7C202C002E22B4 /* RouteTrip.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = RouteTrip.swift; path = Model/RouteTrip.swift; sourceTree = "<group>"; };
 		0DBFE9EB1B7C233E002E22B4 /* RouteStopTime.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = RouteStopTime.swift; path = Model/RouteStopTime.swift; sourceTree = "<group>"; };
@@ -101,7 +101,7 @@
 		0D18C5081B7BF6A6008BAB02 /* Resources */ = {
 			isa = PBXGroup;
 			children = (
-				0DBFE9E51B7C05A4002E22B4 /* calendar_dates.json */,
+				0D0850931B86C028008EDCA5 /* 139Calendar_dates.json */,
 				0DBFE9E31B7C0593002E22B4 /* 139Trips.json */,
 				0DBFE9E11B7C0586002E22B4 /* 139StopTimes.json */,
 				0DBFE9DF1B7C0570002E22B4 /* 139Stops.json */,
@@ -294,7 +294,7 @@
 				0D60B98C1B60685700E31E98 /* LaunchScreen.xib in Resources */,
 				0D60B9891B60685700E31E98 /* Images.xcassets in Resources */,
 				0DBFE9E41B7C0593002E22B4 /* 139Trips.json in Resources */,
-				0DBFE9E61B7C05A4002E22B4 /* calendar_dates.json in Resources */,
+				0D0850941B86C028008EDCA5 /* 139Calendar_dates.json in Resources */,
 				0DBFE9E21B7C0586002E22B4 /* 139StopTimes.json in Resources */,
 				0DBFE9E01B7C0570002E22B4 /* 139Stops.json in Resources */,
 			);
