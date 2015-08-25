@@ -134,8 +134,6 @@
 				0D72613A1B6A5CB30082A02C /* ViewModel */,
 				0D60B9A61B606A8B00E31E98 /* Route Fetcher */,
 				0D60B9A51B6069C700E31E98 /* Model */,
-				0D60B9A11B6068AA00E31E98 /* SettingsTableViewController.swift */,
-				0D60B9A31B6068BA00E31E98 /* StopSelectionTableViewController.swift */,
 				0D60B9811B60685700E31E98 /* AppDelegate.swift */,
 				0D60B9851B60685700E31E98 /* Main.storyboard */,
 				0D60B9881B60685700E31E98 /* Images.xcassets */,
@@ -144,6 +142,8 @@
 				0D2E584F1B7F91B900BCB344 /* ToTerminal.swift */,
 				0D2E58511B7F921100BCB344 /* FromTerminal.swift */,
 				0D2E58591B8004C400BCB344 /* FromTerminalCell.swift */,
+				0D60B9A11B6068AA00E31E98 /* SettingsTableViewController.swift */,
+				0D60B9A31B6068BA00E31E98 /* StopSelectionTableViewController.swift */,
 			);
 			path = "Route 139";
 			sourceTree = "<group>";

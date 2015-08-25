@@ -510,7 +510,7 @@ public class ModelStore {
 
     public static func findServiceDescription( weekDay: Int, rawTime: Int, route: String ) -> ( description: String, gate: String ) {
         
-        var description = ""
+        var description = route
         var gate = ""
         
         switch weekDay {
@@ -527,31 +527,31 @@ public class ModelStore {
                 case "130":
                     if rawTime >= 1330 && rawTime <= 1640 {
                         gate = "322"
-                        description = "Express to Union Hill"
+                        description += " - Express to Union Hill"
                     } else if rawTime >= 1700 && rawTime <= 1842 {
                         gate = "326"
-                        description = "Express to Union Hill"
+                        description += " - Express to Union Hill"
                     } else if rawTime >= 1850 && rawTime <= 1900 {
                         gate = "322"
-                        description = "Express to Union Hill"
+                        description += " - Express to Union Hill"
                     } else if rawTime >= 1912 && rawTime <= 2000 {
                         gate = "321"
-                        description = "Express to Union Hill"
+                        description += " - Express to Union Hill"
                     }
                     break;
                 case "132":
                     if rawTime >= 1700 && rawTime <= 1840 {
                         gate = "322"
-                        description = "Express to Gordons Corner/Via Freehold Center"
+                        description += " - Express to Gordons Corner/Via Freehold Center"
                     } else if rawTime >= 1545 && rawTime <= 1830 {
-                        gate = "321"
-                        description = "Express to Gordons Corner/Raintree/Freehold Mall"
+                        gate = "323"
+                        description += " - Express to Gordons Corner/Raintree/Freehold Mall"
                     }
                     break;
                 case "136":
                     if rawTime >= 1530 && rawTime <= 1900 {
                         gate = "321"
-                        description  = "Express to Freehold Mall"
+                        description  += " - Express to Freehold Mall"
                     }
                     break;
                 case "139":
