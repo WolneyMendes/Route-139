@@ -8,19 +8,6 @@
 
 import Foundation
 
-public enum DayType :Int {
-    case Weekday = 1
-    case Tue2Fri = 2
-    case Sat = 3
-    case Sun = 4
-    case Mon = 5
-    case Weekend = 6
-    case Holiday = 7
-    case Mon2Thu = 8
-}
-
-
-
 public struct RouteFetcherConstants {
     
     public static let CalendarJsonPath   = "139Calendar_dates"
@@ -63,13 +50,5 @@ public struct RouteFetcherConstants {
         public static let Identity  = "trip_id"
         public static let Direction = "direction_id"
     }
-    
-    public static let ScheduleStopIdentity  = "stopidentity"
-    public static let ScheduleLine          = "line"
-    public static let ScheduleHHMM          = "time"
-    public static let ScheduleDateType      = "datetype"
-    public static let ScheduleTripNumber    = "tripnum"
-    public static let ScheduleTripDirection = "tripdirection"
-    
 }
 
