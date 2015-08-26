@@ -261,12 +261,12 @@
         <scene sceneID="gaK-4t-Jya">
             <objects>
                 <tableViewController id="uag-fO-8H9" customClass="FromTerminal" customModule="Route_139" customModuleProvider="target" sceneMemberID="viewController">
-                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" allowsSelection="NO" rowHeight="85" sectionHeaderHeight="22" sectionFooterHeight="22" id="GRc-F8-tFA">
+                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" allowsSelection="NO" rowHeight="97" sectionHeaderHeight="22" sectionFooterHeight="22" id="GRc-F8-tFA">
                         <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <prototypes>
-                            <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="From Terminal Cell" rowHeight="85" id="9MZ-tl-BoS" customClass="FromTerminalCell" customModule="Route_139" customModuleProvider="target">
+                            <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="From Terminal Cell" rowHeight="97" id="9MZ-tl-BoS" customClass="FromTerminalCell" customModule="Route_139" customModuleProvider="target">
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="9MZ-tl-BoS" id="UWz-BX-lP0">
                                     <autoresizingMask key="autoresizingMask"/>
@@ -292,8 +292,8 @@
                                             <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                             <nil key="highlightedColor"/>
                                         </label>
-                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="300" verticalHuggingPriority="249" horizontalCompressionResistancePriority="800" lineBreakMode="wordWrap" numberOfLines="5" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="EDf-2x-KaD">
-                                            <rect key="frame" x="89" y="32" width="503" height="40.5"/>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="300" verticalHuggingPriority="249" horizontalCompressionResistancePriority="800" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="EDf-2x-KaD">
+                                            <rect key="frame" x="89" y="32" width="503" height="56.5"/>
                                             <string key="text">Labelskdflkfjslkfjs ;flks;flskf;slkfj;slkfsj ;flksjf lskfjs; lkfs;flksd; jflskdfj;slkfjs ;lkfjs;flksjf lskf;j sdlkfsjd kdj dlkj lkkj lk </string>
                                             <fontDescription key="fontDescription" style="UICTFontTextStyleBody"/>
                                             <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
@@ -310,9 +310,10 @@
                                         <constraint firstItem="5Dy-Se-iYC" firstAttribute="bottom" secondItem="jkk-Mo-TGX" secondAttribute="bottom" id="bJc-uJ-d5g"/>
                                         <constraint firstItem="5Dy-Se-iYC" firstAttribute="baseline" secondItem="jkk-Mo-TGX" secondAttribute="firstBaseline" id="cQb-Yq-o40"/>
                                         <constraint firstItem="W60-oc-8I9" firstAttribute="top" secondItem="5Dy-Se-iYC" secondAttribute="bottom" id="eiw-LX-5D6"/>
+                                        <constraint firstItem="EDf-2x-KaD" firstAttribute="top" secondItem="jkk-Mo-TGX" secondAttribute="bottom" id="js3-xZ-kbV"/>
                                         <constraint firstItem="EDf-2x-KaD" firstAttribute="trailing" secondItem="UWz-BX-lP0" secondAttribute="trailingMargin" id="rAJ-yK-1BI"/>
                                         <constraint firstAttribute="trailingMargin" secondItem="EDf-2x-KaD" secondAttribute="trailing" constant="0.5" id="tSf-v0-17y"/>
-                                        <constraint firstAttribute="bottomMargin" secondItem="EDf-2x-KaD" secondAttribute="bottom" constant="4" id="wo2-6Y-v49"/>
+                                        <constraint firstAttribute="bottomMargin" secondItem="EDf-2x-KaD" secondAttribute="bottom" id="wo2-6Y-v49"/>
                                         <constraint firstItem="5Dy-Se-iYC" firstAttribute="leading" secondItem="UWz-BX-lP0" secondAttribute="leadingMargin" constant="-7" id="xsu-ok-X7Q"/>
                                         <constraint firstItem="EDf-2x-KaD" firstAttribute="leading" secondItem="jkk-Mo-TGX" secondAttribute="leading" id="ykG-Sp-J8R"/>
                                     </constraints>
