@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		0D0850941B86C028008EDCA5 /* 139Calendar_dates.json in Resources */ = {isa = PBXBuildFile; fileRef = 0D0850931B86C028008EDCA5 /* 139Calendar_dates.json */; };
+		0D08509E1B8FDCD5008EDCA5 /* StepperTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0D08509D1B8FDCD5008EDCA5 /* StepperTableViewCell.swift */; };
 		0D2E58501B7F91B900BCB344 /* ToTerminal.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0D2E584F1B7F91B900BCB344 /* ToTerminal.swift */; };
 		0D2E58521B7F921100BCB344 /* FromTerminal.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0D2E58511B7F921100BCB344 /* FromTerminal.swift */; };
 		0D2E58541B7FC29F00BCB344 /* ScheduleEntry.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0D2E58531B7FC29F00BCB344 /* ScheduleEntry.swift */; };
@@ -48,6 +49,7 @@
 
 /* Begin PBXFileReference section */
 		0D0850931B86C028008EDCA5 /* 139Calendar_dates.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = 139Calendar_dates.json; sourceTree = "<group>"; };
+		0D08509D1B8FDCD5008EDCA5 /* StepperTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StepperTableViewCell.swift; sourceTree = "<group>"; };
 		0D2E584F1B7F91B900BCB344 /* ToTerminal.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ToTerminal.swift; sourceTree = "<group>"; };
 		0D2E58511B7F921100BCB344 /* FromTerminal.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FromTerminal.swift; sourceTree = "<group>"; };
 		0D2E58531B7FC29F00BCB344 /* ScheduleEntry.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ScheduleEntry.swift; path = Model/ScheduleEntry.swift; sourceTree = "<group>"; };
@@ -144,6 +146,7 @@
 				0D2E58591B8004C400BCB344 /* FromTerminalCell.swift */,
 				0D60B9A11B6068AA00E31E98 /* SettingsTableViewController.swift */,
 				0D60B9A31B6068BA00E31E98 /* StopSelectionTableViewController.swift */,
+				0D08509D1B8FDCD5008EDCA5 /* StepperTableViewCell.swift */,
 			);
 			path = "Route 139";
 			sourceTree = "<group>";
@@ -316,6 +319,7 @@
 			files = (
 				0D2E58501B7F91B900BCB344 /* ToTerminal.swift in Sources */,
 				0DBFE9EA1B7C202C002E22B4 /* RouteTrip.swift in Sources */,
+				0D08509E1B8FDCD5008EDCA5 /* StepperTableViewCell.swift in Sources */,
 				0D61B2B71B7EA22D003A539C /* Service.swift in Sources */,
 				0DBFE9EC1B7C233E002E22B4 /* RouteStopTime.swift in Sources */,
 				0D2E58521B7F921100BCB344 /* FromTerminal.swift in Sources */,

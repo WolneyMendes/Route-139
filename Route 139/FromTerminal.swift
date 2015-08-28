@@ -69,8 +69,8 @@ class FromTerminal: UITableViewController {
         switch section {
         case 0:
             if stop1Times != nil {
-                if AppDelegate.Constants.DefaulNumberOfEntries < stop1Times!.count {
-                    return AppDelegate.Constants.DefaulNumberOfEntries
+                if ModelStore.sharedInstance.numberOfScheduleRowsToShow < stop1Times!.count {
+                    return ModelStore.sharedInstance.numberOfScheduleRowsToShow
                 }
                 return stop1Times!.count
             } else {
@@ -78,8 +78,8 @@ class FromTerminal: UITableViewController {
             }
         case 1:
             if stop2Times != nil {
-                if AppDelegate.Constants.DefaulNumberOfEntries < stop2Times!.count {
-                    return AppDelegate.Constants.DefaulNumberOfEntries
+                if ModelStore.sharedInstance.numberOfScheduleRowsToShow < stop2Times!.count {
+                    return ModelStore.sharedInstance.numberOfScheduleRowsToShow
                 }
                 return stop2Times!.count
             } else {
@@ -87,8 +87,8 @@ class FromTerminal: UITableViewController {
             }
         case 3:
             if stop3Times != nil {
-                if AppDelegate.Constants.DefaulNumberOfEntries < stop3Times!.count {
-                    return AppDelegate.Constants.DefaulNumberOfEntries
+                if ModelStore.sharedInstance.numberOfScheduleRowsToShow < stop3Times!.count {
+                    return ModelStore.sharedInstance.numberOfScheduleRowsToShow
                 }
                 return stop3Times!.count
             } else {
@@ -187,14 +187,16 @@ class FromTerminal: UITableViewController {
         stop2Times = nil
         stop3Times = nil
         
+        var date = NSDate( timeInterval:-Double(ModelStore.sharedInstance.howFarInThePastToShowSchedule) * 60, sinceDate:NSDate() )
+        
         if fromTerminalStop1 != nil {
-            stop1Times = ModelStore.sharedInstance.nextScheduleEntryFromTerminal(fromTerminalStop1!, terminalStop: terminalStop!, date: NSDate())
+            stop1Times = ModelStore.sharedInstance.nextScheduleEntryFromTerminal(fromTerminalStop1!, terminalStop: terminalStop!, date: date)
         }
         if fromTerminalStop2 != nil {
-            stop2Times = ModelStore.sharedInstance.nextScheduleEntryFromTerminal(fromTerminalStop2!, terminalStop: terminalStop!, date: NSDate())
+            stop2Times = ModelStore.sharedInstance.nextScheduleEntryFromTerminal(fromTerminalStop2!, terminalStop: terminalStop!, date: date)
         }
         if fromTerminalStop3 != nil {
-            stop3Times = ModelStore.sharedInstance.nextScheduleEntryFromTerminal(fromTerminalStop3!, terminalStop: terminalStop!, date: NSDate())
+            stop3Times = ModelStore.sharedInstance.nextScheduleEntryFromTerminal(fromTerminalStop3!, terminalStop: terminalStop!, date: date)
         }
         
         tableView.reloadData()

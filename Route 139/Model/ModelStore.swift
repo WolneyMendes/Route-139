@@ -17,7 +17,14 @@ public class ModelStore {
         var trips = RouteTrip.FromRouteFetcher()
         var stopTimes = RouteStopTime.FromRouteFetcher()
         
-        var i = ModelStore(routes: routes, stops: stops, calendarDates: calendarDates, trips: trips, stopTimes: stopTimes)
+        var i = ModelStore(
+            routes: routes,
+            stops: stops,
+            calendarDates:
+            calendarDates,
+            trips: trips,
+            stopTimes: stopTimes
+        )
         
         i.inboundLocations = i.locationsToTerminal()
         i.outboundLocations = i.locationsFromTerminal()
@@ -39,6 +46,9 @@ public class ModelStore {
     
     var outboundTerminal : RouteStop? = nil
     var inboundTerminal : RouteStop? = nil
+    
+    var howFarInThePastToShowSchedule : Int = 0
+    var numberOfScheduleRowsToShow : Int = Int.max
     
     
     private let routes           : Array<Route>
@@ -378,33 +388,48 @@ public class ModelStore {
         return ret
     }
     
+    struct Config {
+        static let ToTerminal1        = "ToTerminal1";
+        static let ToTerminal2        = "ToTerminal2";
+        static let ToTerminal3        = "ToTerminal3";
+        static let FromTerminal1      = "FromTerminal1";
+        static let FromTerminal2      = "FromTerminal2";
+        static let FromTerminal3      = "FromTerminal3";
+        
+        static let HowFarInThePast    = "HowFarInThePast"
+        static let ScheduleRowsToShow = "NumberOfScheduleRowsToShow"
+    }
+    
     func save() {
         
         var config = Dictionary<String,String>()
         
         if toTerminalStop1 != nil {
-            config["ToTerminal1"] = "\(toTerminalStop1!.Identity)"
+            config[ Config.ToTerminal1 ] = "\(toTerminalStop1!.Identity)"
         }
         
         if toTerminalStop2 != nil {
-            config["ToTerminal2"] = "\(toTerminalStop2!.Identity)"
+            config[ Config.ToTerminal2 ] = "\(toTerminalStop2!.Identity)"
         }
         
         if toTerminalStop3 != nil {
-            config["ToTerminal3"] =  "\(toTerminalStop3!.Identity)"
+            config[ Config.ToTerminal3 ] =  "\(toTerminalStop3!.Identity)"
         }
         
         if fromTerminalStop1 != nil {
-            config["FromTerminal1"] = "\(fromTerminalStop1!.Identity)"
+            config[ Config.FromTerminal1 ] = "\(fromTerminalStop1!.Identity)"
         }
         
         if fromTerminalStop2 != nil {
-            config["FromTerminal2"] =  "\(fromTerminalStop2!.Identity)"
+            config[ Config.FromTerminal2 ] =  "\(fromTerminalStop2!.Identity)"
         }
         
         if fromTerminalStop3 != nil {
-            config["FromTerminal3"] = "\(fromTerminalStop3!.Identity)"
+            config[ Config.FromTerminal3 ] = "\(fromTerminalStop3!.Identity)"
         }
+        
+        config[ Config.HowFarInThePast ] = "\(howFarInThePastToShowSchedule)"
+        config[ Config.ScheduleRowsToShow ] = "\(numberOfScheduleRowsToShow)"
         
         var fileManager = NSFileManager()
         if let docsDir = fileManager.URLsForDirectory(.DocumentDirectory, inDomains: .UserDomainMask).first as?NSURL {
@@ -426,23 +451,29 @@ public class ModelStore {
                 if fileManager.fileExistsAtPath(path) {
                     let config = NSKeyedUnarchiver.unarchiveObjectWithFile(path) as! Dictionary<String,String>
                     
-                    if let stopId = config[ "ToTerminal1" ] {
+                    if let stopId = config[ Config.ToTerminal1 ] {
                         toTerminalStop1 = stopsDictionary[ stopId.toInt()! ]
                     }
-                    if let stopId = config[ "ToTerminal2" ] {
+                    if let stopId = config[ Config.ToTerminal2 ] {
                         toTerminalStop2 = stopsDictionary[ stopId.toInt()! ]
                     }
-                    if let stopId = config[ "ToTerminal3" ] {
+                    if let stopId = config[ Config.ToTerminal3 ] {
                         toTerminalStop3 = stopsDictionary[ stopId.toInt()! ]
                     }
-                    if let stopId = config[ "FromTerminal1" ] {
+                    if let stopId = config[ Config.FromTerminal1 ] {
                         fromTerminalStop1 = stopsDictionary[ stopId.toInt()! ]
                     }
-                    if let stopId = config[ "FromTerminal2" ] {
+                    if let stopId = config[ Config.FromTerminal2 ] {
                         fromTerminalStop2 = stopsDictionary[ stopId.toInt()! ]
                     }
-                    if let stopId = config[ "FromTerminal3" ] {
+                    if let stopId = config[ Config.FromTerminal3 ] {
                         fromTerminalStop3 = stopsDictionary[ stopId.toInt()! ]
+                    }
+                    if let howFarInThePast = config[ Config.HowFarInThePast ] {
+                        howFarInThePastToShowSchedule = howFarInThePast.toInt()!
+                    }
+                    if let rowsToShow = config[ Config.ScheduleRowsToShow ] {
+                        numberOfScheduleRowsToShow = rowsToShow.toInt()!
                     }
                 }
             }

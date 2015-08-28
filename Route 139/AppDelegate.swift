@@ -51,8 +51,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     }
 
     internal struct Constants {
-        static let StopSelectionChangeNotification = "com.wfm.StopSelectionChange"
-        static let DefaulNumberOfEntries = 1000
+        static let RouteConfigurationChange = "com.wfm.RouteConfigurationChange"
         static let OutBoundPortAuthorityStop = 3511
         static let InBoundPortAuthorityStop = 43274
     }
@@ -65,7 +64,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     func startObserving() {
         NSLog("Observing")
         if !observing {
-            NSNotificationCenter.defaultCenter().addObserver(self, selector: "updateNotificationSentLabel", name: Constants.StopSelectionChangeNotification, object: nil)
+            NSNotificationCenter.defaultCenter().addObserver(self, selector: "updateNotificationSentLabel", name: Constants.RouteConfigurationChange, object: nil)
             observing = true
         }
     }
@@ -73,7 +72,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     func stopObserving() {
         NSLog("Not Observing")
         if observing {
-            NSNotificationCenter.defaultCenter().removeObserver(self, name: Constants.StopSelectionChangeNotification, object: nil)
+            NSNotificationCenter.defaultCenter().removeObserver(self, name: Constants.RouteConfigurationChange, object: nil)
             observing = false
         }
     }
