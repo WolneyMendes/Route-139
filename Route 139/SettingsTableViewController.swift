@@ -12,52 +12,52 @@ class SettingsTableViewController: UITableViewController {
 
     // MARK: - Private Fields
     
-    private var toTerminalStop1   : RouteStop? = ModelStore.sharedInstance.toTerminalStop1 {
+    private var toTerminalStop1   : RouteStop? {
         didSet {
             refreshUI()
         }
     }
     
-    private var toTerminalStop2   : RouteStop? = ModelStore.sharedInstance.toTerminalStop2 {
+    private var toTerminalStop2   : RouteStop? {
         didSet {
             refreshUI()
         }
     }
     
-    private var toTerminalStop3   : RouteStop? = ModelStore.sharedInstance.toTerminalStop3 {
-        didSet {
-            refreshUI()
-        }
-    }
-    
-    
-    private var fromTerminalStop1 : RouteStop? = ModelStore.sharedInstance.fromTerminalStop1 {
+    private var toTerminalStop3   : RouteStop? {
         didSet {
             refreshUI()
         }
     }
     
     
-    private var fromTerminalStop2 : RouteStop? = ModelStore.sharedInstance.fromTerminalStop2 {
+    private var fromTerminalStop1 : RouteStop? {
         didSet {
             refreshUI()
         }
     }
     
     
-    private var fromTerminalStop3 : RouteStop? = ModelStore.sharedInstance.fromTerminalStop3 {
+    private var fromTerminalStop2 : RouteStop? {
         didSet {
             refreshUI()
         }
     }
     
-    private var minInThePast : Int = ModelStore.sharedInstance.howFarInThePastToShowSchedule {
+    
+    private var fromTerminalStop3 : RouteStop? {
         didSet {
             refreshUI()
         }
     }
     
-    private var numberOfScheduleRowsToShow : Int = ModelStore.sharedInstance.numberOfScheduleRowsToShow {
+    private var minInThePast : Int? {
+        didSet {
+            refreshUI()
+        }
+    }
+    
+    private var numberOfScheduleRowsToShow : Int? {
         didSet {
             refreshUI()
         }
@@ -127,6 +127,16 @@ class SettingsTableViewController: UITableViewController {
 
     override func viewDidAppear(animated: Bool) {
         super.viewDidAppear(animated)
+        
+        toTerminalStop1 = AppDelegate.modelStore?.toTerminalStop1
+        toTerminalStop2 = AppDelegate.modelStore?.toTerminalStop2
+        toTerminalStop3 = AppDelegate.modelStore?.toTerminalStop3
+        fromTerminalStop1 = AppDelegate.modelStore?.fromTerminalStop1
+        fromTerminalStop2 = AppDelegate.modelStore?.fromTerminalStop2
+        fromTerminalStop3 = AppDelegate.modelStore?.fromTerminalStop3
+        minInThePast = AppDelegate.configurationManager?.howFarInThePastToShowSchedule
+        numberOfScheduleRowsToShow = AppDelegate.configurationManager?.numberOfScheduleRowsToShow
+        
         refreshUI()
     }
     
@@ -199,7 +209,7 @@ class SettingsTableViewController: UITableViewController {
             let cell = tableView.dequeueReusableCellWithIdentifier("StepperCell", forIndexPath: indexPath) as! StepperTableViewCell
             if indexPath.item == 0 {
                 // How Far in the Past
-                cell.value = ModelStore.sharedInstance.howFarInThePastToShowSchedule
+                cell.value = AppDelegate.configurationManager!.howFarInThePastToShowSchedule
                 cell.values = [
                     ( 0, "From current time" ),
                     ( 5, "From 5 minutes ago" ),
@@ -216,7 +226,7 @@ class SettingsTableViewController: UITableViewController {
                 ]
             } else {
                 // Number of rows
-                cell.value = ModelStore.sharedInstance.numberOfScheduleRowsToShow
+                cell.value = AppDelegate.configurationManager!.numberOfScheduleRowsToShow
                 cell.values = [
                     ( Int.max, "Show All Entries"),
                     ( 1, "Show One Entry" ),
@@ -252,7 +262,7 @@ class SettingsTableViewController: UITableViewController {
                 if child != nil {
                     if r.section == 0 {
                         // to Terminal
-                        child?.locations = ModelStore.sharedInstance.getLocationsToTerminal()
+                        child?.locations = AppDelegate.modelStore!.getLocationsToTerminal()
                         if r.item == 0 {
                             child?.selectedStop = toTerminalStop1
                             child?.stopType = .ToTerminalStop1
@@ -265,7 +275,7 @@ class SettingsTableViewController: UITableViewController {
                         }
                     } else {
                         // From Terminal
-                        child?.locations = ModelStore.sharedInstance.getLocationsFromTerminal()
+                        child?.locations = AppDelegate.modelStore!.getLocationsFromTerminal()
                         if r.item == 0 {
                             child?.selectedStop = fromTerminalStop1
                             child?.stopType = .FromTerminalStop1
@@ -293,20 +303,24 @@ class SettingsTableViewController: UITableViewController {
     
     func settingsChange() {
         
+        let configManager = AppDelegate.configurationManager!
+        
+        configManager.startConfigChangeTransaction()
+        
         // Update Stop Values
-        ModelStore.sharedInstance.toTerminalStop1 = self.toTerminalStop1
-        ModelStore.sharedInstance.toTerminalStop2 = self.toTerminalStop2
-        ModelStore.sharedInstance.toTerminalStop3 = self.toTerminalStop3
-        ModelStore.sharedInstance.fromTerminalStop1 = self.fromTerminalStop1
-        ModelStore.sharedInstance.fromTerminalStop2 = self.fromTerminalStop2
-        ModelStore.sharedInstance.fromTerminalStop3 = self.fromTerminalStop3
+        configManager.toTerminalStop1 = self.toTerminalStop1?.Identity
+        configManager.toTerminalStop2 = self.toTerminalStop2?.Identity
+        configManager.toTerminalStop3 = self.toTerminalStop3?.Identity
+        configManager.fromTerminalStop1 = self.fromTerminalStop1?.Identity
+        configManager.fromTerminalStop2 = self.fromTerminalStop2?.Identity
+        configManager.fromTerminalStop3 = self.fromTerminalStop3?.Identity
         
         // Update other configurations
-        ModelStore.sharedInstance.numberOfScheduleRowsToShow = self.numberOfScheduleRowsToShow
-        ModelStore.sharedInstance.howFarInThePastToShowSchedule = self.minInThePast
+        configManager.numberOfScheduleRowsToShow = self.numberOfScheduleRowsToShow!
+        configManager.howFarInThePastToShowSchedule = self.minInThePast!
         
-        // Notify observers.
-        NSNotificationCenter.defaultCenter().postNotificationName(AppDelegate.Constants.RouteConfigurationChange, object: self)
+        configManager.endConfigChangeTransaction()
+        
     }
     
 }

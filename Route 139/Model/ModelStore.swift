@@ -10,46 +10,81 @@ import Foundation
 
 public class ModelStore {
     
-    private static var instance : ModelStore = {
-        var routes = Route.FromRouteFetcher()
-        var stops = RouteStop.FromRouteFetcher()
-        var calendarDates = CalendarDate.FromRouteFetcher()
-        var trips = RouteTrip.FromRouteFetcher()
-        var stopTimes = RouteStopTime.FromRouteFetcher()
-        
-        var i = ModelStore(
-            routes: routes,
-            stops: stops,
-            calendarDates:
-            calendarDates,
-            trips: trips,
-            stopTimes: stopTimes
-        )
-        
-        i.inboundLocations = i.locationsToTerminal()
-        i.outboundLocations = i.locationsFromTerminal()
-        
-        return i;
-        }()
+    private var configurationManager : ConfigurationManager? {
+        didSet {
+            loadFromConfig()
+        }
+    }
    
-    class var sharedInstance: ModelStore {
-        return instance
+    public var toTerminalStop1   : RouteStop? = nil {
+        didSet {
+            if oldValue !== toTerminalStop1 {
+                configurationManager?.toTerminalStop1 = toTerminalStop1?.Identity
+            }
+        }
     }
     
-    var toTerminalStop1   : RouteStop? = nil
-    var toTerminalStop2   : RouteStop? = nil
-    var toTerminalStop3   : RouteStop? = nil
+    public var toTerminalStop2   : RouteStop? = nil {
+        didSet {
+            if oldValue !== toTerminalStop2 {
+                configurationManager?.toTerminalStop2 = toTerminalStop2?.Identity
+            }
+        }
+    }
     
-    var fromTerminalStop1 : RouteStop? = nil
-    var fromTerminalStop2 : RouteStop? = nil
-    var fromTerminalStop3 : RouteStop? = nil
+    public var toTerminalStop3   : RouteStop? = nil {
+        didSet {
+            if oldValue !== toTerminalStop3 {
+                configurationManager?.toTerminalStop3 = toTerminalStop3?.Identity
+            }
+        }
+    }
     
-    var outboundTerminal : RouteStop? = nil
-    var inboundTerminal : RouteStop? = nil
+
     
-    var howFarInThePastToShowSchedule : Int = 0
-    var numberOfScheduleRowsToShow : Int = Int.max
+    public var fromTerminalStop1 : RouteStop? = nil {
+        didSet {
+            if oldValue !== fromTerminalStop1 {
+                configurationManager?.fromTerminalStop1 = fromTerminalStop1?.Identity
+            }
+        }
+    }
     
+    public var fromTerminalStop2 : RouteStop? = nil {
+        didSet {
+            if oldValue !== fromTerminalStop2 {
+                configurationManager?.fromTerminalStop2 = fromTerminalStop2?.Identity
+            }
+        }
+    }
+    
+    public var fromTerminalStop3 : RouteStop? = nil {
+        didSet {
+            if oldValue !== fromTerminalStop3 {
+                configurationManager?.fromTerminalStop3 = fromTerminalStop3?.Identity
+            }
+        }
+    }
+    
+    
+    public var outboundTerminal : RouteStop? = nil {
+        didSet {
+            if oldValue !== outboundTerminal {
+                configurationManager?.outboundTerminal = outboundTerminal?.Identity
+            }
+        }
+    }
+    
+    public var inboundTerminal : RouteStop? = nil {
+        didSet {
+            if oldValue !== inboundTerminal {
+                configurationManager?.inboundTerminal = inboundTerminal?.Identity
+            }
+        }
+    }
+    
+
+
     
     private let routes           : Array<Route>
     private let routesDictionary : Dictionary<Int,Route>
@@ -73,7 +108,14 @@ public class ModelStore {
     
     // MARK: - Initializer
     
-    private init( routes: Array<Route>,  stops: Array<RouteStop>, calendarDates: Array<CalendarDate>, trips: Array<RouteTrip>, stopTimes: Array<RouteStopTime> ) {
+    init( configManager: ConfigurationManager ) {
+        
+        var routes = Route.FromRouteFetcher()
+        var stops = RouteStop.FromRouteFetcher()
+        var calendarDates = CalendarDate.FromRouteFetcher()
+        var trips = RouteTrip.FromRouteFetcher()
+        var stopTimes = RouteStopTime.FromRouteFetcher()
+        
         
         // Routes
         self.routes = routes
@@ -92,10 +134,12 @@ public class ModelStore {
             NSLog("------------------ Port Authority term stop is hard coded!!" )
             if stop.Identity == AppDelegate.Constants.OutBoundPortAuthorityStop {
                 outboundTerminal = stop
+                configManager.outboundTerminal = stop.Identity
             }
             
             if stop.Identity == AppDelegate.Constants.InBoundPortAuthorityStop {
                 inboundTerminal = stop
+                configManager.inboundTerminal = stop.Identity
             }
         }
         self.stopsDictionary = stopsDictionary
@@ -152,7 +196,13 @@ public class ModelStore {
         }
         self.stopTimes = stopTimesSorted
         
-        load()
+        self.configurationManager = configManager
+        self.loadFromConfig()
+        
+        inboundLocations = self.locationsToTerminal()
+        outboundLocations = self.locationsFromTerminal()
+        
+
     }
     
     func getRoute ( fromTrip: Int ) -> Route? {
@@ -209,7 +259,7 @@ public class ModelStore {
         return locations
     }
     
-    public func getDateComponents( date: NSDate ) -> ( dayComponent : NSDateComponents, nextDayComponent : NSDateComponents) {
+    public static func getDateComponents( date: NSDate ) -> ( dayComponent : NSDateComponents, nextDayComponent : NSDateComponents) {
         
         // Get YMD and HHMM from date
         let calendar = NSCalendar(calendarIdentifier: NSCalendarIdentifierGregorian)!
@@ -239,7 +289,7 @@ public class ModelStore {
     }
     
     func nextScheduleEntryFromTerminal( stop: RouteStop, terminalStop: RouteStop, date:NSDate ) -> Array<ScheduleEntry> {
-        var components = getDateComponents(date)
+        var components = ModelStore.getDateComponents(date)
         
         // Find all times from date
         var retDate = nextScheduleEntryFromTerminal(
@@ -279,7 +329,7 @@ public class ModelStore {
     
     func nextScheduleEntryToTerminal( stop: RouteStop, date:NSDate) -> Array<ScheduleEntry> {
         
-        var components = getDateComponents(date)
+        var components = ModelStore.getDateComponents(date)
         
         // Find all times from date
         var retDate = nextScheduleEntryToTerminal(
@@ -388,99 +438,7 @@ public class ModelStore {
         return ret
     }
     
-    struct Config {
-        static let ToTerminal1        = "ToTerminal1";
-        static let ToTerminal2        = "ToTerminal2";
-        static let ToTerminal3        = "ToTerminal3";
-        static let FromTerminal1      = "FromTerminal1";
-        static let FromTerminal2      = "FromTerminal2";
-        static let FromTerminal3      = "FromTerminal3";
-        
-        static let HowFarInThePast    = "HowFarInThePast"
-        static let ScheduleRowsToShow = "NumberOfScheduleRowsToShow"
-    }
-    
-    func save() {
-        
-        var config = Dictionary<String,String>()
-        
-        if toTerminalStop1 != nil {
-            config[ Config.ToTerminal1 ] = "\(toTerminalStop1!.Identity)"
-        }
-        
-        if toTerminalStop2 != nil {
-            config[ Config.ToTerminal2 ] = "\(toTerminalStop2!.Identity)"
-        }
-        
-        if toTerminalStop3 != nil {
-            config[ Config.ToTerminal3 ] =  "\(toTerminalStop3!.Identity)"
-        }
-        
-        if fromTerminalStop1 != nil {
-            config[ Config.FromTerminal1 ] = "\(fromTerminalStop1!.Identity)"
-        }
-        
-        if fromTerminalStop2 != nil {
-            config[ Config.FromTerminal2 ] =  "\(fromTerminalStop2!.Identity)"
-        }
-        
-        if fromTerminalStop3 != nil {
-            config[ Config.FromTerminal3 ] = "\(fromTerminalStop3!.Identity)"
-        }
-        
-        config[ Config.HowFarInThePast ] = "\(howFarInThePastToShowSchedule)"
-        config[ Config.ScheduleRowsToShow ] = "\(numberOfScheduleRowsToShow)"
-        
-        var fileManager = NSFileManager()
-        if let docsDir = fileManager.URLsForDirectory(.DocumentDirectory, inDomains: .UserDomainMask).first as?NSURL {
-            let url = docsDir.URLByAppendingPathComponent("config.dat")
-            if let path = url.path {
-                var ok2 = NSKeyedArchiver.archiveRootObject(config, toFile: path)
-            }
-        }
-        
-    }
-    
-    func load() {
-        
-        var fileManager = NSFileManager()
-        if let docsDir = fileManager.URLsForDirectory(.DocumentDirectory, inDomains: .UserDomainMask).first as?NSURL {
-            let url = docsDir.URLByAppendingPathComponent("config.dat")
-            if let path = url.path {
-                
-                if fileManager.fileExistsAtPath(path) {
-                    let config = NSKeyedUnarchiver.unarchiveObjectWithFile(path) as! Dictionary<String,String>
-                    
-                    if let stopId = config[ Config.ToTerminal1 ] {
-                        toTerminalStop1 = stopsDictionary[ stopId.toInt()! ]
-                    }
-                    if let stopId = config[ Config.ToTerminal2 ] {
-                        toTerminalStop2 = stopsDictionary[ stopId.toInt()! ]
-                    }
-                    if let stopId = config[ Config.ToTerminal3 ] {
-                        toTerminalStop3 = stopsDictionary[ stopId.toInt()! ]
-                    }
-                    if let stopId = config[ Config.FromTerminal1 ] {
-                        fromTerminalStop1 = stopsDictionary[ stopId.toInt()! ]
-                    }
-                    if let stopId = config[ Config.FromTerminal2 ] {
-                        fromTerminalStop2 = stopsDictionary[ stopId.toInt()! ]
-                    }
-                    if let stopId = config[ Config.FromTerminal3 ] {
-                        fromTerminalStop3 = stopsDictionary[ stopId.toInt()! ]
-                    }
-                    if let howFarInThePast = config[ Config.HowFarInThePast ] {
-                        howFarInThePastToShowSchedule = howFarInThePast.toInt()!
-                    }
-                    if let rowsToShow = config[ Config.ScheduleRowsToShow ] {
-                        numberOfScheduleRowsToShow = rowsToShow.toInt()!
-                    }
-                }
-            }
-        }
-        
-    }
-    
+
     public static func getDate( year: Int, month: Int, day: Int, hour: Int, minute: Int ) -> NSDate {
         let dateAsString = "\(month)/\(day)/\(year), \(hour):\(minute)"
         let dateFormatter = NSDateFormatter()
@@ -614,5 +572,59 @@ public class ModelStore {
         return ( description, gate )
     }
     
+    
+    
+    public func loadFromConfig() {
+        
+        if let stopId = configurationManager!.toTerminalStop1 {
+            self.toTerminalStop1 = stopsDictionary[configurationManager!.toTerminalStop1!]
+        } else {
+            self.toTerminalStop1 = nil
+        }
 
+        if let stopId = configurationManager!.toTerminalStop2 {
+            self.toTerminalStop2 = stopsDictionary[configurationManager!.toTerminalStop2!]
+        } else {
+            self.toTerminalStop2 = nil
+        }
+        
+        if let stopId = configurationManager!.toTerminalStop3 {
+            self.toTerminalStop3 = stopsDictionary[configurationManager!.toTerminalStop3!]
+        } else {
+            self.toTerminalStop3 = nil
+        }
+        
+        if let stopId = configurationManager!.fromTerminalStop1 {
+            self.fromTerminalStop1 = stopsDictionary[configurationManager!.fromTerminalStop1!]
+        } else {
+            self.fromTerminalStop1 = nil
+        }
+        
+        if let stopId = configurationManager!.fromTerminalStop2 {
+            self.fromTerminalStop2 = stopsDictionary[configurationManager!.fromTerminalStop2!]
+        } else {
+            self.fromTerminalStop2 = nil
+        }
+        
+        if let stopId = configurationManager!.fromTerminalStop3 {
+            self.fromTerminalStop3 = stopsDictionary[configurationManager!.fromTerminalStop3!]
+        } else {
+            self.fromTerminalStop3 = nil
+        }
+        
+        
+        if let stopId = configurationManager!.inboundTerminal {
+            self.inboundTerminal = stopsDictionary[configurationManager!.inboundTerminal!]
+        } else {
+            self.inboundTerminal = nil
+        }
+        
+        if let stopId = configurationManager!.outboundTerminal {
+            self.outboundTerminal = stopsDictionary[configurationManager!.outboundTerminal!]
+        } else {
+            self.outboundTerminal = nil
+        }
+        
+        
+    }
 }

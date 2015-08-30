@@ -13,6 +13,9 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
     var window: UIWindow?
     var observing = false
+    
+    static var configurationManager : ConfigurationManager?
+    static var modelStore : ModelStore?
 
     func application(application: UIApplication, didFinishLaunchingWithOptions launchOptions: [NSObject: AnyObject]?) -> Bool {
         // Override point for customization after application launch.
@@ -21,6 +24,33 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         
         //NSNotificationCenter.defaultCenter().removeObserver(self, name: Constants.StopSelectionChangeNotification, object: nil)
 
+        var wstatus = SMTWiFiStatus();
+        
+        var enabled = wstatus.isWiFiEnabled()
+        var connected = wstatus.isWiFiConnected()
+        var BSSID = wstatus.BSSID()
+        var SSID = wstatus.SSID()
+        
+        var rc = RestCall()
+        //rc.executeGet("http://" + AppDelegate.Constants.ServerName + "/timestampx?y=1", callBack: TestRestCallBack())
+        rc.executeGet("http://" + AppDelegate.Constants.ServerName + "/timestamp", callBack: TimestampCallBack())
+
+        //rc.executePost("http://" + AppDelegate.Constants.ServerName + "/timestamp", stringPost: "x=2&y=3", callBack: TestRestCallBack() )
+        
+        //var err : NSError
+        //var params = Dictionary<String,String>()
+        //params["Var1"] = "Par1"
+        //params["Var2"] = "Par2"
+        //var obj: AnyObject = params as AnyObject
+        //var data = NSJSONSerialization.dataWithJSONObject(obj, options: NSJSONWritingOptions.allZeros, error: nil)!
+        //rc.executePost("http://" + AppDelegate.Constants.ServerName + "/timestamp", json: data, callBack: TestRestCallBack() )
+        
+        let configManager = ConfigurationManager()
+        configManager.load()
+        
+        AppDelegate.configurationManager = configManager
+        AppDelegate.modelStore = ModelStore(configManager: configManager)
+        
         return true
     }
 
@@ -54,17 +84,34 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         static let RouteConfigurationChange = "com.wfm.RouteConfigurationChange"
         static let OutBoundPortAuthorityStop = 3511
         static let InBoundPortAuthorityStop = 43274
+        static let ServerName = "104.236.119.0:8000"
+        
+        static let NetworkErrorCodeDomain = "com.wfm.webresult"
+        static let ServerSideErrorCodeDomain = "com.wfm.server"
+        
+        struct Application {
+            struct  ErrorCode {
+            
+            static let Domain = "com.wfm"
+            
+                struct Values {
+                    static let ReceivedInvalidJSON = 100
+                }
+            }
+        }
     }
     
-    func updateNotificationSentLabel() {
+    func updateNotificationSent() {
         NSLog("Got notification")
-        ModelStore.sharedInstance.save()
+        
+        AppDelegate.configurationManager?.save()
+        AppDelegate.modelStore?.loadFromConfig()
     }
     
     func startObserving() {
         NSLog("Observing")
         if !observing {
-            NSNotificationCenter.defaultCenter().addObserver(self, selector: "updateNotificationSentLabel", name: Constants.RouteConfigurationChange, object: nil)
+            NSNotificationCenter.defaultCenter().addObserver(self, selector: "updateNotificationSent", name: Constants.RouteConfigurationChange, object: nil)
             observing = true
         }
     }
@@ -77,6 +124,5 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         }
     }
     
-
 }
 

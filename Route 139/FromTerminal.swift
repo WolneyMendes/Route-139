@@ -32,10 +32,10 @@ class FromTerminal: UITableViewController {
         refreshTimer = NSTimer.scheduledTimerWithTimeInterval(30, target: self, selector: "refreshStops:", userInfo: nil, repeats: true)
         refreshTimer?.tolerance = 10
         
-        fromTerminalStop1 = ModelStore.sharedInstance.fromTerminalStop1
-        fromTerminalStop2 = ModelStore.sharedInstance.fromTerminalStop2
-        fromTerminalStop3 = ModelStore.sharedInstance.fromTerminalStop3
-        terminalStop = ModelStore.sharedInstance.outboundTerminal
+        fromTerminalStop1 = AppDelegate.modelStore?.fromTerminalStop1
+        fromTerminalStop2 = AppDelegate.modelStore?.fromTerminalStop2
+        fromTerminalStop3 = AppDelegate.modelStore?.fromTerminalStop3
+        terminalStop = AppDelegate.modelStore?.outboundTerminal
         refreshUI()
     }
     
@@ -69,8 +69,8 @@ class FromTerminal: UITableViewController {
         switch section {
         case 0:
             if stop1Times != nil {
-                if ModelStore.sharedInstance.numberOfScheduleRowsToShow < stop1Times!.count {
-                    return ModelStore.sharedInstance.numberOfScheduleRowsToShow
+                if AppDelegate.configurationManager!.numberOfScheduleRowsToShow < stop1Times!.count {
+                    return AppDelegate.configurationManager!.numberOfScheduleRowsToShow
                 }
                 return stop1Times!.count
             } else {
@@ -78,8 +78,8 @@ class FromTerminal: UITableViewController {
             }
         case 1:
             if stop2Times != nil {
-                if ModelStore.sharedInstance.numberOfScheduleRowsToShow < stop2Times!.count {
-                    return ModelStore.sharedInstance.numberOfScheduleRowsToShow
+                if AppDelegate.configurationManager!.numberOfScheduleRowsToShow < stop2Times!.count {
+                    return AppDelegate.configurationManager!.numberOfScheduleRowsToShow
                 }
                 return stop2Times!.count
             } else {
@@ -87,8 +87,8 @@ class FromTerminal: UITableViewController {
             }
         case 3:
             if stop3Times != nil {
-                if ModelStore.sharedInstance.numberOfScheduleRowsToShow < stop3Times!.count {
-                    return ModelStore.sharedInstance.numberOfScheduleRowsToShow
+                if AppDelegate.configurationManager!.numberOfScheduleRowsToShow < stop3Times!.count {
+                    return AppDelegate.configurationManager!.numberOfScheduleRowsToShow
                 }
                 return stop3Times!.count
             } else {
@@ -135,7 +135,7 @@ class FromTerminal: UITableViewController {
         if let terminal = stopTime?.terminalTime {
             
             var now = NSDate()
-            var components = ModelStore.sharedInstance.getDateComponents(now)
+            var components = ModelStore.getDateComponents(now)
             
             var extra = stopTime!.NextDay ? 2400 : 0
             var description = ""
@@ -143,7 +143,7 @@ class FromTerminal: UITableViewController {
             
             var terminalString = ModelStore.timeAnalisys( now, rawTime: terminal.DepartureTime + extra )
             var stopString = ModelStore.timeAnalisys(now, rawTime: stopTime!.stopTime.ArrivalTime + extra )
-            var route = ModelStore.sharedInstance.getRoute(terminal.TripId)
+            var route = AppDelegate.modelStore!.getRoute(terminal.TripId)
             
             if stopTime!.NextDay {
                 (description, gate) = ModelStore.findServiceDescription(
@@ -187,16 +187,16 @@ class FromTerminal: UITableViewController {
         stop2Times = nil
         stop3Times = nil
         
-        var date = NSDate( timeInterval:-Double(ModelStore.sharedInstance.howFarInThePastToShowSchedule) * 60, sinceDate:NSDate() )
+        var date = NSDate( timeInterval:-Double(AppDelegate.configurationManager!.howFarInThePastToShowSchedule) * 60, sinceDate:NSDate() )
         
         if fromTerminalStop1 != nil {
-            stop1Times = ModelStore.sharedInstance.nextScheduleEntryFromTerminal(fromTerminalStop1!, terminalStop: terminalStop!, date: date)
+            stop1Times = AppDelegate.modelStore!.nextScheduleEntryFromTerminal(fromTerminalStop1!, terminalStop: terminalStop!, date: date)
         }
         if fromTerminalStop2 != nil {
-            stop2Times = ModelStore.sharedInstance.nextScheduleEntryFromTerminal(fromTerminalStop2!, terminalStop: terminalStop!, date: date)
+            stop2Times = AppDelegate.modelStore!.nextScheduleEntryFromTerminal(fromTerminalStop2!, terminalStop: terminalStop!, date: date)
         }
         if fromTerminalStop3 != nil {
-            stop3Times = ModelStore.sharedInstance.nextScheduleEntryFromTerminal(fromTerminalStop3!, terminalStop: terminalStop!, date: date)
+            stop3Times = AppDelegate.modelStore!.nextScheduleEntryFromTerminal(fromTerminalStop3!, terminalStop: terminalStop!, date: date)
         }
         
         tableView.reloadData()

@@ -9,6 +9,10 @@
 /* Begin PBXBuildFile section */
 		0D0850941B86C028008EDCA5 /* 139Calendar_dates.json in Resources */ = {isa = PBXBuildFile; fileRef = 0D0850931B86C028008EDCA5 /* 139Calendar_dates.json */; };
 		0D08509E1B8FDCD5008EDCA5 /* StepperTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0D08509D1B8FDCD5008EDCA5 /* StepperTableViewCell.swift */; };
+		0D2A9D311B910BC700B6863B /* SMTWiFiStatus.m in Sources */ = {isa = PBXBuildFile; fileRef = 0D2A9D301B910BC700B6863B /* SMTWiFiStatus.m */; };
+		0D2A9D361B914D6900B6863B /* RestCall.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0D2A9D351B914D6900B6863B /* RestCall.swift */; };
+		0D2A9D381B91654500B6863B /* TimestampCallback.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0D2A9D371B91654500B6863B /* TimestampCallback.swift */; };
+		0D2A9D3B1B93387300B6863B /* ConfigurationManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0D2A9D3A1B93387300B6863B /* ConfigurationManager.swift */; };
 		0D2E58501B7F91B900BCB344 /* ToTerminal.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0D2E584F1B7F91B900BCB344 /* ToTerminal.swift */; };
 		0D2E58521B7F921100BCB344 /* FromTerminal.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0D2E58511B7F921100BCB344 /* FromTerminal.swift */; };
 		0D2E58541B7FC29F00BCB344 /* ScheduleEntry.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0D2E58531B7FC29F00BCB344 /* ScheduleEntry.swift */; };
@@ -50,6 +54,12 @@
 /* Begin PBXFileReference section */
 		0D0850931B86C028008EDCA5 /* 139Calendar_dates.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = 139Calendar_dates.json; sourceTree = "<group>"; };
 		0D08509D1B8FDCD5008EDCA5 /* StepperTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StepperTableViewCell.swift; sourceTree = "<group>"; };
+		0D2A9D2B1B910B6000B6863B /* Route 139-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "Route 139-Bridging-Header.h"; sourceTree = SOURCE_ROOT; };
+		0D2A9D2F1B910BC700B6863B /* SMTWiFiStatus.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SMTWiFiStatus.h; sourceTree = "<group>"; };
+		0D2A9D301B910BC700B6863B /* SMTWiFiStatus.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SMTWiFiStatus.m; sourceTree = "<group>"; };
+		0D2A9D351B914D6900B6863B /* RestCall.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = RestCall.swift; path = Network/RestCall.swift; sourceTree = "<group>"; };
+		0D2A9D371B91654500B6863B /* TimestampCallback.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = TimestampCallback.swift; path = Network/TimestampCallback.swift; sourceTree = "<group>"; };
+		0D2A9D3A1B93387300B6863B /* ConfigurationManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ConfigurationManager.swift; path = Configuration/ConfigurationManager.swift; sourceTree = "<group>"; };
 		0D2E584F1B7F91B900BCB344 /* ToTerminal.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ToTerminal.swift; sourceTree = "<group>"; };
 		0D2E58511B7F921100BCB344 /* FromTerminal.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FromTerminal.swift; sourceTree = "<group>"; };
 		0D2E58531B7FC29F00BCB344 /* ScheduleEntry.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ScheduleEntry.swift; path = Model/ScheduleEntry.swift; sourceTree = "<group>"; };
@@ -112,6 +122,33 @@
 			name = Resources;
 			sourceTree = "<group>";
 		};
+		0D2A9D2E1B910B9100B6863B /* WiFiStatus */ = {
+			isa = PBXGroup;
+			children = (
+				0D2A9D2F1B910BC700B6863B /* SMTWiFiStatus.h */,
+				0D2A9D301B910BC700B6863B /* SMTWiFiStatus.m */,
+			);
+			name = WiFiStatus;
+			sourceTree = "<group>";
+		};
+		0D2A9D321B914CF300B6863B /* Network */ = {
+			isa = PBXGroup;
+			children = (
+				0D2A9D351B914D6900B6863B /* RestCall.swift */,
+				0D2A9D371B91654500B6863B /* TimestampCallback.swift */,
+				0D2A9D2E1B910B9100B6863B /* WiFiStatus */,
+			);
+			name = Network;
+			sourceTree = "<group>";
+		};
+		0D2A9D391B93384C00B6863B /* Configuration */ = {
+			isa = PBXGroup;
+			children = (
+				0D2A9D3A1B93387300B6863B /* ConfigurationManager.swift */,
+			);
+			name = Configuration;
+			sourceTree = "<group>";
+		};
 		0D60B9731B60685700E31E98 = {
 			isa = PBXGroup;
 			children = (
@@ -133,6 +170,8 @@
 		0D60B97E1B60685700E31E98 /* Route 139 */ = {
 			isa = PBXGroup;
 			children = (
+				0D2A9D391B93384C00B6863B /* Configuration */,
+				0D2A9D321B914CF300B6863B /* Network */,
 				0D72613A1B6A5CB30082A02C /* ViewModel */,
 				0D60B9A61B606A8B00E31E98 /* Route Fetcher */,
 				0D60B9A51B6069C700E31E98 /* Model */,
@@ -155,6 +194,7 @@
 			isa = PBXGroup;
 			children = (
 				0D18C5081B7BF6A6008BAB02 /* Resources */,
+				0D2A9D2B1B910B6000B6863B /* Route 139-Bridging-Header.h */,
 				0D60B9801B60685700E31E98 /* Info.plist */,
 			);
 			name = "Supporting Files";
@@ -321,13 +361,17 @@
 				0DBFE9EA1B7C202C002E22B4 /* RouteTrip.swift in Sources */,
 				0D08509E1B8FDCD5008EDCA5 /* StepperTableViewCell.swift in Sources */,
 				0D61B2B71B7EA22D003A539C /* Service.swift in Sources */,
+				0D2A9D361B914D6900B6863B /* RestCall.swift in Sources */,
 				0DBFE9EC1B7C233E002E22B4 /* RouteStopTime.swift in Sources */,
+				0D2A9D311B910BC700B6863B /* SMTWiFiStatus.m in Sources */,
 				0D2E58521B7F921100BCB344 /* FromTerminal.swift in Sources */,
 				0D72613E1B6B1E550082A02C /* Locations.swift in Sources */,
 				0D7261401B76669F0082A02C /* ModelStore.swift in Sources */,
 				0D60B9A21B6068AA00E31E98 /* SettingsTableViewController.swift in Sources */,
 				0D60B9821B60685700E31E98 /* AppDelegate.swift in Sources */,
+				0D2A9D3B1B93387300B6863B /* ConfigurationManager.swift in Sources */,
 				0D2E58581B7FFEBA00BCB344 /* Route.swift in Sources */,
+				0D2A9D381B91654500B6863B /* TimestampCallback.swift in Sources */,
 				0D72613C1B6A5CEE0082A02C /* Location.swift in Sources */,
 				0D60B9AC1B606CF500E31E98 /* RouteFetcherConstants.swift in Sources */,
 				0DBFE9E81B7C1994002E22B4 /* CalendarDate.swift in Sources */,
@@ -462,6 +506,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				INFOPLIST_FILE = "Route 139/Info.plist";
@@ -469,6 +514,8 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "";
+				SWIFT_OBJC_BRIDGING_HEADER = "Route 139-Bridging-Header.h";
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Debug;
@@ -477,6 +524,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				INFOPLIST_FILE = "Route 139/Info.plist";
@@ -484,6 +532,7 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE = "";
+				SWIFT_OBJC_BRIDGING_HEADER = "Route 139-Bridging-Header.h";
 				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Release;
