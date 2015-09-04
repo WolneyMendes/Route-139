@@ -21,6 +21,9 @@ public class ConfigurationManager {
         
         static let HowFarInThePast    = "HowFarInThePast"
         static let ScheduleRowsToShow = "NumberOfScheduleRowsToShow"
+        
+        static let CanAutomaticallyDownload = "CanAutomaticallyDownload"
+        static let CanAutomaticallyDownloadViaCellular = "CanAutomaticallyDownloadViaCellular"
     }
     
     // MARK: Fields
@@ -74,26 +77,6 @@ public class ConfigurationManager {
         }
     }
     
-
-    
-    var outboundTerminal : Int? = nil {
-        didSet {
-            if oldValue != outboundTerminal {
-                notifyConfigurationChange()
-            }
-        }
-    }
-    
-    var inboundTerminal : Int? = nil {
-        didSet {
-            if oldValue != inboundTerminal {
-                notifyConfigurationChange()
-            }
-        }
-    }
-    
-
-    
     var howFarInThePastToShowSchedule : Int = 0 {
         didSet {
             if oldValue != howFarInThePastToShowSchedule {
@@ -110,6 +93,29 @@ public class ConfigurationManager {
             }
         }
     }
+    
+    var canDownloadAutomatically : Bool = true {
+        didSet {
+            if oldValue != canDownloadAutomatically {
+                notifyConfigurationChange()
+            }
+        }
+    }
+    
+    var canDownloadAutomaticallyViaCellular : Bool = false {
+        didSet {
+            if oldValue != canDownloadAutomaticallyViaCellular {
+                notifyConfigurationChange()
+            }
+        }
+    }
+    
+    var modelBuilder : ModelBuilder? = nil {
+        didSet {
+            notifyConfigurationChange()
+        }
+    }
+    
     
     // MARK: Private Fields
     
@@ -165,12 +171,19 @@ public class ConfigurationManager {
         
         config[ Config.HowFarInThePast ] = "\(howFarInThePastToShowSchedule)"
         config[ Config.ScheduleRowsToShow ] = "\(numberOfScheduleRowsToShow)"
-        
+
+        config[ Config.CanAutomaticallyDownload ] = canDownloadAutomatically ? "1" : "0"
+        config[ Config.CanAutomaticallyDownloadViaCellular ] = canDownloadAutomaticallyViaCellular ? "1" : "0"
+
         var fileManager = NSFileManager()
         if let docsDir = fileManager.URLsForDirectory(.DocumentDirectory, inDomains: .UserDomainMask).first as?NSURL {
-            let url = docsDir.URLByAppendingPathComponent("config.dat")
-            if let path = url.path {
-                var ok2 = NSKeyedArchiver.archiveRootObject(config, toFile: path)
+            let url1 = docsDir.URLByAppendingPathComponent("config.dat")
+            if let path = url1.path {
+                var ok = NSKeyedArchiver.archiveRootObject(config, toFile: path)
+            }
+            let url2 = docsDir.URLByAppendingPathComponent("db.dat")
+            if let path = url2.path {
+                var ok = NSKeyedArchiver.archiveRootObject(modelBuilder!, toFile: path)
             }
         }
         
@@ -182,8 +195,8 @@ public class ConfigurationManager {
         
         var fileManager = NSFileManager()
         if let docsDir = fileManager.URLsForDirectory(.DocumentDirectory, inDomains: .UserDomainMask).first as?NSURL {
-            let url = docsDir.URLByAppendingPathComponent("config.dat")
-            if let path = url.path {
+            let url1 = docsDir.URLByAppendingPathComponent("config.dat")
+            if let path = url1.path {
                 
                 if fileManager.fileExistsAtPath(path) {
                     let config = NSKeyedUnarchiver.unarchiveObjectWithFile(path) as! Dictionary<String,String>
@@ -212,6 +225,23 @@ public class ConfigurationManager {
                     if let rowsToShow = config[ Config.ScheduleRowsToShow ] {
                         numberOfScheduleRowsToShow = rowsToShow.toInt()!
                     }
+                    
+                    if let canDownload = config[ Config.CanAutomaticallyDownload ] {
+                        canDownloadAutomatically = canDownload == "1"
+                    }
+                    
+                    if let canDownload = config[ Config.CanAutomaticallyDownloadViaCellular ] {
+                        canDownloadAutomaticallyViaCellular = canDownload == "1"
+                    }
+                }
+            }
+            
+            let url2 = docsDir.URLByAppendingPathComponent("db.dat")
+            if let path = url2.path {
+                if fileManager.fileExistsAtPath(path) {
+                    var modelBuilder = (NSKeyedUnarchiver.unarchiveObjectWithFile(path) as! ModelBuilder)
+
+                    self.modelBuilder = modelBuilder
                 }
             }
         }

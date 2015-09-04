@@ -8,9 +8,22 @@
 
 import Foundation
 
-public class Locations {
+public class Locations : NSObject, NSCoding {
+    
+    private struct PropertyKey {
+        static let LocationsKey = "Locations"
+    }
+
     
     private var locations = [Location]()
+    
+    public override init() {
+        super.init()
+    }
+    
+    private init( locations: [Location]) {
+        self.locations = locations
+    }
     
     public func numberOfLocations() -> Int {
         return locations.count
@@ -36,5 +49,31 @@ public class Locations {
             before.location < after.location
         }
     }
+    
+    // MARK: Coding
+    
+    public func encodeWithCoder(aCoder: NSCoder) {
+        //aCoder.encodeObject(locations, forKey: PropertyKey.LocationsKey)
+        aCoder.encodeInteger(self.locations.count, forKey: PropertyKey.LocationsKey)
+        for index in 0 ..< self.locations.count {
+            aCoder.encodeObject( self.locations[ index ] )
+        }
+
+    }
+    
+    required convenience public init(coder aDecoder: NSCoder) {
+        
+        //let locations = aDecoder.decodeObjectForKey(PropertyKey.LocationsKey) as? [Location]
+        let locationsCount = aDecoder.decodeIntegerForKey(PropertyKey.LocationsKey)
+        var locations = [Location]()
+        for index in 0 ..< locationsCount {
+            if var location = aDecoder.decodeObject() as? Location {
+                locations.append(location)
+            }
+        }
+      
+        self.init( locations: locations)
+    }
+
     
 }

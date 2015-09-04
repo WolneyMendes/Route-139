@@ -66,198 +66,38 @@ public class ModelStore {
         }
     }
     
-    
-    public var outboundTerminal : RouteStop? = nil {
-        didSet {
-            if oldValue !== outboundTerminal {
-                configurationManager?.outboundTerminal = outboundTerminal?.Identity
-            }
-        }
+    public var inboundTerminalStop : RouteStop?  {
+        return self.modelBuilder?.inBoundTerminal
     }
     
-    public var inboundTerminal : RouteStop? = nil {
-        didSet {
-            if oldValue !== inboundTerminal {
-                configurationManager?.inboundTerminal = inboundTerminal?.Identity
-            }
-        }
+    public var outboundTerminalStop : RouteStop? {
+        return self.modelBuilder?.outBoundTerminal
     }
     
-
-
-    
-    private let routes           : Array<Route>
-    private let routesDictionary : Dictionary<Int,Route>
-    
-    private let stops           : Array<RouteStop>
-    private let stopsDictionary : Dictionary<Int,RouteStop>
-    
-    private let calendarDates : Array<CalendarDate>
-    private let calendarDatesDictionary : Dictionary<Int,Array<Service>>
-    private let serviceDictionary : Dictionary<Int,Service>
-    
-    private let trips           : Array<RouteTrip>
-    private let inBoundTrip     : Array<RouteTrip>
-    private let outBoundTrip    : Array<RouteTrip>
-    private let tripsDictionary : Dictionary<Int,RouteTrip>
-    
-    private let stopTimes     : Array<RouteStopTime>
-    
-    private var inboundLocations = Locations()
-    private var outboundLocations = Locations()
+    private var modelBuilder : ModelBuilder?
     
     // MARK: - Initializer
     
     init( configManager: ConfigurationManager ) {
         
-        var routes = Route.FromRouteFetcher()
-        var stops = RouteStop.FromRouteFetcher()
-        var calendarDates = CalendarDate.FromRouteFetcher()
-        var trips = RouteTrip.FromRouteFetcher()
-        var stopTimes = RouteStopTime.FromRouteFetcher()
-        
-        
-        // Routes
-        self.routes = routes
-        var routesDictionary = Dictionary<Int, Route>()
-        for route in routes {
-            routesDictionary[route.Identity] = route
-        }
-        self.routesDictionary = routesDictionary
-        
-        // Stops
-        self.stops = stops
-        var stopsDictionary = Dictionary<Int,RouteStop>()
-        for stop in stops {
-            stopsDictionary[stop.Identity] = stop
-            
-            NSLog("------------------ Port Authority term stop is hard coded!!" )
-            if stop.Identity == AppDelegate.Constants.OutBoundPortAuthorityStop {
-                outboundTerminal = stop
-                configManager.outboundTerminal = stop.Identity
-            }
-            
-            if stop.Identity == AppDelegate.Constants.InBoundPortAuthorityStop {
-                inboundTerminal = stop
-                configManager.inboundTerminal = stop.Identity
-            }
-        }
-        self.stopsDictionary = stopsDictionary
-        
-        // Calendar Dates
-        self.calendarDates = calendarDates
-        var calendarDatesDictionary = Dictionary<Int,Array<Service>>()
-        var serviceDictionary = Dictionary<Int,Service>()
-        for calendarDate in calendarDates {
-            
-            // If service does not exist then create it!
-            if serviceDictionary[calendarDate.ServiceId] == nil {
-                serviceDictionary[calendarDate.ServiceId] = Service(identity: calendarDate.ServiceId)
-            }
-
-            let idx = (calendarDate.Year * 10000) + (calendarDate.Month * 100) + calendarDate.Day
-            if calendarDatesDictionary[ idx ] == nil {
-                // Fist time we see this date... create an empty array of service for this day.
-                calendarDatesDictionary[ idx ] = Array<Service>()
-            }
-            calendarDatesDictionary[ idx ]!.append(serviceDictionary[calendarDate.ServiceId]!)
-        }
-        self.calendarDatesDictionary = calendarDatesDictionary
-        
-        // Trips
-        self.trips = trips
-        var inBoundTrip = Array<RouteTrip>()
-        var outBoundTrip = Array<RouteTrip>()
-        var tripsDictionary = Dictionary<Int,RouteTrip>()
-        for trip in trips {
-            tripsDictionary[trip.Identity] = trip
-            if( trip.Inboud ){
-                inBoundTrip.append(trip)
-            } else {
-                outBoundTrip.append(trip)
-            }
-            serviceDictionary[trip.ServiceId]!.addTrip(trip)
-        }
-        self.inBoundTrip = inBoundTrip
-        self.outBoundTrip = outBoundTrip
-        self.tripsDictionary = tripsDictionary
-        self.serviceDictionary = serviceDictionary
-        
-        // Stop Times
-        var stopTimesSorted = stopTimes
-        // WFM Not sure if I need the sort
-        stopTimesSorted.sort({ (before, after) -> Bool in
-            return before.ArrivalTime < after.ArrivalTime
-        })
-        for stopTime in stopTimes {
-            if let trip = tripsDictionary[stopTime.TripId] {
-                trip.addStopTime(stopTime)
-            }
-        }
-        self.stopTimes = stopTimesSorted
-        
         self.configurationManager = configManager
         self.loadFromConfig()
-        
-        inboundLocations = self.locationsToTerminal()
-        outboundLocations = self.locationsFromTerminal()
-        
-
     }
     
     func getRoute ( fromTrip: Int ) -> Route? {
-        return routesDictionary[tripsDictionary[fromTrip]!.RouteId]
+        return modelBuilder!.routesDictionary![modelBuilder!.tripsDictionary![fromTrip]!.RouteId]
     }
     
     // MARK: - Need Work
     
     func getLocationsToTerminal() -> Locations {
-        return inboundLocations;
+        return modelBuilder!.inboundLocations!;
     }
     
     func getLocationsFromTerminal() -> Locations {
-        return outboundLocations
+        return modelBuilder!.outboundLocations!
     }
     
-    // Has to be done in a different way
-    private func locationsToTerminal() -> Locations {
-        var locations = Locations()
-
-        for trip in inBoundTrip {
-            if trip.Inboud {
-                // find all the stops for this trip
-                for stopTime in stopTimes {
-                    if( stopTime.TripId == trip.Identity ) {
-                        locations.addStop( stopsDictionary[stopTime.StopId]! )
-                    }
-                }
-            } else {
-                NSLog("Outbound trip")
-            }
-        }
-        
-        return locations
-    }
-    
-    // Has to be done in a different way
-    private func locationsFromTerminal() -> Locations {
-        var locations = Locations()
-        
-        for trip in outBoundTrip {
-            if !trip.Inboud {
-                // find all the stops for this trip
-                for stopTime in stopTimes {
-                    if( stopTime.TripId == trip.Identity ) {
-                        locations.addStop( stopsDictionary[stopTime.StopId]! )
-                    }
-                }
-            } else {
-                NSLog("Inbound trip")
-            }
-        }
-        
-        return locations
-    }
     
     public static func getDateComponents( date: NSDate ) -> ( dayComponent : NSDateComponents, nextDayComponent : NSDateComponents) {
         
@@ -376,7 +216,7 @@ public class ModelStore {
         
         // Find Service Id
         let hm = ( hour * 100 ) + min
-        if let services = calendarDatesDictionary[ (year * 10000) + (month * 100) + day ] {
+        if let services = modelBuilder!.calendarDatesDictionary![ (year * 10000) + (month * 100) + day ] {
             for service in services {
                 for trip in service.outboundTrips {
                     var destinationStopTime : RouteStopTime? = nil
@@ -409,7 +249,7 @@ public class ModelStore {
         
         // Find Service Id
         let hm = ( hour * 100 ) + min
-        if let services = calendarDatesDictionary[ (year * 10000) + (month * 100) + day ] {
+        if let services = modelBuilder!.calendarDatesDictionary![ (year * 10000) + (month * 100) + day ] {
             for service in services {
                 for trip in service.inboundTrips {
                     var originStopTime : RouteStopTime? = nil
@@ -421,7 +261,7 @@ public class ModelStore {
                             originStopTime = stopTime
                         }
                         
-                        if stopTime.StopId == inboundTerminal?.Identity {
+                        if stopTime.StopId == modelBuilder?.inBoundTerminal?.Identity {
                             terminalStopTime = stopTime
                         }
                         
@@ -576,55 +416,42 @@ public class ModelStore {
     
     public func loadFromConfig() {
         
+        modelBuilder = configurationManager?.modelBuilder
+        
         if let stopId = configurationManager!.toTerminalStop1 {
-            self.toTerminalStop1 = stopsDictionary[configurationManager!.toTerminalStop1!]
+            self.toTerminalStop1 = modelBuilder!.stopsDictionary![configurationManager!.toTerminalStop1!]
         } else {
             self.toTerminalStop1 = nil
         }
 
         if let stopId = configurationManager!.toTerminalStop2 {
-            self.toTerminalStop2 = stopsDictionary[configurationManager!.toTerminalStop2!]
+            self.toTerminalStop2 = modelBuilder!.stopsDictionary![configurationManager!.toTerminalStop2!]
         } else {
             self.toTerminalStop2 = nil
         }
         
         if let stopId = configurationManager!.toTerminalStop3 {
-            self.toTerminalStop3 = stopsDictionary[configurationManager!.toTerminalStop3!]
+            self.toTerminalStop3 = modelBuilder!.stopsDictionary![configurationManager!.toTerminalStop3!]
         } else {
             self.toTerminalStop3 = nil
         }
         
         if let stopId = configurationManager!.fromTerminalStop1 {
-            self.fromTerminalStop1 = stopsDictionary[configurationManager!.fromTerminalStop1!]
+            self.fromTerminalStop1 = modelBuilder!.stopsDictionary![configurationManager!.fromTerminalStop1!]
         } else {
             self.fromTerminalStop1 = nil
         }
         
         if let stopId = configurationManager!.fromTerminalStop2 {
-            self.fromTerminalStop2 = stopsDictionary[configurationManager!.fromTerminalStop2!]
+            self.fromTerminalStop2 = modelBuilder!.stopsDictionary![configurationManager!.fromTerminalStop2!]
         } else {
             self.fromTerminalStop2 = nil
         }
         
         if let stopId = configurationManager!.fromTerminalStop3 {
-            self.fromTerminalStop3 = stopsDictionary[configurationManager!.fromTerminalStop3!]
+            self.fromTerminalStop3 = modelBuilder!.stopsDictionary![configurationManager!.fromTerminalStop3!]
         } else {
             self.fromTerminalStop3 = nil
         }
-        
-        
-        if let stopId = configurationManager!.inboundTerminal {
-            self.inboundTerminal = stopsDictionary[configurationManager!.inboundTerminal!]
-        } else {
-            self.inboundTerminal = nil
-        }
-        
-        if let stopId = configurationManager!.outboundTerminal {
-            self.outboundTerminal = stopsDictionary[configurationManager!.outboundTerminal!]
-        } else {
-            self.outboundTerminal = nil
-        }
-        
-        
     }
 }

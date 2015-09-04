@@ -30,10 +30,11 @@ public class CalendarDate {
         
         Exception = exception
     }
-    
     public static func FromRouteFetcher( ) -> Array<CalendarDate>  {
-        
-        let calendarDate = RouteFetcher.loadCalendarDates()
+        return FromRouteFetchedArray( RouteFetcher.loadCalendarDates() )
+    }
+    
+    public static func FromRouteFetchedArray( calendarDate: Array<Dictionary<String,AnyObject>> ) -> Array<CalendarDate>  {
         
         var ret = calendarDate.map( {
             (let calendar ) -> CalendarDate in

@@ -14,52 +14,68 @@ class SettingsTableViewController: UITableViewController {
     
     private var toTerminalStop1   : RouteStop? {
         didSet {
-            refreshUI()
+            if oldValue !== toTerminalStop1 {
+                refreshUI()
+            }
         }
     }
     
     private var toTerminalStop2   : RouteStop? {
         didSet {
-            refreshUI()
+            if oldValue !== toTerminalStop2 {
+                refreshUI()
+            }
         }
     }
     
     private var toTerminalStop3   : RouteStop? {
         didSet {
-            refreshUI()
+            if oldValue !== toTerminalStop3 {
+                refreshUI()
+            }
         }
     }
     
     
     private var fromTerminalStop1 : RouteStop? {
         didSet {
-            refreshUI()
+            if oldValue !== fromTerminalStop1 {
+                refreshUI()
+            }
         }
     }
     
     
     private var fromTerminalStop2 : RouteStop? {
         didSet {
-            refreshUI()
+            if oldValue !== fromTerminalStop2 {
+                refreshUI()
+            }
         }
     }
     
     
     private var fromTerminalStop3 : RouteStop? {
         didSet {
-            refreshUI()
+            if oldValue !== fromTerminalStop3 {
+                refreshUI()
+            }
         }
     }
     
     private var minInThePast : Int? {
         didSet {
-            refreshUI()
+            if oldValue != minInThePast {
+                refreshUI()
+            }
         }
     }
     
     private var numberOfScheduleRowsToShow : Int? {
         didSet {
-            refreshUI()
+            if oldValue != numberOfScheduleRowsToShow {
+                refreshUI()
+            }
         }
     }
     

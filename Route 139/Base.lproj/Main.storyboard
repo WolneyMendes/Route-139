@@ -115,7 +115,11 @@
         <scene sceneID="6VF-ai-oCl">
             <objects>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="Cnl-Hu-URP" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="Settings" id="cZD-WP-H9k"/>
+                    <tabBarItem key="tabBarItem" title="Settings" image="setup" selectedImage="setup" id="cZD-WP-H9k">
+                        <userDefinedRuntimeAttributes>
+                            <userDefinedRuntimeAttribute type="image" keyPath="selectedImage" value="setup"/>
+                        </userDefinedRuntimeAttributes>
+                    </tabBarItem>
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="jbd-rm-2Vv">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
@@ -316,7 +320,11 @@
         <scene sceneID="tCs-Hd-drV">
             <objects>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="ox4-7P-qSn" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="From Terminal" id="fry-KS-AUd"/>
+                    <tabBarItem key="tabBarItem" title="From Terminal" image="FromTerminal" selectedImage="FromTerminal" id="fry-KS-AUd">
+                        <userDefinedRuntimeAttributes>
+                            <userDefinedRuntimeAttribute type="image" keyPath="selectedImage" value="FromTerminal"/>
+                        </userDefinedRuntimeAttributes>
+                    </tabBarItem>
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="61H-nr-J1f">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
@@ -335,7 +343,11 @@
         <scene sceneID="r3Y-KJ-zfW">
             <objects>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="U5k-bE-vn8" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="To Terminal" id="Aam-xQ-HEi"/>
+                    <tabBarItem key="tabBarItem" title="To Terminal" image="ToTerminal" selectedImage="ToTerminal" id="Aam-xQ-HEi">
+                        <userDefinedRuntimeAttributes>
+                            <userDefinedRuntimeAttribute type="image" keyPath="selectedImage" value="ToTerminal"/>
+                        </userDefinedRuntimeAttributes>
+                    </tabBarItem>
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="iM1-RH-B0e">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
@@ -351,4 +363,9 @@
             <point key="canvasLocation" x="-3665" y="-889"/>
         </scene>
     </scenes>
+    <resources>
+        <image name="FromTerminal" width="25" height="25"/>
+        <image name="ToTerminal" width="25" height="25"/>
+        <image name="setup" width="25" height="25"/>
+    </resources>
 </document>

@@ -8,8 +8,16 @@
 
 import Foundation
 
-public class RouteStopTime {
-    
+public class RouteStopTime : NSObject, NSCoding {
+
+    private struct PropertyKey {
+        static let TripIdKey        = "TripId"
+        static let ArrivalTimeKey   = "ArrivalTime"
+        static let DepartureTimeKey = "DepartureTime"
+        static let StopIdKey        = "StopId"
+        static let SequenceKey      = "Sequence"
+    }
+
     public let TripId : Int
     public let ArrivalTime : Int
     public let DepartureTime : Int
@@ -22,11 +30,15 @@ public class RouteStopTime {
         DepartureTime = departureTime
         StopId = stopId
         Sequence = sequence
+        
+        super.init()
     }
     
     public static func FromRouteFetcher( ) -> Array<RouteStopTime>  {
-        
-        var stopTimes = RouteFetcher.loadStopTimes()
+        return FromRouteFetcheArray(RouteFetcher.loadStopTimes())
+    }
+    
+    public static func FromRouteFetcheArray( stopTimes: Array<Dictionary<String,AnyObject>> ) -> Array<RouteStopTime>  {
         
         let ret = stopTimes.map( {
             (let stopTime) -> RouteStopTime in
@@ -73,5 +85,25 @@ public class RouteStopTime {
         
     }
 
+    // MARK: Coding
     
+    public func encodeWithCoder(aCoder: NSCoder) {
+        aCoder.encodeInteger(TripId, forKey: PropertyKey.TripIdKey)
+        aCoder.encodeInteger(ArrivalTime, forKey: PropertyKey.ArrivalTimeKey)
+        aCoder.encodeInteger(DepartureTime, forKey: PropertyKey.DepartureTimeKey)
+        aCoder.encodeInteger(StopId, forKey: PropertyKey.StopIdKey)
+        aCoder.encodeInteger(Sequence, forKey: PropertyKey.SequenceKey)
+    }
+    
+    required convenience public init(coder aDecoder: NSCoder) {
+        
+        let tripId = aDecoder.decodeIntegerForKey(PropertyKey.TripIdKey)
+        let arrivalTime = aDecoder.decodeIntegerForKey(PropertyKey.ArrivalTimeKey)
+        let departureTime = aDecoder.decodeIntegerForKey(PropertyKey.DepartureTimeKey)
+        let StopId = aDecoder.decodeIntegerForKey(PropertyKey.StopIdKey)
+        let sequence = aDecoder.decodeIntegerForKey(PropertyKey.SequenceKey)
+        
+        self.init( tripId: tripId, arrivalTime: arrivalTime, departureTime: departureTime, stopId: StopId, sequence: sequence)
+    }
+
 }

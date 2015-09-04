@@ -16,7 +16,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     
     static var configurationManager : ConfigurationManager?
     static var modelStore : ModelStore?
-
+    static var routeFetcher : RouteFetcherManager?
+    
     func application(application: UIApplication, didFinishLaunchingWithOptions launchOptions: [NSObject: AnyObject]?) -> Bool {
         // Override point for customization after application launch.
         
@@ -31,9 +32,9 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         var BSSID = wstatus.BSSID()
         var SSID = wstatus.SSID()
         
-        var rc = RestCall()
+        //var rc = RestCall(timeoutInSeconds: 25.0)
         //rc.executeGet("http://" + AppDelegate.Constants.ServerName + "/timestampx?y=1", callBack: TestRestCallBack())
-        rc.executeGet("http://" + AppDelegate.Constants.ServerName + "/timestamp", callBack: TimestampCallBack())
+        //rc.executeGet("http://" + AppDelegate.Constants.ServerName + "/timestamp", callBack: TimestampCallBack())
 
         //rc.executePost("http://" + AppDelegate.Constants.ServerName + "/timestamp", stringPost: "x=2&y=3", callBack: TestRestCallBack() )
         
@@ -49,6 +50,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         configManager.load()
         
         AppDelegate.configurationManager = configManager
+        AppDelegate.routeFetcher = RouteFetcherManager(configManager: configManager)
         AppDelegate.modelStore = ModelStore(configManager: configManager)
         
         return true
@@ -86,7 +88,15 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         static let InBoundPortAuthorityStop = 43274
         static let ServerName = "104.236.119.0:8000"
         
-        static let NetworkErrorCodeDomain = "com.wfm.webresult"
+        struct Network {
+            struct ErrorCode {
+                static let Domain = "com.wfm.webresult"
+                
+                struct Values {
+                    //static let Timeout = 100
+                }
+            }
+        }
         static let ServerSideErrorCodeDomain = "com.wfm.server"
         
         struct Application {
@@ -96,6 +106,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
             
                 struct Values {
                     static let ReceivedInvalidJSON = 100
+                    static let Timeout = 200
+                    static let UnexpectedResponse = 300
                 }
             }
         }
@@ -106,6 +118,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         
         AppDelegate.configurationManager?.save()
         AppDelegate.modelStore?.loadFromConfig()
+        AppDelegate.routeFetcher?.loadFromConfig()
     }
     
     func startObserving() {

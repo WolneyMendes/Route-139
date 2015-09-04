@@ -50,5 +50,20 @@ public struct RouteFetcherConstants {
         public static let Identity  = "trip_id"
         public static let Direction = "direction_id"
     }
+    
+    public struct Timestamp {
+        public static let Stops = "stops"
+        public static let StopTimes = "stopTimes"
+        public static let Routes = "routes"
+        public static let Trips = "trips"
+        public static let Calendar = "calendar_dates"
+        public static let Terminal = "terminal"
+    }
+    
+    public struct Terminal {
+        public static let Inbound = "inbound"
+        public static let OutBound = "outbound"
+    }
+
 }
 

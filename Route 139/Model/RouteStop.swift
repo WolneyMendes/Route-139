@@ -8,8 +8,17 @@
 
 import Foundation
 
-public class RouteStop {
-    
+public class RouteStop : NSObject, NSCoding {
+
+    private struct PropertyKey {
+        static let NameKey       = "Name"
+        static let IdentityKey   = "Identity"
+        static let CodeKey       = "Code"
+        static let LatitudeKey   = "Latitude"
+        static let LongitudeKey  = "Longitude"
+        static let LocationKey   = "Location"
+    }
+
     public let Name       : String
     public let Identity   : Int
     public let Code       : String
@@ -24,13 +33,16 @@ public class RouteStop {
         Latitude = latitude
         Longitude = longitude
         Location = location
+        
+        super.init()
     }
     
-    
     public static func FromRouteFetcher() -> Array<RouteStop>  {
+        return FromRouteFetchedArray( RouteFetcher.loadStops() )
+    }
     
-        let stops = RouteFetcher.loadStops()
-        
+    public static func FromRouteFetchedArray( stops: Array<Dictionary<String,AnyObject>>) -> Array<RouteStop>  {
+    
         var ret = stops.map( {
             (let stop ) -> RouteStop in
             let name = stop[RouteFetcherConstants.Stop.Name] as! String
@@ -54,6 +66,30 @@ public class RouteStop {
                 Code == other.Code &&
                 Latitude == other.Latitude &&
                 Longitude == other.Longitude
+    }
+
+    // MARK: Coding
+    
+    public func encodeWithCoder(aCoder: NSCoder) {
+        aCoder.encodeObject(self.Name, forKey: PropertyKey.NameKey)
+        aCoder.encodeInteger(self.Identity, forKey: PropertyKey.IdentityKey)
+        aCoder.encodeObject(self.Code, forKey: PropertyKey.CodeKey)
+        aCoder.encodeDouble(self.Latitude, forKey: PropertyKey.LatitudeKey)
+        aCoder.encodeDouble(self.Longitude, forKey: PropertyKey.LongitudeKey)
+        aCoder.encodeObject(self.Location, forKey: PropertyKey.LocationKey)
+
+    }
+    
+    required convenience public init(coder aDecoder: NSCoder) {
+        
+        let Name      = aDecoder.decodeObjectForKey(PropertyKey.NameKey) as? String
+        let Identity  = aDecoder.decodeIntegerForKey(PropertyKey.IdentityKey)
+        let Code      = aDecoder.decodeObjectForKey(PropertyKey.CodeKey) as? String
+        let Latitude  = aDecoder.decodeDoubleForKey(PropertyKey.LatitudeKey)
+        let Longitude = aDecoder.decodeDoubleForKey(PropertyKey.LongitudeKey)
+        let Location  = aDecoder.decodeObjectForKey(PropertyKey.LocationKey) as? String
+
+        self.init(name: Name!, identity :Identity, code: Code!, latitude: Latitude, longitude: Longitude, location:Location!)
     }
 
     

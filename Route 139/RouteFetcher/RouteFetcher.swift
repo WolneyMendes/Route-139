@@ -8,44 +8,34 @@
 
 import Foundation
 
-// Day Type
-// 1 = Weekday
-// 2 = Tue-Fri
-// 3 = Sat
-// 4 = Sun
-// 5 = Mon
-// 6 = Weekend
-// 7 = Holiday
-// 8 = Mon-Thu
-
-// Trip Direction
-// 0 to NYC
-// 1 from NYC
-
-//var bundle = NSBundle.mainBundle()
-//var calendarPath = bundle.pathForResource("calendar_dates", ofType: "json")
-//var tripsPath = bundle.pathForResource("139Trips", ofType: "json")
-//var stopsPath = bundle.pathForResource("139Stops", ofType: "json")
-//var stopsTimesPath = bundle.pathForResource("139StopTimes", ofType: "json")
-//var routesPath = bundle.pathForResource("139Routes", ofType: "json")
-//var x = String(contentsOfFile: calendarPath!, encoding: NSUTF8StringEncoding, error: nil)
-//x = String(contentsOfFile: tripsPath!, encoding: NSUTF8StringEncoding, error: nil)
-//x = String(contentsOfFile: stopsPath!, encoding: NSUTF8StringEncoding, error: nil)
-//x = String(contentsOfFile: stopsTimesPath!, encoding: NSUTF8StringEncoding, error: nil)
-//x = String(contentsOfFile: routesPath!, encoding: NSUTF8StringEncoding, error: nil)
-//        var data: NSData = routes!.dataUsingEncoding(NSUTF8StringEncoding)!
-//        var json = NSJSONSerialization.JSONObjectWithData(data, options: NSJSONReadingOptions(0), error: nil)!
-
-//        if let j = json as? Array<AnyObject> {
-//            if let d = j[0] as? NSDictionary {
-//                var routeId = d["route_id"] as? Int
-//                var routeShortName = d["route_short_name"] as? String
-//                var routeType = d["route_type"] as? Int
-//            }
-//        }
-
-
 public class RouteFetcher {
+    
+    public static func getTimeStamps( jsonObject: AnyObject ) -> Dictionary<String,Int> {
+        
+        var ret = Dictionary<String,Int>()
+        
+        if let stopDictionary = jsonObject as? NSDictionary {
+            ret[ RouteFetcherConstants.Timestamp.Calendar] = (stopDictionary[ RouteFetcherConstants.Timestamp.Calendar ] as! Int)
+            ret[ RouteFetcherConstants.Timestamp.Routes] = (stopDictionary[ RouteFetcherConstants.Timestamp.Routes ] as! Int)
+            ret[ RouteFetcherConstants.Timestamp.Stops] = (stopDictionary[ RouteFetcherConstants.Timestamp.Stops ] as! Int)
+            ret[ RouteFetcherConstants.Timestamp.StopTimes] = (stopDictionary[ RouteFetcherConstants.Timestamp.StopTimes ] as! Int)
+            ret[ RouteFetcherConstants.Timestamp.Terminal] = (stopDictionary[ RouteFetcherConstants.Timestamp.Terminal ] as! Int)
+            ret[ RouteFetcherConstants.Timestamp.Calendar] = (stopDictionary[ RouteFetcherConstants.Timestamp.Calendar ] as! Int)
+        }
+        
+        return ret
+    }
+    
+    public static func getTerminal( jsonObject: AnyObject) -> Dictionary<String,Int> {
+        var ret = Dictionary<String,Int>()
+        
+        if let terminalDictionary = jsonObject as? NSDictionary {
+            ret[ RouteFetcherConstants.Terminal.Inbound ] = (terminalDictionary[ RouteFetcherConstants.Terminal.Inbound ] as! Int)
+            ret[ RouteFetcherConstants.Terminal.OutBound ] = (terminalDictionary[ RouteFetcherConstants.Terminal.OutBound] as! Int)
+        }
+        
+        return ret;
+    }
     
     public static func loadRoute() -> Array<Dictionary<String,AnyObject>> {
         
@@ -57,6 +47,13 @@ public class RouteFetcher {
         var routes = String(contentsOfFile: routePath!, encoding: NSUTF8StringEncoding, error: nil)!
         var data: NSData = routes.dataUsingEncoding(NSUTF8StringEncoding)!
         var jsonObject: AnyObject = NSJSONSerialization.JSONObjectWithData(data, options: NSJSONReadingOptions(0), error: nil)!
+        
+        return jsonToRoute(jsonObject);
+    }
+
+    public static func jsonToRoute(jsonObject: AnyObject) -> Array<Dictionary<String,AnyObject>> {
+        
+        var ret = Array<Dictionary<String,AnyObject>>()
         
         if let jsonArray = jsonObject as? Array<AnyObject> {
             for json in jsonArray {
@@ -73,7 +70,7 @@ public class RouteFetcher {
         
         return ret
     }
-
+    
     public static func loadStops() -> Array<Dictionary<String,AnyObject>> {
         
         var ret = Array<Dictionary<String,AnyObject>>()
@@ -84,6 +81,13 @@ public class RouteFetcher {
         var stops = String(contentsOfFile: stopsPath!, encoding: NSUTF8StringEncoding, error: nil)!
         var data: NSData = stops.dataUsingEncoding(NSUTF8StringEncoding)!
         var jsonObject: AnyObject = NSJSONSerialization.JSONObjectWithData(data, options: NSJSONReadingOptions(0), error: nil)!
+        
+        return jsonToStops(jsonObject);
+    }
+
+    public static func jsonToStops(jsonObject: AnyObject) -> Array<Dictionary<String,AnyObject>> {
+        
+        var ret = Array<Dictionary<String,AnyObject>>()
         
         if let jsonArray = jsonObject as? Array<AnyObject> {
             for json in jsonArray {
@@ -104,7 +108,7 @@ public class RouteFetcher {
         
         return ret
     }
-
+    
     public static func loadCalendarDates() -> Array<Dictionary<String,AnyObject>> {
         
         var ret = Array<Dictionary<String,AnyObject>>()
@@ -115,7 +119,14 @@ public class RouteFetcher {
         
         var calendar = String(contentsOfFile: calendarPath!, encoding: NSUTF8StringEncoding, error: nil)!
         var data: NSData = calendar.dataUsingEncoding(NSUTF8StringEncoding)!
-        var jsonObject: AnyObject? = NSJSONSerialization.JSONObjectWithData(data, options: NSJSONReadingOptions(0), error: &error)
+        var jsonObject: AnyObject = NSJSONSerialization.JSONObjectWithData(data, options: NSJSONReadingOptions(0), error: &error)!
+        
+        return jsonToCalendarDates(jsonObject)
+    }
+
+    public static func jsonToCalendarDates(jsonObject: AnyObject) -> Array<Dictionary<String,AnyObject>> {
+        
+        var ret = Array<Dictionary<String,AnyObject>>()
         
         if let jsonArray = jsonObject as? Array<AnyObject> {
             for json in jsonArray {
@@ -125,10 +136,10 @@ public class RouteFetcher {
                         calendarDictionary[ RouteFetcherConstants.Calendar.ServiceId ] as? Int!
                     
                     retCalendar[ RouteFetcherConstants.Calendar.Date ] =
-                        "\((calendarDictionary[ RouteFetcherConstants.Calendar.Date ] as? Int!)!)"
+                    "\((calendarDictionary[ RouteFetcherConstants.Calendar.Date ] as? Int!)!)"
                     
                     retCalendar[ RouteFetcherConstants.Calendar.ExceptionType ] =
-                        "\((calendarDictionary[ RouteFetcherConstants.Calendar.ExceptionType ] as? Int!)!)"
+                    "\((calendarDictionary[ RouteFetcherConstants.Calendar.ExceptionType ] as? Int!)!)"
                     
                     ret.append(retCalendar)
                 }
@@ -137,7 +148,7 @@ public class RouteFetcher {
         
         return ret
     }
-
+    
     public static func loadStopTimes() -> Array<Dictionary<String,AnyObject>> {
         
         var ret = Array<Dictionary<String,AnyObject>>()
@@ -148,6 +159,13 @@ public class RouteFetcher {
         var stopTimes = String(contentsOfFile: stopTimesPath!, encoding: NSUTF8StringEncoding, error: nil)!
         var data: NSData = stopTimes.dataUsingEncoding(NSUTF8StringEncoding)!
         var jsonObject: AnyObject = NSJSONSerialization.JSONObjectWithData(data, options: NSJSONReadingOptions(0), error: nil)!
+        
+        return jsonToStopTimes(jsonObject)
+    }
+    
+    public static func jsonToStopTimes(jsonObject: AnyObject) -> Array<Dictionary<String,AnyObject>> {
+        
+        var ret = Array<Dictionary<String,AnyObject>>()
         
         if let jsonArray = jsonObject as? Array<AnyObject> {
             for json in jsonArray {
@@ -188,6 +206,13 @@ public class RouteFetcher {
         var data: NSData = trips.dataUsingEncoding(NSUTF8StringEncoding)!
         var jsonObject: AnyObject = NSJSONSerialization.JSONObjectWithData(data, options: NSJSONReadingOptions(0), error: nil)!
         
+        return jsonToTrips(jsonObject)
+    }
+ 
+    public static func jsonToTrips(jsonObject: AnyObject) -> Array<Dictionary<String,AnyObject>> {
+        
+        var ret = Array<Dictionary<String,AnyObject>>()
+        
         if let jsonArray = jsonObject as? Array<AnyObject> {
             for json in jsonArray {
                 if let tripDictionary = json as? NSDictionary {
@@ -203,7 +228,7 @@ public class RouteFetcher {
                         tripDictionary[ RouteFetcherConstants.Trip.RouteId ] as? Int!
                     
                     retStop[ RouteFetcherConstants.Trip.Direction ] =
-                        "\((tripDictionary[ RouteFetcherConstants.Trip.Direction ] as? Int!)!)"
+                    "\((tripDictionary[ RouteFetcherConstants.Trip.Direction ] as? Int!)!)"
                     
                     ret.append(retStop)
                 }
@@ -212,6 +237,6 @@ public class RouteFetcher {
         
         return ret
     }
- 
+    
     
 }

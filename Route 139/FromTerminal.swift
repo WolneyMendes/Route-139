@@ -35,7 +35,7 @@ class FromTerminal: UITableViewController {
         fromTerminalStop1 = AppDelegate.modelStore?.fromTerminalStop1
         fromTerminalStop2 = AppDelegate.modelStore?.fromTerminalStop2
         fromTerminalStop3 = AppDelegate.modelStore?.fromTerminalStop3
-        terminalStop = AppDelegate.modelStore?.outboundTerminal
+        terminalStop = AppDelegate.modelStore?.outboundTerminalStop
         refreshUI()
     }
     
